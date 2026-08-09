@@ -27,6 +27,10 @@ hosted on GitHub Pages — no build step, no server.
 ## Admin panel
 
 Visit `https://73hickory.com/#admin` (or press **Ctrl+Shift+A** on the site).
+The passphrase is `REDACTED` — it only gates the editing UI; publishing is
+protected by the GitHub token, so no one can change the live site without it.
+To change the passphrase: run `printf 'newpass' | sha256sum` and put the hash
+in `PASS_HASH` at the top of `docs/js/admin.js`.
 
 - Click any text to edit it in place
 - Buttons on each photo: ← → reorder · ★ make room cover · Hide/Show ·

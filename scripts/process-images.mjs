@@ -7,7 +7,7 @@ import path from 'path';
 
 const SRC = path.resolve('images');
 const OUT = path.resolve('docs/assets/img');
-const WEB_MAX = 1600;   // long edge for lightbox/display copies
+const WEB_MAX = 2048;   // long edge for lightbox/display copies (2x DPR on large covers)
 const THUMB_MAX = 520;  // long edge for grid thumbnails
 const SKIP = new Set(['Brochure 73 Hickory Trail.pdf']);
 
@@ -50,7 +50,7 @@ for (const [rel, group] of Object.entries(groups)) {
     const webInfo = await img
       .clone()
       .resize(WEB_MAX, WEB_MAX, { fit: 'inside', withoutEnlargement: true })
-      .jpeg({ quality: 78, mozjpeg: true })
+      .jpeg({ quality: 80, mozjpeg: true })
       .toFile(webPath);
     await img
       .clone()

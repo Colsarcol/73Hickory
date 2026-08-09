@@ -133,8 +133,6 @@
         </div>
       </section>
 
-      ${floors}
-
       <section class="plans" id="floorplans">
         <div class="wrap">
           <div class="eyebrow">Drawings</div>
@@ -154,6 +152,8 @@
           </div>
         </div>
       </section>
+
+      ${floors}
 
       <section class="contact" id="contact">
         <div class="wrap">

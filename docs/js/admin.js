@@ -26,6 +26,24 @@
   };
 
   /* ---------- activation ---------- */
+  // SHA-256 of the admin passphrase. This is a courtesy gate to keep visitors
+  // out of the editing UI — real protection is the GitHub token, without which
+  // nothing can be published. To change: printf 'newpass' | sha256sum
+  const PASS_HASH = '5aacfc43af3d25baf1dc2a01cd7b6fd18801cb72b8bc51cd5e762e2a83dd4b92';
+
+  async function checkPass() {
+    if (isOn()) return true; // already unlocked in this tab
+    const p = prompt('Admin passphrase:');
+    if (p === null) return false;
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(p.trim()));
+    const hex = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+    if (hex !== PASS_HASH) {
+      alert('Incorrect passphrase.');
+      return false;
+    }
+    return true;
+  }
+
   function isOn() {
     return sessionStorage.getItem(LS.on) === '1';
   }
@@ -217,22 +235,24 @@
 
   /* ---------- wiring ---------- */
   document.addEventListener('site:rendered', decorate);
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', async (e) => {
     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
       e.preventDefault();
-      isOn() ? disable() : enable();
+      if (isOn()) disable();
+      else if (await checkPass()) enable();
     }
   });
   window.addEventListener('beforeunload', (e) => {
     if (dirty) e.preventDefault();
   });
 
-  const boot = () => {
-    if (location.hash === '#admin' || isOn()) enable();
+  const boot = async () => {
+    if (isOn()) enable();
+    else if (location.hash === '#admin' && (await checkPass())) enable();
   };
   if (window.SITE?.state?.content) boot();
   else document.addEventListener('site:rendered', boot, { once: true });
-  window.addEventListener('hashchange', () => {
-    if (location.hash === '#admin' && !isOn()) enable();
+  window.addEventListener('hashchange', async () => {
+    if (location.hash === '#admin' && !isOn() && (await checkPass())) enable();
   });
 })();
