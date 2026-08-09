@@ -339,6 +339,19 @@ p { color: var(--ink-soft); }
 .contact .reach a { color: var(--brick); text-decoration: none; font-size: 1.15rem; }
 .contact .reach a:hover { text-decoration: underline; }
 .contact .price-line { margin-top: 1.6rem; font-family: var(--serif); font-size: 1.5rem; color: var(--bronze); }
+.contact .brochure {
+  display: inline-block;
+  margin-top: 1.4rem;
+  padding: 0.55rem 1.5rem;
+  border: 1px solid var(--brick);
+  border-radius: 999px;
+  color: var(--brick);
+  text-decoration: none;
+  font-size: 0.88rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.contact .brochure:hover { background: var(--brick); color: var(--cream); }
 
 /* ---------- footer ---------- */
 footer {

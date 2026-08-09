@@ -227,7 +227,7 @@ const content = {
     blurb: 'For sale by owner. Reach out any time to ask questions or arrange a private tour.',
     name: 'Joe Mawhinney',
     phone: '865-243-7653',
-    email: '73hickory@mawemail.com',
+    email: 'joe@mawemail.com',
   },
 };
 

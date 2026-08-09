@@ -26,7 +26,7 @@
   function photoTile(cls, img, gid, idx, extra = '') {
     return `
       <div class="${cls}${img.hidden ? ' is-hidden-img' : ''}" data-gallery="${gid}" data-index="${idx}" data-img="${esc(img.key)}">
-        <img src="${esc(cls === 'cover' ? img.src : img.thumb)}" alt="${esc(img.caption || '')}" loading="lazy">
+        <img src="${esc(cls.startsWith('cover') ? img.src : img.thumb)}" alt="${esc(img.caption || '')}" loading="lazy">
         <div class="shield"></div>
         ${extra}
       </div>`;
@@ -167,6 +167,7 @@
               <a href="mailto:${esc(c.contact.email)}" data-edit="contact.email">${esc(c.contact.email)}</a>
             </div>
             <div class="price-line">${esc(c.site.price)} · ${esc(c.site.status)}</div>
+            <a class="brochure" href="assets/brochure-73-hickory-trail.pdf" download>Download the Brochure (PDF)</a>
           </div>
         </div>
       </section>`;
