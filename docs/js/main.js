@@ -103,7 +103,7 @@
 
     app.innerHTML = `
       <div class="hero" id="top">
-        <div class="bg" style="background-image:url('${esc(c.hero.image)}')"></div>
+        <div class="bg" style="background-image:url('${esc(c.hero.image)}');background-position:center ${Number(c.hero.focus ?? 65)}%"></div>
         <div class="hero-inner">
           <span class="status" data-edit="site.status">${esc(c.site.status)}</span>
           <h1 data-edit="hero.headline">${esc(c.hero.headline)}</h1>

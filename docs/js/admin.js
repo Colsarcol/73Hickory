@@ -170,13 +170,26 @@
           ${every
             .map((o) => `<option value="${o.src}" ${o.src === c.hero.image ? 'selected' : ''}>${o.label}</option>`)
             .join('')}
-        </select>`;
+        </select>
+        <span class="hero-tools-label">Vertical focus:</span>
+        <input type="range" min="0" max="100" value="${Number(c.hero.focus ?? 65)}"
+          title="Which part of the photo stays visible when the banner crops it">`;
       hero.appendChild(tools);
       tools.querySelector('select').addEventListener('change', (e) => {
         c.hero.image = e.target.value;
         markDirty();
         status('Banner photo updated.');
         window.SITE.render();
+      });
+      const focus = tools.querySelector('input[type="range"]');
+      focus.addEventListener('input', () => {
+        const bg = document.querySelector('.hero .bg');
+        if (bg) bg.style.backgroundPosition = `center ${focus.value}%`;
+      });
+      focus.addEventListener('change', () => {
+        c.hero.focus = Number(focus.value);
+        markDirty();
+        status('Banner focus updated.');
       });
     }
 

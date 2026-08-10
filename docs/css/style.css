@@ -80,7 +80,7 @@ img {
 /* ---------- hero ---------- */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 84vh;
   display: flex;
   align-items: flex-end;
   isolation: isolate;
@@ -754,3 +754,5 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   text-transform: none !important;
   letter-spacing: 0 !important;
 }
+
+.hero-tools input[type="range"] { width: 130px; accent-color: var(--bronze); }
