@@ -29,7 +29,7 @@
   // SHA-256 of the admin passphrase. This is a courtesy gate to keep visitors
   // out of the editing UI — real protection is the GitHub token, without which
   // nothing can be published. To change: printf 'newpass' | sha256sum
-  const PASS_HASH = '5aacfc43af3d25baf1dc2a01cd7b6fd18801cb72b8bc51cd5e762e2a83dd4b92';
+  const PASS_HASH = 'a13c6eea646a38bcdac6e6639162a11b7d121657d3918a3424ef938e78e51658';
 
   async function checkPass() {
     if (isOn()) return true; // already unlocked in this tab
