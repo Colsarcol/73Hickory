@@ -94,7 +94,8 @@
     const planImgs = visible(c.floorplans.images).map((img) => ({ ...img }));
     state.galleries['plans'] = planImgs.map((i) => ({ src: i.src, caption: i.caption }));
 
-    const townImgs = c.town ? visible(c.town.images) : [];
+    const admin = document.body.classList.contains('admin');
+    const townImgs = c.town ? (admin ? c.town.images : visible(c.town.images)) : [];
     state.galleries['town'] = townImgs.map((i) => ({ src: i.src, caption: i.caption }));
 
     app.innerHTML = `
@@ -151,7 +152,7 @@
               <div class="plancard" data-gallery="plans" data-index="${i}">
                 <img src="${esc(img.thumb)}" alt="${esc(img.caption)}" loading="lazy">
                 <div class="shield"></div>
-                <div class="plabel">${esc(img.caption)}</div>
+                <div class="plabel" data-edit="floorplans.images.${c.floorplans.images.indexOf(img)}.caption">${esc(img.caption)}</div>
               </div>`
               )
               .join('')}
@@ -192,10 +193,10 @@
             ${townImgs
               .map(
                 (img, i) => `
-              <div class="plancard" data-gallery="town" data-index="${i}">
+              <div class="plancard${img.hidden ? ' is-hidden-img' : ''}" data-gallery="town" data-index="${i}">
                 <img src="${esc(img.thumb)}" alt="${esc(img.caption)}" loading="lazy">
                 <div class="shield"></div>
-                <div class="plabel">${esc(img.caption)}</div>
+                <div class="plabel" data-edit="town.images.${c.town.images.indexOf(img)}.caption">${esc(img.caption)}</div>
               </div>`
               )
               .join('')}
@@ -272,7 +273,7 @@
   });
 
   app.addEventListener('click', (e) => {
-    if (document.body.classList.contains('admin') && e.target.closest('.imgtools')) return;
+    if (document.body.classList.contains('admin') && e.target.closest('.imgtools, [data-edit]')) return;
     const tile = e.target.closest('[data-gallery]');
     if (tile) openLightbox(tile.dataset.gallery, Number(tile.dataset.index));
   });
