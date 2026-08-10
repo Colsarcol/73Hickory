@@ -124,26 +124,26 @@
           "text": "Just off the foyer, the formal dining room is framed by arched openings and detailed millwork — an elegant setting for gatherings.",
           "images": [
             {
+              "src": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-03.jpg",
+              "thumb": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-03-t.jpg",
+              "w": 1600,
+              "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-01.jpg",
               "thumb": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-01-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-02.jpg",
               "thumb": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-02-t.jpg",
               "w": 1600,
               "h": 1205,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-03.jpg",
-              "thumb": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-03-t.jpg",
-              "w": 1600,
-              "h": 1200,
               "caption": "",
               "hidden": false
             }
