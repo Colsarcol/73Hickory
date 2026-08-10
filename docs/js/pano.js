@@ -132,6 +132,9 @@
     r.pano.pitch = +viewer.getPitch().toFixed(1);
     r.pano.hfov = +viewer.getHfov().toFixed(1);
     dirty();
+    // rebuild so the running viewer picks up the new config — otherwise
+    // revisiting the scene still opens with the angles it was created with
+    init(r.id);
     status(`Start view saved for ${r.title}.`);
   }
 
