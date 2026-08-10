@@ -171,6 +171,11 @@
             .map((o) => `<option value="${o.src}" ${o.src === c.hero.image ? 'selected' : ''}>${o.label}</option>`)
             .join('')}
         </select>
+        <span class="hero-tools-label">Fit:</span>
+        <select class="hero-fit" title="Fill crops the photo to cover the screen; Whole photo shows all of it with blurred edges">
+          <option value="cover" ${c.hero.fit !== 'contain' ? 'selected' : ''}>Fill screen (crops)</option>
+          <option value="contain" ${c.hero.fit === 'contain' ? 'selected' : ''}>Whole photo</option>
+        </select>
         <span class="hero-tools-label">Vertical focus:</span>
         <input type="range" min="0" max="100" value="${Number(c.hero.focus ?? 65)}"
           title="Which part of the photo stays visible when the banner crops it">`;
@@ -179,6 +184,12 @@
         c.hero.image = e.target.value;
         markDirty();
         status('Banner photo updated.');
+        window.SITE.render();
+      });
+      tools.querySelector('.hero-fit').addEventListener('change', (e) => {
+        c.hero.fit = e.target.value;
+        markDirty();
+        status('Banner fit updated.');
         window.SITE.render();
       });
       const focus = tools.querySelector('input[type="range"]');

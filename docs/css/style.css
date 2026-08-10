@@ -756,3 +756,11 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
 }
 
 .hero-tools input[type="range"] { width: 130px; accent-color: var(--bronze); }
+
+/* banner "whole photo" fit: sharp contained image over a blurred fill */
+.hero .bg-blur { filter: blur(22px) brightness(0.72); transform: scale(1.08); }
+.hero .bg-fit {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
