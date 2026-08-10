@@ -127,6 +127,8 @@
     dirty = true;
     status('Unsaved changes — click "Save & Publish" when ready.');
   }
+  // pano.js authoring tools report edits through these
+  window.SITE_ADMIN = { markDirty, status };
 
   /* ---------- decorate rendered DOM ---------- */
   function decorate() {
@@ -289,6 +291,7 @@
           <select>${dests.map((d) => `<option value="${d.v}">${d.label}</option>`).join('')}</select>
         </label>
         <label>Caption <input type="text" placeholder="optional"></label>
+        <label class="updlg-inline"><input type="checkbox" class="updlg-360"> This is a 360° panorama (equirectangular)</label>
         <div class="updlg-actions">
           <button class="ghost" data-act="cancel">Cancel</button>
           <button data-act="go">Upload &amp; Add</button>
@@ -314,24 +317,40 @@
         }
         if (!cfg?.repo || !cfg?.token) throw new Error('repo and token are required');
         const dest = dlg.querySelector('select').value;
-        const caption = dlg.querySelector('input').value.trim();
-        const web = await resizeToJpeg(file, 2048, 0.8);
-        const thumb = await resizeToJpeg(file, 520, 0.72);
+        const caption = dlg.querySelector('input[type="text"]').value.trim();
+        const isPano = dlg.querySelector('.updlg-360').checked;
         const slug = file.name.replace(/\.[^.]*$/, '').replace(/[^a-zA-Z0-9]+/g, '-').slice(0, 40) || 'photo';
-        const base = `upload-${Date.now()}-${slug}`;
-        const rel = `assets/img/uploads/${base}`;
-        await ghPutFile(cfg, `docs/${rel}.jpg`, web.blob, `Upload photo via admin panel: ${base}`);
-        await ghPutFile(cfg, `docs/${rel}-t.jpg`, thumb.blob, `Upload photo thumb via admin panel: ${base}`);
-        const entry = { src: `${rel}.jpg`, thumb: `${rel}-t.jpg`, w: web.w, h: web.h, caption, hidden: false };
-        if (dest === 'town') c.town.images.push(entry);
-        else {
+        if (isPano) {
+          if (dest === 'town') throw new Error('360° panoramas belong to a room, not the Norris section');
+          const web = await resizeToJpeg(file, 4096, 0.8);
+          const base = `pano-${Date.now()}-${slug}`;
+          const rel = `assets/panos/${base}.jpg`;
+          await ghPutFile(cfg, `docs/${rel}`, web.blob, `Upload 360 panorama via admin panel: ${base}`);
           const [, si, ri] = dest.split('.').map(Number);
-          c.sections[si].rooms[ri].images.push(entry);
+          const room = c.sections[si].rooms[ri];
+          room.pano = { ...(room.pano || {}), src: rel }; // keep angles/arrows if replacing
+          markDirty();
+          closeDlg();
+          window.SITE.render();
+          status(`360° uploaded for ${room.title}. Scroll to the tour section to set its start view and place arrows, then Save & Publish.`);
+        } else {
+          const web = await resizeToJpeg(file, 2048, 0.8);
+          const thumb = await resizeToJpeg(file, 520, 0.72);
+          const base = `upload-${Date.now()}-${slug}`;
+          const rel = `assets/img/uploads/${base}`;
+          await ghPutFile(cfg, `docs/${rel}.jpg`, web.blob, `Upload photo via admin panel: ${base}`);
+          await ghPutFile(cfg, `docs/${rel}-t.jpg`, thumb.blob, `Upload photo thumb via admin panel: ${base}`);
+          const entry = { src: `${rel}.jpg`, thumb: `${rel}-t.jpg`, w: web.w, h: web.h, caption, hidden: false };
+          if (dest === 'town') c.town.images.push(entry);
+          else {
+            const [, si, ri] = dest.split('.').map(Number);
+            c.sections[si].rooms[ri].images.push(entry);
+          }
+          markDirty();
+          closeDlg();
+          window.SITE.render();
+          status('Photo uploaded. It may show broken for a minute while GitHub deploys — click "Save & Publish" to put it on the site.');
         }
-        markDirty();
-        closeDlg();
-        window.SITE.render();
-        status('Photo uploaded. It may show broken for a minute while GitHub deploys — click "Save & Publish" to put it on the site.');
       } catch (err) {
         alert(`Upload failed: ${err.message}`);
         btn.disabled = false;

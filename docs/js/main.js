@@ -60,7 +60,7 @@
         <div class="room-info">
           <h3 data-edit="sections.${si}.rooms.${ri}.title">${esc(room.title)}</h3>
           <p data-edit="sections.${si}.rooms.${ri}.text">${esc(room.text)}</p>
-          ${room.pano?.src ? `<button class="pano-btn" data-pano="${esc(room.id)}">⦿ View in 360°</button>` : ''}
+          ${room.pano?.src && state.showTour ? `<button class="pano-btn" data-pano="${esc(room.id)}">⦿ View in 360°</button>` : ''}
         </div>
         <div class="room-photos" data-room="${si}.${ri}">
           ${imgs.length ? photoTile(`cover${arch ? ' arch' : ''}`, imgs[0], gid, 0) : '<p><em>No photos yet.</em></p>'}
@@ -73,7 +73,11 @@
     const c = state.content;
     state.galleries = {};
     const roman = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+    const admin = document.body.classList.contains('admin');
     const hasPano = c.sections.some((s) => s.rooms.some((r) => r.pano?.src));
+    // tour.draft hides the 360° tour from visitors while it's being authored
+    const showTour = hasPano && (c.tour?.draft !== true || admin);
+    state.showTour = showTour;
 
     const floors = c.sections
       .map(
@@ -94,7 +98,6 @@
     const planImgs = visible(c.floorplans.images).map((img) => ({ ...img }));
     state.galleries['plans'] = planImgs.map((i) => ({ src: i.src, caption: i.caption }));
 
-    const admin = document.body.classList.contains('admin');
     const townImgs = c.town ? (admin ? c.town.images : visible(c.town.images)) : [];
     state.galleries['town'] = townImgs.map((i) => ({ src: i.src, caption: i.caption }));
 
@@ -106,7 +109,7 @@
           <h1 data-edit="hero.headline">${esc(c.hero.headline)}</h1>
           <p class="sub" data-edit="hero.subheadline">${esc(c.hero.subheadline)}</p>
           <p class="price" data-edit="site.price">${esc(c.site.price)}</p>
-          ${hasPano ? `<button class="tour-btn" data-pano-first>⦿ Take the 360° Tour</button>` : ''}
+          ${showTour ? `<button class="tour-btn" data-pano-first>⦿ Take the 360° Tour</button>` : ''}
           <a class="down" href="#main-floor" data-edit="hero.ctaText">${esc(c.hero.ctaText)}</a>
         </div>
       </div>
@@ -160,12 +163,13 @@
         </div>
       </section>
 
-      ${hasPano ? `
+      ${showTour ? `
       <section class="tour" id="tour360">
         <div class="wrap">
           <div class="eyebrow">Look Around</div>
           <h2 data-edit="tour.heading">${esc(c.tour?.heading || 'Walk Through in 360°')}</h2>
           <p data-edit="tour.intro">${esc(c.tour?.intro || 'Drag to look around, scroll to zoom, and follow the arrows to move room to room.')}</p>
+          ${admin && c.tour?.draft ? `<p class="tour-draft">Draft — visitors won't see this section until the draft flag is turned off.</p>` : ''}
           <div class="tour-frame">
             <div id="tourViewer"></div>
             <div class="tour-label" id="tourRoomLabel"></div>
