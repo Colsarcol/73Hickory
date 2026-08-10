@@ -15,7 +15,7 @@
   "stats": [
     {
       "value": "4,600",
-      "label": "Finished Sq. Ft."
+      "label": "APX FINISHED SQ FT"
     },
     {
       "value": "4 + 1",
@@ -857,12 +857,12 @@
     {
       "id": "outdoors",
       "title": "Outdoor Living",
-      "intro": "A large in-ground salt water pool with slide and diving board, hot tub, pool house, and composite-decked patios — all backing up to protected TVA land.",
+      "intro": "A large in-ground salt water pool with slide and diving board, hot tub, pool house, and composite-decked patios — all backing up to TVA land.",
       "rooms": [
         {
           "id": "pool",
           "title": "Salt Water Pool",
-          "text": "The in-ground salt water pool features a slide, diving board, and pool house, surrounded by a paver deck and iron fencing with woods beyond.",
+          "text": "The in-ground salt water pool features a slide, diving board, and pool house, surrounded by a stamped cement deck and aluminum fencing with woods beyond.",
           "images": [
             {
               "src": "assets/img/outDoor/pool/pool-01.jpg",
