@@ -7,7 +7,7 @@
     "status": "For Sale By Owner"
   },
   "hero": {
-    "image": "assets/img/uploads/upload-1786376494120-front.jpg",
+    "image": "assets/img/outDoor/frontHouse/frontHouse-01.jpg",
     "headline": "73 Hickory Trail",
     "subheadline": "A custom-built brick & stone home on a quiet cul-de-sac in Norris, TN",
     "ctaText": "Explore the Photos"
@@ -41,7 +41,7 @@
   "about": {
     "heading": "About This Home",
     "paragraphs": [
-      "Custom built in 2006 with strong attention to detail inside and out, 73 Hickory Trail offers 4,600 finished square feet of brick and faux stone craftsmanship on a quiet cul-de-sac in Norris, Tennessee. The 1.08-acre lot backs directly up to TVA land, with quick and easy access to the watershed trails.",
+      "Custom built in 2006 with strong attention to detail inside and out, 73 Hickory Trail offers apx 4,600 finished square feet of brick and faux stone craftsmanship on a quiet cul-de-sac in Norris, Tennessee. The 1.08-acre lot backs directly up to TVA land, with quick and easy access to the watershed trails.",
       "A graceful arch theme carries throughout the home — from the arched entry and transom windows above the main-floor doors and windows to the arched interior details. Every interior door is a solid-core Roman smooth two-panel wood door (no bi-folds, no pockets), and the Jeld-Wen Tenton desert-sand casement windows feature SDL fronts."
     ],
     "features": [
@@ -983,20 +983,12 @@
           "text": "Brick and faux stone, arched windows, and a circle drive on a quiet cul-de-sac.",
           "images": [
             {
-              "src": "assets/img/uploads/upload-1786376494120-front.jpg",
-              "thumb": "assets/img/uploads/upload-1786376494120-front-t.jpg",
-              "w": 1448,
-              "h": 1086,
-              "caption": "",
-              "hidden": false
-            },
-            {
               "src": "assets/img/outDoor/frontHouse/frontHouse-01.jpg",
               "thumb": "assets/img/outDoor/frontHouse/frontHouse-01-t.jpg",
               "w": 1600,
               "h": 1200,
               "caption": "",
-              "hidden": true
+              "hidden": false
             }
           ]
         }
@@ -1158,6 +1150,14 @@
         "w": 1317,
         "h": 942,
         "caption": "Norris Dam — four miles from town",
+        "hidden": false
+      },
+      {
+        "src": "assets/img/uploads/upload-1786376675841-front.jpg",
+        "thumb": "assets/img/uploads/upload-1786376675841-front-t.jpg",
+        "w": 1448,
+        "h": 1086,
+        "caption": "",
         "hidden": false
       }
     ]
