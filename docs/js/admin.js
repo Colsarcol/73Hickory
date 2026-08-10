@@ -139,6 +139,34 @@
       });
     });
 
+    // Banner photo picker on the hero
+    const hero = document.querySelector('.hero');
+    if (hero && !hero.querySelector('.hero-tools')) {
+      const every = [];
+      c.sections.forEach((s) =>
+        s.rooms.forEach((r) =>
+          (r.images || []).forEach((img, i) => every.push({ src: img.src, label: `${r.title} #${i + 1}` }))
+        )
+      );
+      (c.town?.images || []).forEach((img, i) => every.push({ src: img.src, label: `Norris #${i + 1}` }));
+      const tools = document.createElement('div');
+      tools.className = 'imgtools hero-tools';
+      tools.innerHTML = `
+        <span class="hero-tools-label">Banner photo:</span>
+        <select title="Choose the banner photo">
+          ${every
+            .map((o) => `<option value="${o.src}" ${o.src === c.hero.image ? 'selected' : ''}>${o.label}</option>`)
+            .join('')}
+        </select>`;
+      hero.appendChild(tools);
+      tools.querySelector('select').addEventListener('change', (e) => {
+        c.hero.image = e.target.value;
+        markDirty();
+        status('Banner photo updated.');
+        window.SITE.render();
+      });
+    }
+
     // Photo toolbars
     const roomList = [];
     c.sections.forEach((s, si) => s.rooms.forEach((r, ri) => roomList.push({ si, ri, label: `${s.title} — ${r.title}` })));

@@ -630,3 +630,20 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   z-index: 3;
   background: #fff;
 }
+
+/* banner photo picker (admin) */
+.hero-tools {
+  bottom: auto;
+  top: 4.5rem;
+  left: auto;
+  right: 1rem;
+  align-items: center;
+}
+.hero-tools-label {
+  font-size: 0.72rem;
+  color: #f2ead9;
+  background: rgba(20, 14, 9, 0.85);
+  padding: 0.25rem 0.45rem;
+  border-radius: 4px;
+}
+.hero-tools select { max-width: 220px; }
