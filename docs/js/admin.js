@@ -87,11 +87,22 @@
       <strong>Admin</strong>
       <span class="status" id="adminStatus">Click any text to edit it. Use the buttons on photos to rearrange.</span>
       <span class="grow"></span>
+      <button class="ghost" id="adminUpload">Upload Photo</button>
       <button class="ghost" id="adminSetup">Settings</button>
       <button class="ghost" id="adminDownload">Download JSON</button>
       <button id="adminSave">Save &amp; Publish</button>
       <button class="ghost" id="adminExit">Exit</button>`;
     document.body.appendChild(bar);
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/jpeg,image/png,image/webp';
+    fileInput.hidden = true;
+    bar.appendChild(fileInput);
+    bar.querySelector('#adminUpload').onclick = () => fileInput.click();
+    fileInput.onchange = () => {
+      if (fileInput.files[0]) uploadDialog(fileInput.files[0]);
+      fileInput.value = '';
+    };
     bar.querySelector('#adminSetup').onclick = setup;
     bar.querySelector('#adminExit').onclick = () => {
       if (dirty && !confirm('You have unsaved changes. Exit anyway?')) return;
@@ -215,6 +226,118 @@
       });
       tools.querySelector('select').addEventListener('click', (e) => e.stopPropagation());
     });
+  }
+
+  /* ---------- photo upload ---------- */
+  // Mirrors scripts/process-images.mjs in the browser: resize to a 2048px web
+  // copy + 520px thumb; canvas re-encode strips EXIF (GPS etc.) automatically.
+  async function resizeToJpeg(file, maxEdge, quality) {
+    let bmp;
+    try {
+      bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+    } catch {
+      bmp = await createImageBitmap(file); // older browsers
+    }
+    const scale = Math.min(1, maxEdge / Math.max(bmp.width, bmp.height));
+    const w = Math.round(bmp.width * scale);
+    const h = Math.round(bmp.height * scale);
+    const cv = document.createElement('canvas');
+    cv.width = w;
+    cv.height = h;
+    cv.getContext('2d').drawImage(bmp, 0, 0, w, h);
+    bmp.close?.();
+    const blob = await new Promise((res) => cv.toBlob(res, 'image/jpeg', quality));
+    if (!blob) throw new Error('could not process this image');
+    return { blob, w, h };
+  }
+
+  const blobToB64 = (blob) =>
+    new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = () => res(String(r.result).split(',')[1]);
+      r.onerror = () => rej(new Error('could not read file'));
+      r.readAsDataURL(blob);
+    });
+
+  async function ghPutFile(cfg, path, blob, message) {
+    const res = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: { Authorization: `Bearer ${cfg.token}`, Accept: 'application/vnd.github+json' },
+      body: JSON.stringify({ message, content: await blobToB64(blob), branch: cfg.branch }),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `GitHub error ${res.status}`);
+    }
+  }
+
+  function uploadDialog(file) {
+    const c = window.SITE.state.content;
+    const dests = [];
+    c.sections.forEach((s, si) =>
+      s.rooms.forEach((r, ri) => dests.push({ v: `room.${si}.${ri}`, label: `${s.title} — ${r.title}` }))
+    );
+    if (c.town) dests.push({ v: 'town', label: 'Life in Norris' });
+
+    const dlg = document.createElement('div');
+    dlg.id = 'uploadDlg';
+    dlg.innerHTML = `
+      <div class="updlg-card">
+        <h3>Add a photo</h3>
+        <img class="updlg-preview" alt="">
+        <label>Place in
+          <select>${dests.map((d) => `<option value="${d.v}">${d.label}</option>`).join('')}</select>
+        </label>
+        <label>Caption <input type="text" placeholder="optional"></label>
+        <div class="updlg-actions">
+          <button class="ghost" data-act="cancel">Cancel</button>
+          <button data-act="go">Upload &amp; Add</button>
+        </div>
+      </div>`;
+    document.body.appendChild(dlg);
+    const preview = dlg.querySelector('.updlg-preview');
+    preview.src = URL.createObjectURL(file);
+    const closeDlg = () => {
+      URL.revokeObjectURL(preview.src);
+      dlg.remove();
+    };
+    dlg.querySelector('[data-act="cancel"]').onclick = closeDlg;
+    dlg.querySelector('[data-act="go"]').onclick = async (e) => {
+      const btn = e.target;
+      btn.disabled = true;
+      btn.textContent = 'Uploading…';
+      try {
+        let cfg = getCfg();
+        if (!cfg?.repo || !cfg?.token) {
+          setup();
+          cfg = getCfg();
+        }
+        if (!cfg?.repo || !cfg?.token) throw new Error('repo and token are required');
+        const dest = dlg.querySelector('select').value;
+        const caption = dlg.querySelector('input').value.trim();
+        const web = await resizeToJpeg(file, 2048, 0.8);
+        const thumb = await resizeToJpeg(file, 520, 0.72);
+        const slug = file.name.replace(/\.[^.]*$/, '').replace(/[^a-zA-Z0-9]+/g, '-').slice(0, 40) || 'photo';
+        const base = `upload-${Date.now()}-${slug}`;
+        const rel = `assets/img/uploads/${base}`;
+        await ghPutFile(cfg, `docs/${rel}.jpg`, web.blob, `Upload photo via admin panel: ${base}`);
+        await ghPutFile(cfg, `docs/${rel}-t.jpg`, thumb.blob, `Upload photo thumb via admin panel: ${base}`);
+        const entry = { src: `${rel}.jpg`, thumb: `${rel}-t.jpg`, w: web.w, h: web.h, caption, hidden: false };
+        if (dest === 'town') c.town.images.push(entry);
+        else {
+          const [, si, ri] = dest.split('.').map(Number);
+          c.sections[si].rooms[ri].images.push(entry);
+        }
+        markDirty();
+        closeDlg();
+        window.SITE.render();
+        status('Photo uploaded. It may show broken for a minute while GitHub deploys — click "Save & Publish" to put it on the site.');
+      } catch (err) {
+        alert(`Upload failed: ${err.message}`);
+        btn.disabled = false;
+        btn.textContent = 'Upload & Add';
+      }
+    };
   }
 
   /* ---------- save to GitHub ---------- */
