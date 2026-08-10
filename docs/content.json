@@ -10,7 +10,8 @@
     "image": "assets/img/uploads/upload-1786376494120-front.jpg",
     "headline": "73 Hickory Trail",
     "subheadline": "A custom-built brick & stone home on a quiet cul-de-sac in Norris, TN",
-    "ctaText": "Explore the Photos"
+    "ctaText": "Explore the Photos",
+    "focus": 45
   },
   "stats": [
     {
@@ -707,14 +708,6 @@
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-13-t.jpg",
               "w": 1600,
               "h": 1200,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/uploads/upload-1786406216105-Basement-Family-Room.jpg",
-              "thumb": "assets/img/uploads/upload-1786406216105-Basement-Family-Room-t.jpg",
-              "w": 2048,
-              "h": 1024,
               "caption": "",
               "hidden": false
             }
