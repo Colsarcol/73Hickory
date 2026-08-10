@@ -42,7 +42,7 @@
     "heading": "About This Home",
     "paragraphs": [
       "Custom built in 2006 with strong attention to detail inside and out, 73 Hickory Trail offers 4,600 finished square feet of brick and faux stone craftsmanship on a quiet cul-de-sac in Norris, Tennessee. The 1.08-acre lot backs directly up to TVA land, with quick and easy access to the watershed trails.",
-      "A graceful arch theme carries throughout the home \u2014 from the arched entry and transom windows above the main-floor doors and windows to the arched interior details. Every interior door is a solid-core Roman smooth two-panel wood door (no bi-folds, no pockets), and the Jeld-Wen Tenton desert-sand casement windows feature SDL fronts."
+      "A graceful arch theme carries throughout the home — from the arched entry and transom windows above the main-floor doors and windows to the arched interior details. Every interior door is a solid-core Roman smooth two-panel wood door (no bi-folds, no pockets), and the Jeld-Wen Tenton desert-sand casement windows feature SDL fronts."
     ],
     "features": [
       "Generac Guardian Plus automatic standby natural gas generator",
@@ -61,7 +61,7 @@
     {
       "id": "main-floor",
       "title": "Main Floor",
-      "intro": "Step through the arched front entry into a two-story foyer. The formal dining room sits to your left, the open living room straight ahead, and the master suite to your right \u2014 with the kitchen, breakfast area, laundry, and walk-in pantry beyond.",
+      "intro": "Step through the arched front entry into a two-story foyer. The formal dining room sits to your left, the open living room straight ahead, and the master suite to your right — with the kitchen, breakfast area, laundry, and walk-in pantry beyond.",
       "rooms": [
         {
           "id": "living-room",
@@ -121,7 +121,7 @@
         {
           "id": "formal-dining",
           "title": "Formal Dining Room",
-          "text": "Just off the foyer, the formal dining room is framed by arched openings and detailed millwork \u2014 an elegant setting for gatherings.",
+          "text": "Just off the foyer, the formal dining room is framed by arched openings and detailed millwork — an elegant setting for gatherings.",
           "images": [
             {
               "src": "assets/img/mainfloor/formalDiningRoom/formalDiningRoom-03.jpg",
@@ -350,12 +350,12 @@
     {
       "id": "upstairs",
       "title": "Upstairs",
-      "intro": "Cross the catwalk overlooking the living room to reach an open den, two bedrooms \u2014 one with its own upper patio \u2014 a bathroom with separate sink area, and a large finished bonus room with hidden extras.",
+      "intro": "Cross the catwalk overlooking the living room to reach an open den, two bedrooms — one with its own upper patio — a bathroom with separate sink area, and a large finished bonus room with hidden extras.",
       "rooms": [
         {
           "id": "catwalk-den",
           "title": "Catwalk & Den",
-          "text": "The catwalk spans the open living room below and leads to a bright open den \u2014 a flexible space for reading, play, or a home office.",
+          "text": "The catwalk spans the open living room below and leads to a bright open den — a flexible space for reading, play, or a home office.",
           "images": [
             {
               "src": "assets/img/upStairsFloor/catwalkDen/catwalkDen-01.jpg",
@@ -402,7 +402,7 @@
         {
           "id": "first-bedroom",
           "title": "Bedroom One",
-          "text": "A comfortable bedroom with a double-door closet \u2014 and a secret door connecting to the finished lower attic playroom.",
+          "text": "A comfortable bedroom with a double-door closet — and a secret door connecting to the finished lower attic playroom.",
           "images": [
             {
               "src": "assets/img/upStairsFloor/firstBedRoom/firstBedRoom-01.jpg",
@@ -433,7 +433,7 @@
         {
           "id": "patio-bedroom",
           "title": "Bedroom Two with Upper Patio",
-          "text": "This bedroom opens onto its own private upper patio with composite decking \u2014 morning coffee with a treetop view.",
+          "text": "This bedroom opens onto its own private upper patio with composite decking — morning coffee with a treetop view.",
           "images": [
             {
               "src": "assets/img/upStairsFloor/patioRoom/patioRoom-01.jpg",
@@ -464,7 +464,7 @@
         {
           "id": "upstairs-bath",
           "title": "Upstairs Bathroom",
-          "text": "Separate dual sink area with a private door to the bathroom and tub/shower \u2014 easy sharing for busy mornings.",
+          "text": "Separate dual sink area with a private door to the bathroom and tub/shower — easy sharing for busy mornings.",
           "images": [
             {
               "src": "assets/img/upStairsFloor/bathroom/bathroom-01.jpg",
@@ -495,7 +495,7 @@
         {
           "id": "bonus-room",
           "title": "Bonus Room",
-          "text": "A large finished bonus room \u2014 the easy fifth bedroom \u2014 with two separate attic storage areas and a finished lower attic featuring a secret door into Bedroom One, making a one-of-a-kind playroom.",
+          "text": "A large finished bonus room — the easy fifth bedroom — with two separate attic storage areas and a finished lower attic featuring a secret door into Bedroom One, making a one-of-a-kind playroom.",
           "images": [
             {
               "src": "assets/img/upStairsFloor/bonusRoom/bonusRoom-01.jpg",
@@ -560,12 +560,12 @@
     {
       "id": "lower-level",
       "title": "Lower Level",
-      "intro": "Downstairs offers a theater room with projector, a large living area opening to the pool, a full bathroom, a ventilated craft room, a fourth garage bay, and storage everywhere you look \u2014 including an under-porch storage room with steel door.",
+      "intro": "Downstairs offers a theater room with projector, a large living area opening to the pool, a full bathroom, a ventilated craft room, a fourth garage bay, and storage everywhere you look — including an under-porch storage room with steel door.",
       "rooms": [
         {
           "id": "theater",
           "title": "Theater Room",
-          "text": "A dedicated theater room with projector \u2014 movie nights without leaving home.",
+          "text": "A dedicated theater room with projector — movie nights without leaving home.",
           "images": [
             {
               "src": "assets/img/basementFloor/theaterRoom/theaterRoom-01.jpg",
@@ -715,7 +715,7 @@
         {
           "id": "lower-bath",
           "title": "Full Bathroom",
-          "text": "A full bathroom serves the lower level and the pool \u2014 no wet feet through the house.",
+          "text": "A full bathroom serves the lower level and the pool — no wet feet through the house.",
           "images": [
             {
               "src": "assets/img/basementFloor/bathroom/bathroom-01.jpg",
@@ -746,7 +746,7 @@
         {
           "id": "craft-room",
           "title": "Craft Room",
-          "text": "A dedicated craft room with an evacuation fan \u2014 perfect for projects that need ventilation \u2014 plus a large attached storage area.",
+          "text": "A dedicated craft room with an evacuation fan — perfect for projects that need ventilation — plus a large attached storage area.",
           "images": [
             {
               "src": "assets/img/basementFloor/craftRoom/craftRoom-01.jpg",
@@ -857,7 +857,7 @@
     {
       "id": "outdoors",
       "title": "Outdoor Living",
-      "intro": "A large in-ground salt water pool with slide and diving board, hot tub, pool house, and composite-decked patios \u2014 all backing up to TVA land.",
+      "intro": "A large in-ground salt water pool with slide and diving board, hot tub, pool house, and composite-decked patios — all backing up to TVA land.",
       "rooms": [
         {
           "id": "pool",
@@ -873,8 +873,24 @@
               "hidden": false
             },
             {
+              "src": "assets/img/outDoor/pool/pool-09.jpg",
+              "thumb": "assets/img/outDoor/pool/pool-09-t.jpg",
+              "w": 1600,
+              "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/outDoor/pool/pool-02.jpg",
               "thumb": "assets/img/outDoor/pool/pool-02-t.jpg",
+              "w": 1600,
+              "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/outDoor/pool/pool-05.jpg",
+              "thumb": "assets/img/outDoor/pool/pool-05-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
@@ -891,14 +907,6 @@
             {
               "src": "assets/img/outDoor/pool/pool-04.jpg",
               "thumb": "assets/img/outDoor/pool/pool-04-t.jpg",
-              "w": 1600,
-              "h": 1205,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/outDoor/pool/pool-05.jpg",
-              "thumb": "assets/img/outDoor/pool/pool-05-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
@@ -923,14 +931,6 @@
             {
               "src": "assets/img/outDoor/pool/pool-08.jpg",
               "thumb": "assets/img/outDoor/pool/pool-08-t.jpg",
-              "w": 1600,
-              "h": 1200,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/outDoor/pool/pool-09.jpg",
-              "thumb": "assets/img/outDoor/pool/pool-09-t.jpg",
               "w": 1600,
               "h": 1200,
               "caption": "",
@@ -997,7 +997,7 @@
   ],
   "floorplans": {
     "heading": "Floor Plans",
-    "intro": "Original architectural drawings \u2014 floor plans and all four elevations.",
+    "intro": "Original architectural drawings — floor plans and all four elevations.",
     "images": [
       {
         "src": "assets/img/bluePrints/bluePrints-04.jpg",
@@ -1065,16 +1065,16 @@
     "email": "joe@mawemail.com"
   },
   "tour": {
-    "heading": "Walk Through in 360\u00b0",
+    "heading": "Walk Through in 360°",
     "intro": "Drag to look around, and follow the arrows to move from room to room. Zoom with Ctrl + scroll or the controls in the corner."
   },
   "town": {
     "heading": "Life in Norris",
-    "tagline": "\u201cThe best thing about living in Norris\u2026 is living in Norris!\u201d",
+    "tagline": "“The best thing about living in Norris… is living in Norris!”",
     "paragraphs": [
-      "Norris has been called a planned community, a model town, a garden city, and even a utopia. To its citizens it is a woodland home \u2014 an oasis apart from the busy world, yet only 10 minutes from Interstate 75 and 30 minutes from Knoxville.",
+      "Norris has been called a planned community, a model town, a garden city, and even a utopia. To its citizens it is a woodland home — an oasis apart from the busy world, yet only 10 minutes from Interstate 75 and 30 minutes from Knoxville.",
       "The town has all the ingredients for comfortable living: tree-lined streets and sidewalks, a public library, outstanding schools, and a town center with its grocery, post office, service station, and restaurant. The 2,200-acre Norris Municipal Watershed offers miles of trails for hiking, horseback riding, and biking; the Clinch River offers great trout fishing; and nearby Norris Lake brings boating and water sports of every kind.",
-      "Planned and built by the Tennessee Valley Authority in 1933\u201335 to house the workers building Norris Dam, the town was designed to be fully electric, completely walkable, and wrapped in a buffer of protected forest \u2014 ideas so far ahead of their time that urban planners still call Norris \u201can American ideal.\u201d Sold by the government in 1948 and bought piece by piece by its own residents, Norris has governed itself ever since \u2014 a bedroom community for Knoxville and Oak Ridge where the crime rate is very nearly zero."
+      "Planned and built by the Tennessee Valley Authority in 1933–35 to house the workers building Norris Dam, the town was designed to be fully electric, completely walkable, and wrapped in a buffer of protected forest — ideas so far ahead of their time that urban planners still call Norris “an American ideal.” Sold by the government in 1948 and bought piece by piece by its own residents, Norris has governed itself ever since — a bedroom community for Knoxville and Oak Ridge where the crime rate is very nearly zero."
     ],
     "facts": [
       {
@@ -1101,7 +1101,7 @@
         "thumb": "assets/img/norrisPhotos/norrisPhotos-01-t.jpg",
         "w": 640,
         "h": 480,
-        "caption": "Norris Middle School \u2014 the old Norris High, once the largest electrically heated building in the world",
+        "caption": "Norris Middle School — the old Norris High, once the largest electrically heated building in the world",
         "hidden": false
       },
       {
@@ -1117,7 +1117,7 @@
         "thumb": "assets/img/norrisPhotos/norrisPhotos-03-t.jpg",
         "w": 1280,
         "h": 960,
-        "caption": "The town center \u2014 Archer's grocery and the Norris post office",
+        "caption": "The town center — Archer's grocery and the Norris post office",
         "hidden": false
       },
       {
@@ -1149,7 +1149,7 @@
         "thumb": "assets/img/norrisPhotos/norrisPhotos-07-t.jpg",
         "w": 1317,
         "h": 942,
-        "caption": "Norris Dam \u2014 four miles from town",
+        "caption": "Norris Dam — four miles from town",
         "hidden": false
       }
     ]
