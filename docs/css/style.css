@@ -622,3 +622,11 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   color: var(--ink-soft);
   opacity: 0.75;
 }
+
+/* caption sits above the image shield so it can be clicked (admin editing);
+   the image itself stays covered */
+.plancard .plabel {
+  position: relative;
+  z-index: 3;
+  background: #fff;
+}
