@@ -503,6 +503,57 @@
       "original": "mainfloor/masterBedroom/2026-08-09 16.20.43.jpg"
     }
   ],
+  "norrisPhotos": [
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-01.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-01-t.jpg",
+      "w": 640,
+      "h": 480,
+      "original": "norrisPhotos/norris 9ca0bad4-7072-4b67-9da4-9ff57f02ee40-tenc4d162b7ae921a6cc.jpg"
+    },
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-02.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-02-t.jpg",
+      "w": 640,
+      "h": 354,
+      "original": "norrisPhotos/norris IMG951783.jpg"
+    },
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-03.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-03-t.jpg",
+      "w": 1280,
+      "h": 960,
+      "original": "norrisPhotos/norris Norris-Archers-PO-tn1.jpg"
+    },
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-04.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-04-t.jpg",
+      "w": 409,
+      "h": 307,
+      "original": "norrisPhotos/norris commons-1.jpeg"
+    },
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-05.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-05-t.jpg",
+      "w": 740,
+      "h": 497,
+      "original": "norrisPhotos/norris mill.JPG"
+    },
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-06.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-06-t.jpg",
+      "w": 839,
+      "h": 938,
+      "original": "norrisPhotos/norris norrisdam1.JPG"
+    },
+    {
+      "src": "assets/img/norrisPhotos/norrisPhotos-07.jpg",
+      "thumb": "assets/img/norrisPhotos/norrisPhotos-07-t.jpg",
+      "w": 1317,
+      "h": 942,
+      "original": "norrisPhotos/norris norrisdam2.JPG"
+    }
+  ],
   "outDoor/frontHouse": [
     {
       "src": "assets/img/outDoor/frontHouse/frontHouse-01.jpg",

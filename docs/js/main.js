@@ -60,6 +60,7 @@
         <div class="room-info">
           <h3 data-edit="sections.${si}.rooms.${ri}.title">${esc(room.title)}</h3>
           <p data-edit="sections.${si}.rooms.${ri}.text">${esc(room.text)}</p>
+          ${room.pano?.src ? `<button class="pano-btn" data-pano="${esc(room.id)}">⦿ View in 360°</button>` : ''}
         </div>
         <div class="room-photos" data-room="${si}.${ri}">
           ${imgs.length ? photoTile(`cover${arch ? ' arch' : ''}`, imgs[0], gid, 0) : '<p><em>No photos yet.</em></p>'}
@@ -72,6 +73,7 @@
     const c = state.content;
     state.galleries = {};
     const roman = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+    const hasPano = c.sections.some((s) => s.rooms.some((r) => r.pano?.src));
 
     const floors = c.sections
       .map(
@@ -92,6 +94,9 @@
     const planImgs = visible(c.floorplans.images).map((img) => ({ ...img }));
     state.galleries['plans'] = planImgs.map((i) => ({ src: i.src, caption: i.caption }));
 
+    const townImgs = c.town ? visible(c.town.images) : [];
+    state.galleries['town'] = townImgs.map((i) => ({ src: i.src, caption: i.caption }));
+
     app.innerHTML = `
       <div class="hero" id="top">
         <div class="bg" style="background-image:url('${esc(c.hero.image)}')"></div>
@@ -100,7 +105,8 @@
           <h1 data-edit="hero.headline">${esc(c.hero.headline)}</h1>
           <p class="sub" data-edit="hero.subheadline">${esc(c.hero.subheadline)}</p>
           <p class="price" data-edit="site.price">${esc(c.site.price)}</p>
-          <a class="down" href="#about" data-edit="hero.ctaText">${esc(c.hero.ctaText)}</a>
+          ${hasPano ? `<button class="tour-btn" data-pano-first>⦿ Take the 360° Tour</button>` : ''}
+          <a class="down" href="#main-floor" data-edit="hero.ctaText">${esc(c.hero.ctaText)}</a>
         </div>
       </div>
 
@@ -153,7 +159,50 @@
         </div>
       </section>
 
+      ${hasPano ? `
+      <section class="tour" id="tour360">
+        <div class="wrap">
+          <div class="eyebrow">Look Around</div>
+          <h2 data-edit="tour.heading">${esc(c.tour?.heading || 'Walk Through in 360°')}</h2>
+          <p data-edit="tour.intro">${esc(c.tour?.intro || 'Drag to look around, scroll to zoom, and follow the arrows to move room to room.')}</p>
+          <div class="tour-frame">
+            <div id="tourViewer"></div>
+            <div class="tour-label" id="tourRoomLabel"></div>
+          </div>
+        </div>
+      </section>` : ''}
+
       ${floors}
+
+      ${c.town ? `
+      <section class="town" id="town">
+        <div class="wrap">
+          <div class="eyebrow">The Town</div>
+          <h2 data-edit="town.heading">${esc(c.town.heading)}</h2>
+          <p class="town-tagline" data-edit="town.tagline">${esc(c.town.tagline)}</p>
+          ${c.town.paragraphs.map((p, i) => `<p class="town-para" data-edit="town.paragraphs.${i}">${esc(p)}</p>`).join('')}
+          <div class="town-facts">
+            ${c.town.facts.map((f, i) => `
+              <div class="stat">
+                <div class="value" data-edit="town.facts.${i}.value">${esc(f.value)}</div>
+                <div class="label" data-edit="town.facts.${i}.label">${esc(f.label)}</div>
+              </div>`).join('')}
+          </div>
+          <div class="towngrid">
+            ${townImgs
+              .map(
+                (img, i) => `
+              <div class="plancard" data-gallery="town" data-index="${i}">
+                <img src="${esc(img.thumb)}" alt="${esc(img.caption)}" loading="lazy">
+                <div class="shield"></div>
+                <div class="plabel">${esc(img.caption)}</div>
+              </div>`
+              )
+              .join('')}
+          </div>
+          <p class="town-credit" data-edit="town.credit">${esc(c.town.credit)}</p>
+        </div>
+      </section>` : ''}
 
       <section class="contact" id="contact">
         <div class="wrap">

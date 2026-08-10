@@ -510,3 +510,115 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   section { padding: 3.5rem 0; }
   .wrap { padding: 0 1.2rem; }
 }
+
+/* ---------- 360° walkthrough ---------- */
+.pano-btn {
+  margin-top: 1.1rem;
+  padding: 0.55rem 1.3rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brick);
+  background: none;
+  border: 1px solid var(--brick);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.pano-btn:hover {
+  background: var(--brick);
+  color: var(--cream);
+}
+
+/* hero 360° tour button */
+.hero .tour-btn {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.85rem 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fdf9f1;
+  background: color-mix(in srgb, var(--brick) 82%, transparent);
+  border: 1px solid rgba(253, 249, 241, 0.35);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+.hero .tour-btn:hover {
+  background: var(--brick-dark);
+  transform: translateY(-1px);
+}
+
+/* inline tour section */
+.tour { background: var(--cream-2); }
+.tour-frame {
+  position: relative;
+  margin-top: 2rem;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(45, 38, 32, 0.18);
+}
+#tourViewer { width: 100%; height: min(72vh, 620px); }
+.tour-label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 0.5rem 1.1rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: #fff;
+  background: rgba(20, 14, 9, 0.55);
+  border-top-right-radius: 10px;
+  pointer-events: none;
+}
+
+/* ---------- town section ---------- */
+.town { background: var(--cream-2); }
+.town-tagline {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-style: italic;
+  color: var(--brick);
+  margin: 0.4rem 0 1.6rem;
+}
+.town-para {
+  max-width: 62ch;
+  margin-bottom: 1.1rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.town-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin: 2.2rem 0 0.6rem;
+}
+.town-facts .stat .value {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--brick);
+}
+.town-facts .stat .label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.towngrid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.4rem;
+}
+.town-credit {
+  margin-top: 1.6rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
