@@ -7,7 +7,7 @@
     "status": "For Sale By Owner"
   },
   "hero": {
-    "image": "assets/img/outDoor/frontHouse/frontHouse-01.jpg",
+    "image": "assets/img/uploads/upload-1786376494120-front.jpg",
     "headline": "73 Hickory Trail",
     "subheadline": "A custom-built brick & stone home on a quiet cul-de-sac in Norris, TN",
     "ctaText": "Explore the Photos"
@@ -983,12 +983,20 @@
           "text": "Brick and faux stone, arched windows, and a circle drive on a quiet cul-de-sac.",
           "images": [
             {
+              "src": "assets/img/uploads/upload-1786376494120-front.jpg",
+              "thumb": "assets/img/uploads/upload-1786376494120-front-t.jpg",
+              "w": 1448,
+              "h": 1086,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/outDoor/frontHouse/frontHouse-01.jpg",
               "thumb": "assets/img/outDoor/frontHouse/frontHouse-01-t.jpg",
               "w": 1600,
               "h": 1200,
               "caption": "",
-              "hidden": false
+              "hidden": true
             }
           ]
         }
