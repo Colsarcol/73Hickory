@@ -76,10 +76,23 @@
     return out;
   }
 
+  // Widest horizontal FOV whose implied vertical FOV stays sane for this
+  // viewer's shape. Landscape screens keep 120°; portrait phones get less —
+  // a 120° hfov on a tall canvas implies a ~140° vfov, which renders as
+  // heavy vertical skew (the projection, not the GPU).
+  function hfovCapFor(el) {
+    const aspect = el.clientWidth / Math.max(1, el.clientHeight);
+    const MAX_VFOV = 105;
+    const cap = (360 / Math.PI) * Math.atan(Math.tan((MAX_VFOV * Math.PI) / 360) * aspect);
+    return Math.min(120, Math.max(60, cap));
+  }
+
   function init(startScene) {
     const el = document.getElementById('tourViewer');
     if (!el || typeof pannellum === 'undefined') return;
+    const cap = hfovCapFor(el);
     const scenes = buildScenes();
+    Object.values(scenes).forEach((s) => (s.hfov = Math.min(s.hfov, cap)));
     const first = startScene && scenes[startScene] ? startScene : Object.keys(scenes)[0];
     if (!first) return;
     viewer?.destroy();
@@ -88,6 +101,7 @@
         firstScene: first,
         sceneFadeDuration: 800,
         autoLoad: true,
+        maxHfov: cap, // pinch/button zoom-out clamps to the shape-derived cap too
         mouseZoom: false, // plain scroll passes through to the page
         keyboardZoom: false, // else holding Ctrl/Shift zooms — only Ctrl+wheel and the UI buttons should
       },
@@ -106,7 +120,7 @@
         if (!e.ctrlKey || !viewer) return;
         e.preventDefault();
         if (zoomTarget === null) zoomTarget = viewer.getHfov();
-        zoomTarget = Math.min(120, Math.max(50, zoomTarget + e.deltaY * 0.05));
+        zoomTarget = Math.min(cap, Math.max(50, zoomTarget + e.deltaY * 0.05));
         if (!zoomRaf) {
           const step = () => {
             if (!viewer) { zoomRaf = 0; zoomTarget = null; return; }
