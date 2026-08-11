@@ -14,6 +14,7 @@
 (() => {
   let viewer = null;
   let addingArrow = false;
+  let arrivalEdit = null; // {ownerId, hi} while authoring an arrow's arrival view
 
   const esc = (s) =>
     String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -56,6 +57,10 @@
             text: h.text || '',
             sceneId: h.target,
           };
+          // per-arrow arrival direction: face this way when entering through
+          // this arrow instead of the destination's default start view
+          if (h.targetYaw != null) spot.targetYaw = h.targetYaw;
+          if (h.targetPitch != null) spot.targetPitch = h.targetPitch;
           // in admin, clicks manage the arrow instead of following it
           if (isAdmin()) spot.clickHandlerFunc = (e) => manageArrow(e, sc, hi);
           return spot;
@@ -150,6 +155,12 @@
       const act = e.target.dataset?.pact;
       if (act === 'start') setStartView();
       else if (act === 'arrow') startAddArrow();
+      else if (act === 'arrivalSave') saveArrivalView();
+      else if (act === 'arrivalCancel') {
+        arrivalEdit = null;
+        hideArrivalBar();
+        status('Arrival view cancelled.');
+      }
     });
   }
 
@@ -232,14 +243,18 @@
     e?.stopPropagation?.();
     const h = scene.hotspots?.[hi];
     if (!h) return;
+    const hasArrival = h.targetYaw != null;
     const dlg = document.createElement('div');
     dlg.className = 'dlg-overlay';
     dlg.innerHTML = `
       <div class="updlg-card">
         <h3>Arrow → ${esc(h.text || h.target)}</h3>
+        <p class="updlg-note">Arrival view: ${hasArrival ? 'custom' : 'destination default'}</p>
         <div class="updlg-actions">
           <button class="ghost" data-act="cancel">Cancel</button>
           <button class="ghost" data-act="remove">Remove arrow</button>
+          ${hasArrival ? '<button class="ghost" data-act="cleararrival">Clear arrival view</button>' : ''}
+          <button class="ghost" data-act="arrival">Set arrival view</button>
           <button data-act="follow">Follow it</button>
         </div>
       </div>`;
@@ -247,7 +262,9 @@
     dlg.querySelector('[data-act="cancel"]').onclick = () => dlg.remove();
     dlg.querySelector('[data-act="follow"]').onclick = () => {
       dlg.remove();
-      viewer.loadScene(h.target);
+      // pass the arrow's arrival angles like pannellum's native click does —
+      // otherwise admin "Follow it" can't be used to verify arrival views
+      viewer.loadScene(h.target, h.targetPitch, h.targetYaw);
     };
     dlg.querySelector('[data-act="remove"]').onclick = () => {
       dlg.remove();
@@ -256,6 +273,52 @@
       rebuildKeepingView(scene.id);
       status('Arrow removed.');
     };
+    dlg.querySelector('[data-act="cleararrival"]')?.addEventListener('click', () => {
+      dlg.remove();
+      delete h.targetYaw;
+      delete h.targetPitch;
+      dirty();
+      rebuildKeepingView(scene.id);
+      status('Arrival view cleared — this arrow uses the destination default again.');
+    });
+    dlg.querySelector('[data-act="arrival"]').onclick = () => {
+      dlg.remove();
+      arrivalEdit = { ownerId: scene.id, hi };
+      viewer.loadScene(h.target);
+      showArrivalBar();
+      status('Aim the camera the way visitors should arrive through this arrow, then "Save arrival view".');
+    };
+  }
+
+  function showArrivalBar() {
+    const bar = document.querySelector('.pano-edit');
+    if (!bar || bar.querySelector('[data-pact="arrivalSave"]')) return;
+    const save = document.createElement('button');
+    save.dataset.pact = 'arrivalSave';
+    save.textContent = '✓ Save arrival view';
+    const cancel = document.createElement('button');
+    cancel.dataset.pact = 'arrivalCancel';
+    cancel.textContent = '✕ Cancel arrival';
+    bar.prepend(cancel);
+    bar.prepend(save);
+  }
+
+  function hideArrivalBar() {
+    document.querySelectorAll('[data-pact="arrivalSave"], [data-pact="arrivalCancel"]').forEach((b) => b.remove());
+  }
+
+  function saveArrivalView() {
+    if (!arrivalEdit) return;
+    const owner = sceneById(arrivalEdit.ownerId);
+    const h = owner?.hotspots?.[arrivalEdit.hi];
+    arrivalEdit = null;
+    hideArrivalBar();
+    if (!h) return status('Arrow no longer exists.');
+    h.targetYaw = +viewer.getYaw().toFixed(1);
+    h.targetPitch = +viewer.getPitch().toFixed(1);
+    dirty();
+    rebuildKeepingView(viewer.getScene());
+    status(`Arrival view saved for the arrow from ${owner.title}.`);
   }
 
   function rebuildKeepingView(sceneId) {

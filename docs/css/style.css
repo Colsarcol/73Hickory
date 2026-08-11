@@ -764,3 +764,5 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.updlg-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: -0.4rem; }
