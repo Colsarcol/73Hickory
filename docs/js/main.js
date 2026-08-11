@@ -60,7 +60,7 @@
         <div class="room-info">
           <h3 data-edit="sections.${si}.rooms.${ri}.title">${esc(room.title)}</h3>
           <p data-edit="sections.${si}.rooms.${ri}.text">${esc(room.text)}</p>
-          ${room.pano?.src && state.showTour ? `<button class="pano-btn" data-pano="${esc(room.id)}">⦿ View in 360°</button>` : ''}
+          ${state.showTour && state.roomScene?.[room.id] ? `<button class="pano-btn" data-pano="${esc(state.roomScene[room.id])}">⦿ View in 360°</button>` : ''}
         </div>
         <div class="room-photos" data-room="${si}.${ri}">
           ${imgs.length ? photoTile(`cover${arch ? ' arch' : ''}`, imgs[0], gid, 0) : '<p><em>No photos yet.</em></p>'}
@@ -74,10 +74,15 @@
     state.galleries = {};
     const roman = ['I', 'II', 'III', 'IV', 'V', 'VI'];
     const admin = document.body.classList.contains('admin');
-    const hasPano = c.sections.some((s) => s.rooms.some((r) => r.pano?.src));
+    const hasTour = (c.tour?.scenes || []).length > 0;
     // tour.draft hides the 360° tour from visitors while it's being authored
-    const showTour = hasPano && (c.tour?.draft !== true || admin);
+    const showTour = hasTour && (c.tour?.draft !== true || admin);
     state.showTour = showTour;
+    // first scene tagged with a room id gives that room its 360° button
+    state.roomScene = {};
+    (c.tour?.scenes || []).forEach((sc) => {
+      if (sc.room && !state.roomScene[sc.room]) state.roomScene[sc.room] = sc.id;
+    });
 
     const floors = c.sections
       .map(

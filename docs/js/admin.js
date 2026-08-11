@@ -352,7 +352,11 @@
           await ghPutFile(cfg, `docs/${rel}`, web.blob, `Upload 360 panorama via admin panel: ${base}`);
           const [, si, ri] = dest.split('.').map(Number);
           const room = c.sections[si].rooms[ri];
-          room.pano = { ...(room.pano || {}), src: rel }; // keep angles/arrows if replacing
+          c.tour ??= {};
+          c.tour.scenes ??= [];
+          const existing = c.tour.scenes.find((s) => s.room === room.id);
+          if (existing) existing.src = rel; // replacing a room's scene keeps its angles/arrows
+          else c.tour.scenes.push({ id: base, title: room.title, src: rel, yaw: 0, pitch: 0, hfov: 100, hotspots: [], room: room.id });
           markDirty();
           closeDlg();
           window.SITE.render();

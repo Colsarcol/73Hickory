@@ -1,8 +1,10 @@
 /* 360° walkthrough (Pannellum), embedded inline (#tourViewer, rendered by
-   main.js between Floor Plans and the photo tour). Any room in content.json
-   may carry a `pano` field:
-     { src, yaw?, pitch?, hfov?, hotspots?: [{yaw, pitch, target, text}] }
-   `target` is another room's id — hotspots walk between scenes.
+   main.js between Floor Plans and the photo tour). Scenes live in
+   content.json at tour.scenes:
+     { id, title, src, yaw?, pitch?, hfov?, room?,
+       hotspots?: [{yaw, pitch, target, text}] }
+   `target` is another scene's id — hotspots walk between scenes. A scene
+   with a `room` id gives that room its "View in 360°" button.
 
    Admin mode adds authoring on top of the viewer:
    - "Set start view" saves the current camera angles as the room's opening view
@@ -18,29 +20,21 @@
   const isAdmin = () => document.body.classList.contains('admin');
   const content = () => window.SITE?.state?.content;
 
-  function panoRooms() {
-    const out = [];
-    content()?.sections.forEach((s) =>
-      s.rooms.forEach((r) => {
-        if (r.pano?.src) out.push(r);
-      })
-    );
-    return out;
-  }
-  const roomById = (id) => panoRooms().find((r) => r.id === id);
-  const currentRoom = () => (viewer ? roomById(viewer.getScene()) : null);
+  const sceneList = () => content()?.tour?.scenes || [];
+  const sceneById = (id) => sceneList().find((s) => s.id === id);
+  const currentScene = () => (viewer ? sceneById(viewer.getScene()) : null);
 
   function buildScenes() {
     const out = {};
-    panoRooms().forEach((r) => {
-      out[r.id] = {
-        roomTitle: r.title,
+    sceneList().forEach((sc) => {
+      out[sc.id] = {
+        roomTitle: sc.title,
         type: 'equirectangular',
-        panorama: r.pano.src,
-        yaw: r.pano.yaw || 0,
-        pitch: r.pano.pitch || 0,
-        hfov: r.pano.hfov || 100,
-        hotSpots: (r.pano.hotspots || []).map((h, hi) => {
+        panorama: sc.src,
+        yaw: sc.yaw || 0,
+        pitch: sc.pitch || 0,
+        hfov: sc.hfov || 100,
+        hotSpots: (sc.hotspots || []).map((h, hi) => {
           const spot = {
             yaw: h.yaw,
             pitch: h.pitch || 0,
@@ -49,7 +43,7 @@
             sceneId: h.target,
           };
           // in admin, clicks manage the arrow instead of following it
-          if (isAdmin()) spot.clickHandlerFunc = (e) => manageArrow(e, r, hi);
+          if (isAdmin()) spot.clickHandlerFunc = (e) => manageArrow(e, sc, hi);
           return spot;
         }),
       };
@@ -100,7 +94,7 @@
     const el = document.getElementById('tourViewer');
     if (!el || !viewer) return;
     el.closest('section')?.scrollIntoView({ behavior: 'smooth' });
-    if (roomId && viewer.getScene() !== roomId && roomById(roomId)) {
+    if (roomId && viewer.getScene() !== roomId && sceneById(roomId)) {
       viewer.loadScene(roomId);
     }
   }
@@ -126,23 +120,23 @@
   }
 
   function setStartView() {
-    const r = currentRoom();
-    if (!r) return;
-    r.pano.yaw = +viewer.getYaw().toFixed(1);
-    r.pano.pitch = +viewer.getPitch().toFixed(1);
-    r.pano.hfov = +viewer.getHfov().toFixed(1);
+    const sc = currentScene();
+    if (!sc) return;
+    sc.yaw = +viewer.getYaw().toFixed(1);
+    sc.pitch = +viewer.getPitch().toFixed(1);
+    sc.hfov = +viewer.getHfov().toFixed(1);
     dirty();
     // rebuild so the running viewer picks up the new config — otherwise
     // revisiting the scene still opens with the angles it was created with
-    init(r.id);
-    status(`Start view saved for ${r.title}.`);
+    init(sc.id);
+    status(`Start view saved for ${sc.title}.`);
   }
 
   function startAddArrow() {
-    const r = currentRoom();
-    if (!r) return;
-    if (!panoRooms().some((x) => x.id !== r.id)) {
-      alert('No other 360° rooms to link to yet — upload another panorama first.');
+    const sc = currentScene();
+    if (!sc) return;
+    if (!sceneList().some((x) => x.id !== sc.id)) {
+      alert('No other 360° scenes to link to yet — upload another panorama first.');
       return;
     }
     addingArrow = true;
@@ -152,34 +146,34 @@
   function onPanoClick(e) {
     if (!addingArrow || !viewer) return;
     addingArrow = false;
-    const r = currentRoom();
+    const sc = currentScene();
     const [pitch, yaw] = viewer.mouseEventToCoords(e);
-    chooseDestination(r).then((dest) => {
+    chooseDestination(sc).then((dest) => {
       if (!dest) {
         status('Arrow cancelled.');
         return;
       }
-      (r.pano.hotspots ??= []).push({
+      (sc.hotspots ??= []).push({
         yaw: +yaw.toFixed(1),
         pitch: +pitch.toFixed(1),
         target: dest.id,
         text: dest.title,
       });
       dirty();
-      rebuildKeepingView(r.id);
+      rebuildKeepingView(sc.id);
       status(`Arrow to ${dest.title} added.`);
     });
   }
 
-  function chooseDestination(fromRoom) {
+  function chooseDestination(fromScene) {
     return new Promise((resolve) => {
-      const others = panoRooms().filter((x) => x.id !== fromRoom.id);
+      const others = sceneList().filter((x) => x.id !== fromScene.id);
       const dlg = document.createElement('div');
       dlg.className = 'dlg-overlay';
       dlg.innerHTML = `
         <div class="updlg-card">
           <h3>This doorway leads to…</h3>
-          <label>Room
+          <label>Scene
             <select>${others.map((o) => `<option value="${esc(o.id)}">${esc(o.title)}</option>`).join('')}</select>
           </label>
           <div class="updlg-actions">
@@ -200,9 +194,9 @@
     });
   }
 
-  function manageArrow(e, room, hi) {
+  function manageArrow(e, scene, hi) {
     e?.stopPropagation?.();
-    const h = room.pano.hotspots?.[hi];
+    const h = scene.hotspots?.[hi];
     if (!h) return;
     const dlg = document.createElement('div');
     dlg.className = 'dlg-overlay';
@@ -223,9 +217,9 @@
     };
     dlg.querySelector('[data-act="remove"]').onclick = () => {
       dlg.remove();
-      room.pano.hotspots.splice(hi, 1);
+      scene.hotspots.splice(hi, 1);
       dirty();
-      rebuildKeepingView(room.id);
+      rebuildKeepingView(scene.id);
       status('Arrow removed.');
     };
   }
