@@ -1115,7 +1115,9 @@
             "yaw": 179.3,
             "pitch": -13.3,
             "target": "front-door",
-            "text": "Front Door"
+            "text": "Front Door",
+            "targetYaw": -164.8,
+            "targetPitch": 1
           },
           {
             "yaw": 58.8,
