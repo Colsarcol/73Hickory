@@ -301,13 +301,12 @@
     map.className = 'tour-map';
     if (window.innerWidth < 700) map.classList.add('collapsed');
     map.innerHTML = `
-      <button class="tour-map-toggle" title="Floor plan">Map</button>
-      <div class="tour-map-body"><img alt="Floor plan"><div class="tour-map-dots"></div>
-        <button class="tour-map-expand" title="Enlarge the map">⤢</button>
-      </div>`;
+      <button class="tour-map-toggle" title="Open the full floor plan">Map</button>
+      <button class="tour-map-expand" title="Show or hide the mini-map">⤢</button>
+      <div class="tour-map-body"><img alt="Floor plan"><div class="tour-map-dots"></div></div>`;
     frame.appendChild(map);
-    map.querySelector('.tour-map-toggle').addEventListener('click', () => map.classList.toggle('collapsed'));
-    map.querySelector('.tour-map-expand').addEventListener('click', expandMap);
+    map.querySelector('.tour-map-toggle').addEventListener('click', expandMap);
+    map.querySelector('.tour-map-expand').addEventListener('click', () => map.classList.toggle('collapsed'));
     map.querySelector('.tour-map-dots').addEventListener('click', (e) => {
       const dot = e.target.closest('[data-scene]');
       if (dot && viewer) {
