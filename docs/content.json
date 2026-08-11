@@ -1083,21 +1083,39 @@
         "title": "Foyer",
         "src": "assets/panos/foyer.jpg",
         "srcHd": "assets/panos/foyer-8k.jpg",
-        "yaw": 7.1,
-        "pitch": -0.4,
+        "yaw": 6.2,
+        "pitch": -2.9,
         "hfov": 120,
         "hotspots": [
           {
-            "yaw": 16.1,
-            "pitch": -13.5,
+            "yaw": 14.2,
+            "pitch": -15,
             "target": "living-room",
             "text": "Living Room"
           },
           {
-            "yaw": -107.5,
-            "pitch": -29.2,
+            "yaw": -107.7,
+            "pitch": -31.8,
             "target": "dining-room-entrance",
             "text": "Dining Room Entrance"
+          },
+          {
+            "yaw": -38.3,
+            "pitch": -18.9,
+            "target": "kitchen-from-foyer",
+            "text": "Kitchen from Foyer"
+          },
+          {
+            "yaw": 179.3,
+            "pitch": -13.3,
+            "target": "front-door",
+            "text": "Front Door"
+          },
+          {
+            "yaw": 58.8,
+            "pitch": -18.3,
+            "target": "stairs-at-master-bedroom",
+            "text": "Stairs at Master Bedroom"
           }
         ],
         "room": "living-room"
@@ -1109,8 +1127,39 @@
         "srcHd": "assets/panos/living-room-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 152.1,
+            "pitch": -11.4,
+            "target": "foyer",
+            "text": "Foyer"
+          },
+          {
+            "yaw": -139.5,
+            "pitch": -31.3,
+            "target": "kitchen-from-foyer",
+            "text": "Kitchen from Foyer"
+          },
+          {
+            "yaw": 115,
+            "pitch": -15.3,
+            "target": "stairs-at-master-bedroom",
+            "text": "Stairs at Master Bedroom"
+          },
+          {
+            "yaw": 164.6,
+            "pitch": -10.2,
+            "target": "dining-room-entrance",
+            "text": "Dining Room Entrance"
+          },
+          {
+            "yaw": 136.3,
+            "pitch": 6.6,
+            "target": "stair-landing-going-upstairs",
+            "text": "Stair Landing Going Upstairs"
+          }
+        ]
       },
       {
         "id": "dining-room-entrance",
@@ -1119,13 +1168,25 @@
         "srcHd": "assets/panos/dining-room-entrance-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [
           {
-            "yaw": -29.6,
-            "pitch": -10.1,
+            "yaw": -32.2,
+            "pitch": -7.1,
             "target": "dining-room-at-bay-window",
             "text": "Dining Room at Bay Window"
+          },
+          {
+            "yaw": -156.2,
+            "pitch": -28.9,
+            "target": "foyer",
+            "text": "Foyer"
+          },
+          {
+            "yaw": 161.3,
+            "pitch": -12.5,
+            "target": "living-room",
+            "text": "Living Room"
           }
         ],
         "room": "formal-dining"
@@ -1137,11 +1198,11 @@
         "srcHd": "assets/panos/dining-room-at-bay-window-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [
           {
-            "yaw": -164.4,
-            "pitch": -9.9,
+            "yaw": -155.3,
+            "pitch": -8.6,
             "target": "dining-room-entrance",
             "text": "Dining Room Entrance"
           }
@@ -1154,8 +1215,33 @@
         "srcHd": "assets/panos/kitchen-from-foyer-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -135.2,
+            "pitch": -25.3,
+            "target": "half-bath",
+            "text": "Half Bath"
+          },
+          {
+            "yaw": 170.8,
+            "pitch": -18,
+            "target": "foyer",
+            "text": "Foyer"
+          },
+          {
+            "yaw": -39.3,
+            "pitch": -20.4,
+            "target": "kitchen",
+            "text": "Kitchen"
+          },
+          {
+            "yaw": 16.2,
+            "pitch": -13,
+            "target": "deck-off-kitchen",
+            "text": "Deck off Kitchen"
+          }
+        ]
       },
       {
         "id": "kitchen",
@@ -1164,8 +1250,39 @@
         "srcHd": "assets/panos/kitchen-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": [],
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -58.5,
+            "pitch": -21.5,
+            "target": "kitchen-between-stove-and-island",
+            "text": "Kitchen — Stove & Island"
+          },
+          {
+            "yaw": -58.6,
+            "pitch": -14.7,
+            "target": "hall-off-kitchen",
+            "text": "Hall off Kitchen"
+          },
+          {
+            "yaw": 161.3,
+            "pitch": -23,
+            "target": "kitchen-from-foyer",
+            "text": "Kitchen from Foyer"
+          },
+          {
+            "yaw": 151.9,
+            "pitch": -21.3,
+            "target": "living-room",
+            "text": "Living Room"
+          },
+          {
+            "yaw": 56.6,
+            "pitch": -17.9,
+            "target": "deck-off-kitchen",
+            "text": "Deck off Kitchen"
+          }
+        ],
         "room": "kitchen"
       },
       {
@@ -1175,8 +1292,21 @@
         "srcHd": "assets/panos/kitchen-between-stove-and-island-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -60.6,
+            "pitch": -26.2,
+            "target": "hall-off-kitchen",
+            "text": "Hall off Kitchen"
+          },
+          {
+            "yaw": -114.7,
+            "pitch": -26.7,
+            "target": "kitchen",
+            "text": "Kitchen"
+          }
+        ]
       },
       {
         "id": "pantry",
@@ -1185,7 +1315,7 @@
         "srcHd": "assets/panos/pantry-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1195,8 +1325,21 @@
         "srcHd": "assets/panos/hall-off-kitchen-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -112,
+            "pitch": -36.8,
+            "target": "pantry",
+            "text": "Pantry"
+          },
+          {
+            "yaw": 7.7,
+            "pitch": -37.4,
+            "target": "laundry-room",
+            "text": "Laundry Room"
+          }
+        ]
       },
       {
         "id": "half-bath",
@@ -1205,7 +1348,7 @@
         "srcHd": "assets/panos/half-bath-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1215,8 +1358,21 @@
         "srcHd": "assets/panos/laundry-room-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": [],
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 16.6,
+            "pitch": -32.4,
+            "target": "hall-off-kitchen",
+            "text": "Hall off Kitchen"
+          },
+          {
+            "yaw": 3.2,
+            "pitch": -23.8,
+            "target": "kitchen",
+            "text": "Kitchen"
+          }
+        ],
         "room": "laundry"
       },
       {
@@ -1224,20 +1380,76 @@
         "title": "Stairs at Master Bedroom",
         "src": "assets/panos/stairs-at-master-bedroom.jpg",
         "srcHd": "assets/panos/stairs-at-master-bedroom-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": 1.8,
+        "pitch": -21.8,
         "hfov": 120,
-        "hotspots": []
+        "hotspots": [
+          {
+            "yaw": -111.6,
+            "pitch": -33.8,
+            "target": "master-bedroom",
+            "text": "Master Bedroom"
+          },
+          {
+            "yaw": 6.1,
+            "pitch": -39.2,
+            "target": "basement-stairs",
+            "text": "Basement Stairs"
+          },
+          {
+            "yaw": 30.5,
+            "pitch": 11.4,
+            "target": "stair-landing-going-upstairs",
+            "text": "Stair Landing Going Upstairs"
+          },
+          {
+            "yaw": 84.4,
+            "pitch": -18.8,
+            "target": "foyer",
+            "text": "Foyer"
+          },
+          {
+            "yaw": 135.5,
+            "pitch": -24.8,
+            "target": "living-room",
+            "text": "Living Room"
+          },
+          {
+            "yaw": 96.4,
+            "pitch": -12.4,
+            "target": "kitchen-from-foyer",
+            "text": "Kitchen from Foyer"
+          }
+        ]
       },
       {
         "id": "master-bedroom",
         "title": "Master Bedroom",
         "src": "assets/panos/master-bedroom.jpg",
         "srcHd": "assets/panos/master-bedroom-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": -23.8,
+        "pitch": -1.8,
         "hfov": 120,
-        "hotspots": [],
+        "hotspots": [
+          {
+            "yaw": -66.8,
+            "pitch": -19.8,
+            "target": "deck-off-master-bedroom",
+            "text": "Deck off Master Bedroom"
+          },
+          {
+            "yaw": 81.7,
+            "pitch": -29.8,
+            "target": "master-bath-at-shower",
+            "text": "Master Bath at Shower"
+          },
+          {
+            "yaw": 163.4,
+            "pitch": -22.3,
+            "target": "stairs-at-master-bedroom",
+            "text": "Stairs at Master Bedroom"
+          }
+        ],
         "room": "master-bedroom"
       },
       {
@@ -1247,8 +1459,33 @@
         "srcHd": "assets/panos/master-bath-at-shower-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": [],
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 31.1,
+            "pitch": -22.4,
+            "target": "master-bedroom",
+            "text": "Master Bedroom"
+          },
+          {
+            "yaw": 2.5,
+            "pitch": -36.8,
+            "target": "master-closet-his",
+            "text": "Master Closet — His"
+          },
+          {
+            "yaw": 114.4,
+            "pitch": -37.1,
+            "target": "master-closet-hers",
+            "text": "Master Closet — Hers"
+          },
+          {
+            "yaw": -158.9,
+            "pitch": -20.4,
+            "target": "master-bath-tub",
+            "text": "Master Bath Tub"
+          }
+        ],
         "room": "master-bathroom"
       },
       {
@@ -1258,8 +1495,15 @@
         "srcHd": "assets/panos/master-bath-past-shower-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 89.1,
+            "pitch": -59.5,
+            "target": "master-bath-at-shower",
+            "text": "Master Bath at Shower"
+          }
+        ]
       },
       {
         "id": "master-bath-tub",
@@ -1268,8 +1512,21 @@
         "srcHd": "assets/panos/master-bath-tub-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -32.7,
+            "pitch": -18.8,
+            "target": "master-bath-at-shower",
+            "text": "Master Bath at Shower"
+          },
+          {
+            "yaw": -30.5,
+            "pitch": -12.3,
+            "target": "master-bedroom",
+            "text": "Master Bedroom"
+          }
+        ]
       },
       {
         "id": "master-closet-hers",
@@ -1278,7 +1535,7 @@
         "srcHd": "assets/panos/master-closet-hers-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1288,7 +1545,7 @@
         "srcHd": "assets/panos/master-closet-his-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1298,7 +1555,7 @@
         "srcHd": "assets/panos/stair-landing-going-upstairs-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1308,7 +1565,7 @@
         "srcHd": "assets/panos/upstairs-catwalk-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "catwalk-den"
       },
@@ -1319,7 +1576,7 @@
         "srcHd": "assets/panos/upstairs-by-doors-and-loft-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1329,7 +1586,7 @@
         "srcHd": "assets/panos/upstairs-loft-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1339,7 +1596,7 @@
         "srcHd": "assets/panos/upstairs-bedroom-1-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "first-bedroom"
       },
@@ -1350,7 +1607,7 @@
         "srcHd": "assets/panos/upstairs-bedroom-1-closet-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1360,7 +1617,7 @@
         "srcHd": "assets/panos/upstairs-bedroom-2-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "patio-bedroom"
       },
@@ -1371,7 +1628,7 @@
         "srcHd": "assets/panos/upstairs-bedroom-2-balcony-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1381,7 +1638,7 @@
         "srcHd": "assets/panos/upstairs-bedroom-2-closet-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1391,7 +1648,7 @@
         "srcHd": "assets/panos/upstairs-bath-sinks-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "upstairs-bath"
       },
@@ -1402,7 +1659,7 @@
         "srcHd": "assets/panos/upstairs-bath-shower-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1412,7 +1669,7 @@
         "srcHd": "assets/panos/upstairs-bonus-room-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "bonus-room"
       },
@@ -1423,7 +1680,7 @@
         "srcHd": "assets/panos/upstairs-bonus-room-closet-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1433,7 +1690,7 @@
         "srcHd": "assets/panos/upstairs-bonus-room-front-attic-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1443,7 +1700,7 @@
         "srcHd": "assets/panos/upstairs-bonus-room-high-full-attic-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1451,10 +1708,23 @@
         "title": "Basement Stairs",
         "src": "assets/panos/basement-stairs.jpg",
         "srcHd": "assets/panos/basement-stairs-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "yaw": 168,
+        "pitch": -20.5,
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 166.4,
+            "pitch": -40.1,
+            "target": "basement-foyer",
+            "text": "Basement Foyer"
+          },
+          {
+            "yaw": -164.9,
+            "pitch": 14.9,
+            "target": "stairs-at-master-bedroom",
+            "text": "Stairs at Master Bedroom"
+          }
+        ]
       },
       {
         "id": "basement-foyer",
@@ -1463,8 +1733,33 @@
         "srcHd": "assets/panos/basement-foyer-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -96,
+            "pitch": -17.9,
+            "target": "craft-room",
+            "text": "Craft Room"
+          },
+          {
+            "yaw": 62.8,
+            "pitch": -17.8,
+            "target": "theater-room",
+            "text": "Theater Room"
+          },
+          {
+            "yaw": -136.6,
+            "pitch": -16.1,
+            "target": "basement-bath1",
+            "text": "Basement Bath"
+          },
+          {
+            "yaw": 174.9,
+            "pitch": -18,
+            "target": "basement-family-room-near-foyer",
+            "text": "Family Room Near Foyer"
+          }
+        ]
       },
       {
         "id": "basement-family-room",
@@ -1473,8 +1768,27 @@
         "srcHd": "assets/panos/basement-family-room-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": [],
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 26,
+            "pitch": -6.7,
+            "target": "craft-room",
+            "text": "Craft Room"
+          },
+          {
+            "yaw": 0.8,
+            "pitch": -16,
+            "target": "basement-family-room-near-foyer",
+            "text": "Family Room Near Foyer"
+          },
+          {
+            "yaw": -112.3,
+            "pitch": -23.3,
+            "target": "back-under-deck",
+            "text": "Back Patio Under Deck"
+          }
+        ],
         "room": "lower-living"
       },
       {
@@ -1484,8 +1798,45 @@
         "srcHd": "assets/panos/basement-family-room-near-foyer-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -15.7,
+            "pitch": -17.5,
+            "target": "basement-foyer",
+            "text": "Basement Foyer"
+          },
+          {
+            "yaw": -14.2,
+            "pitch": 5.7,
+            "target": "basement-stairs",
+            "text": "Basement Stairs"
+          },
+          {
+            "yaw": -42.9,
+            "pitch": -13.9,
+            "target": "craft-room",
+            "text": "Craft Room"
+          },
+          {
+            "yaw": -72.7,
+            "pitch": -19.3,
+            "target": "basement-bath1",
+            "text": "Basement Bath"
+          },
+          {
+            "yaw": 91.4,
+            "pitch": -14.4,
+            "target": "basement-family-room",
+            "text": "Basement Family Room"
+          },
+          {
+            "yaw": 97.3,
+            "pitch": -9.2,
+            "target": "basement-garage-shop",
+            "text": "Basement Garage & Shop"
+          }
+        ]
       },
       {
         "id": "theater-room",
@@ -1494,7 +1845,7 @@
         "srcHd": "assets/panos/theater-room-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "theater"
       },
@@ -1505,7 +1856,7 @@
         "srcHd": "assets/panos/craft-room-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "craft-room"
       },
@@ -1516,7 +1867,7 @@
         "srcHd": "assets/panos/basement-bath1-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "lower-bath"
       },
@@ -1527,7 +1878,7 @@
         "srcHd": "assets/panos/basement-bath2-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1537,7 +1888,7 @@
         "srcHd": "assets/panos/basement-storage-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "utility"
       },
@@ -1548,7 +1899,7 @@
         "srcHd": "assets/panos/basement-garage-shop-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": [],
         "room": "lower-garage"
       },
@@ -1559,8 +1910,21 @@
         "srcHd": "assets/panos/deck-off-kitchen-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": [],
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 50,
+            "pitch": -10.7,
+            "target": "deck-on-bridge",
+            "text": "Deck Bridge"
+          },
+          {
+            "yaw": 105.6,
+            "pitch": -17.7,
+            "target": "kitchen-from-foyer",
+            "text": "Kitchen from Foyer"
+          }
+        ],
         "room": "patio"
       },
       {
@@ -1568,40 +1932,116 @@
         "title": "Deck off Master Bedroom",
         "src": "assets/panos/deck-off-master-bedroom.jpg",
         "srcHd": "assets/panos/deck-off-master-bedroom-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "yaw": -34.1,
+        "pitch": -3.7,
+        "hfov": 119.6,
+        "hotspots": [
+          {
+            "yaw": -144,
+            "pitch": -21.4,
+            "target": "master-bedroom",
+            "text": "Master Bedroom"
+          }
+        ]
       },
       {
         "id": "deck-on-bridge",
         "title": "Deck Bridge",
         "src": "assets/panos/deck-on-bridge.jpg",
         "srcHd": "assets/panos/deck-on-bridge-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": 151.2,
+        "pitch": -3.7,
         "hfov": 120,
-        "hotspots": []
+        "hotspots": [
+          {
+            "yaw": -94.8,
+            "pitch": -18.1,
+            "target": "deck-off-master-bedroom",
+            "text": "Deck off Master Bedroom"
+          },
+          {
+            "yaw": 100.1,
+            "pitch": -16.9,
+            "target": "deck-off-kitchen",
+            "text": "Deck off Kitchen"
+          }
+        ]
       },
       {
         "id": "front-door",
         "title": "Front Door",
         "src": "assets/panos/front-door.jpg",
         "srcHd": "assets/panos/front-door-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": 7.1,
+        "pitch": 1.2,
         "hfov": 120,
-        "hotspots": []
+        "hotspots": [
+          {
+            "yaw": -174.8,
+            "pitch": -10.6,
+            "target": "front-sidewalk",
+            "text": "Front Sidewalk"
+          },
+          {
+            "yaw": 161.4,
+            "pitch": -5.5,
+            "target": "front-circle-lower",
+            "text": "Front Circle — Lower"
+          },
+          {
+            "yaw": -148.8,
+            "pitch": -4.3,
+            "target": "front-circle-upper",
+            "text": "Front Circle — Upper"
+          },
+          {
+            "yaw": 6,
+            "pitch": -13.8,
+            "target": "foyer",
+            "text": "Foyer"
+          }
+        ]
       },
       {
         "id": "front-sidewalk",
         "title": "Front Sidewalk",
         "src": "assets/panos/front-sidewalk.jpg",
         "srcHd": "assets/panos/front-sidewalk-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": -2.1,
+        "pitch": 8.4,
         "hfov": 120,
-        "hotspots": [],
+        "hotspots": [
+          {
+            "yaw": -138,
+            "pitch": 0.5,
+            "target": "front-circle-upper",
+            "text": "Front Circle — Upper"
+          },
+          {
+            "yaw": 137.6,
+            "pitch": -6.3,
+            "target": "front-circle-lower",
+            "text": "Front Circle — Lower"
+          },
+          {
+            "yaw": -84.4,
+            "pitch": -5.1,
+            "target": "garage-doors",
+            "text": "Garage Doors"
+          },
+          {
+            "yaw": -1.6,
+            "pitch": -4.8,
+            "target": "front-door",
+            "text": "Front Door"
+          },
+          {
+            "yaw": -1.1,
+            "pitch": 25.3,
+            "target": "upstairs-bedroom-2-balcony",
+            "text": "Upstairs Bedroom 2 Balcony"
+          }
+        ],
         "room": "front"
       },
       {
@@ -1609,30 +2049,105 @@
         "title": "Front Circle — Upper",
         "src": "assets/panos/front-circle-upper.jpg",
         "srcHd": "assets/panos/front-circle-upper-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": 24.5,
+        "pitch": -1.4,
         "hfov": 120,
-        "hotspots": []
+        "hotspots": [
+          {
+            "yaw": -15.6,
+            "pitch": -9.5,
+            "target": "garage-doors",
+            "text": "Garage Doors"
+          },
+          {
+            "yaw": -10.7,
+            "pitch": -8.1,
+            "target": "garage-doors-and-pool",
+            "text": "Garage Doors & Pool"
+          },
+          {
+            "yaw": 98,
+            "pitch": -8.2,
+            "target": "front-circle-lower",
+            "text": "Front Circle — Lower"
+          },
+          {
+            "yaw": 56.4,
+            "pitch": -11.7,
+            "target": "front-sidewalk",
+            "text": "Front Sidewalk"
+          },
+          {
+            "yaw": 44.7,
+            "pitch": -8.2,
+            "target": "front-door",
+            "text": "Front Door"
+          }
+        ]
       },
       {
         "id": "front-circle-lower",
         "title": "Front Circle — Lower",
         "src": "assets/panos/front-circle-lower.jpg",
         "srcHd": "assets/panos/front-circle-lower-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "yaw": -12.2,
+        "pitch": 5.5,
+        "hfov": 114.5,
+        "hotspots": [
+          {
+            "yaw": -85.5,
+            "pitch": 2.6,
+            "target": "front-circle-upper",
+            "text": "Front Circle — Upper"
+          },
+          {
+            "yaw": -25.2,
+            "pitch": -6.2,
+            "target": "front-sidewalk",
+            "text": "Front Sidewalk"
+          },
+          {
+            "yaw": -46.3,
+            "pitch": -1.2,
+            "target": "garage-doors",
+            "text": "Garage Doors"
+          },
+          {
+            "yaw": -4.7,
+            "pitch": 13.3,
+            "target": "upstairs-bedroom-2-balcony",
+            "text": "Upstairs Bedroom 2 Balcony"
+          },
+          {
+            "yaw": -5.6,
+            "pitch": -2.1,
+            "target": "front-door",
+            "text": "Front Door"
+          }
+        ]
       },
       {
         "id": "garage-doors",
         "title": "Garage Doors",
         "src": "assets/panos/garage-doors.jpg",
         "srcHd": "assets/panos/garage-doors-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": 75.9,
+        "pitch": 5.5,
         "hfov": 120,
-        "hotspots": []
+        "hotspots": [
+          {
+            "yaw": -6.4,
+            "pitch": -11.2,
+            "target": "garage-doors-and-pool",
+            "text": "Garage Doors & Pool"
+          },
+          {
+            "yaw": 162.2,
+            "pitch": 3.9,
+            "target": "front-circle-upper",
+            "text": "Front Circle — Upper"
+          }
+        ]
       },
       {
         "id": "garage-doors-and-pool",
@@ -1641,8 +2156,27 @@
         "srcHd": "assets/panos/garage-doors-and-pool-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 47.2,
+            "pitch": -11.1,
+            "target": "back-by-basement-garage-door",
+            "text": "By the Basement Garage"
+          },
+          {
+            "yaw": 168.4,
+            "pitch": -5.4,
+            "target": "garage-doors",
+            "text": "Garage Doors"
+          },
+          {
+            "yaw": 163.4,
+            "pitch": 4.4,
+            "target": "front-circle-upper",
+            "text": "Front Circle — Upper"
+          }
+        ]
       },
       {
         "id": "back-under-deck",
@@ -1651,8 +2185,27 @@
         "srcHd": "assets/panos/back-under-deck-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -71.5,
+            "pitch": -10.2,
+            "target": "back-by-basement-garage-door",
+            "text": "By the Basement Garage"
+          },
+          {
+            "yaw": 84.5,
+            "pitch": -8.4,
+            "target": "back-hot-tub",
+            "text": "Hot Tub"
+          },
+          {
+            "yaw": 19.9,
+            "pitch": -2.9,
+            "target": "back-across-pool",
+            "text": "Across the Pool"
+          }
+        ]
       },
       {
         "id": "back-hot-tub",
@@ -1661,7 +2214,7 @@
         "srcHd": "assets/panos/back-hot-tub-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
+        "hfov": 100,
         "hotspots": []
       },
       {
@@ -1669,10 +2222,47 @@
         "title": "Across the Pool",
         "src": "assets/panos/back-across-pool.jpg",
         "srcHd": "assets/panos/back-across-pool-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 120,
-        "hotspots": [],
+        "yaw": 16.4,
+        "pitch": -7.9,
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": 57.7,
+            "pitch": -2.6,
+            "target": "back-by-basement-garage-door",
+            "text": "By the Basement Garage"
+          },
+          {
+            "yaw": -10.7,
+            "pitch": -5.5,
+            "target": "back-hot-tub",
+            "text": "Hot Tub"
+          },
+          {
+            "yaw": 31,
+            "pitch": -4.3,
+            "target": "back-under-deck",
+            "text": "Back Patio Under Deck"
+          },
+          {
+            "yaw": 11.4,
+            "pitch": 9.5,
+            "target": "deck-on-bridge",
+            "text": "Deck Bridge"
+          },
+          {
+            "yaw": -17.5,
+            "pitch": 11.3,
+            "target": "deck-off-master-bedroom",
+            "text": "Deck off Master Bedroom"
+          },
+          {
+            "yaw": 41.2,
+            "pitch": 11.1,
+            "target": "deck-off-kitchen",
+            "text": "Deck off Kitchen"
+          }
+        ],
         "room": "pool"
       },
       {
@@ -1682,8 +2272,33 @@
         "srcHd": "assets/panos/back-by-basement-garage-door-8k.jpg",
         "yaw": 0,
         "pitch": 0,
-        "hfov": 120,
-        "hotspots": []
+        "hfov": 100,
+        "hotspots": [
+          {
+            "yaw": -35.9,
+            "pitch": -11.1,
+            "target": "back-under-deck",
+            "text": "Back Patio Under Deck"
+          },
+          {
+            "yaw": -59.9,
+            "pitch": -5.7,
+            "target": "back-hot-tub",
+            "text": "Hot Tub"
+          },
+          {
+            "yaw": -108.2,
+            "pitch": -6.3,
+            "target": "back-across-pool",
+            "text": "Across the Pool"
+          },
+          {
+            "yaw": 63.1,
+            "pitch": 6,
+            "target": "garage-doors-and-pool",
+            "text": "Garage Doors & Pool"
+          }
+        ]
       }
     ]
   },
