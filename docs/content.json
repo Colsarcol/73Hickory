@@ -1131,9 +1131,9 @@
         "title": "Living Room",
         "src": "assets/panos/living-room.jpg",
         "srcHd": "assets/panos/living-room-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
+        "yaw": -167.8,
+        "pitch": -3.1,
+        "hfov": 117.8,
         "hotspots": [
           {
             "yaw": 152.1,
@@ -1164,6 +1164,18 @@
             "pitch": 6.6,
             "target": "stair-landing-going-upstairs",
             "text": "Stair Landing Going Upstairs"
+          },
+          {
+            "yaw": -130.1,
+            "pitch": 38.3,
+            "target": "upstairs-loft",
+            "text": "Upstairs Loft"
+          },
+          {
+            "yaw": 141.9,
+            "pitch": 39.2,
+            "target": "upstairs-catwalk",
+            "text": "Upstairs Catwalk"
           }
         ]
       },
@@ -1193,6 +1205,24 @@
             "pitch": -12.5,
             "target": "living-room",
             "text": "Living Room"
+          },
+          {
+            "yaw": -166.9,
+            "pitch": -11.5,
+            "target": "stairs-at-master-bedroom",
+            "text": "Stairs at Master Bedroom"
+          },
+          {
+            "yaw": -131.5,
+            "pitch": 8.2,
+            "target": "stair-landing-going-upstairs",
+            "text": "Stair Landing Going Upstairs"
+          },
+          {
+            "yaw": -178,
+            "pitch": 44.1,
+            "target": "upstairs-catwalk",
+            "text": "Upstairs Catwalk"
           }
         ],
         "room": "formal-dining"
@@ -1219,9 +1249,9 @@
         "title": "Kitchen from Foyer",
         "src": "assets/panos/kitchen-from-foyer.jpg",
         "srcHd": "assets/panos/kitchen-from-foyer-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
+        "yaw": -13.7,
+        "pitch": -8.9,
+        "hfov": 120,
         "hotspots": [
           {
             "yaw": -135.2,
@@ -1236,16 +1266,28 @@
             "text": "Foyer"
           },
           {
-            "yaw": -39.3,
-            "pitch": -20.4,
-            "target": "kitchen",
-            "text": "Kitchen"
-          },
-          {
             "yaw": 16.2,
             "pitch": -13,
             "target": "deck-off-kitchen",
             "text": "Deck off Kitchen"
+          },
+          {
+            "yaw": -50.2,
+            "pitch": -9.7,
+            "target": "hall-off-kitchen",
+            "text": "Hall off Kitchen"
+          },
+          {
+            "yaw": -47.5,
+            "pitch": -18.6,
+            "target": "kitchen",
+            "text": "Kitchen"
+          },
+          {
+            "yaw": 41.8,
+            "pitch": -32.8,
+            "target": "living-room",
+            "text": "Living Room"
           }
         ]
       },
@@ -1254,9 +1296,9 @@
         "title": "Kitchen",
         "src": "assets/panos/kitchen.jpg",
         "srcHd": "assets/panos/kitchen-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
+        "yaw": -27.7,
+        "pitch": 0.3,
+        "hfov": 120,
         "hotspots": [
           {
             "yaw": -58.5,
@@ -1296,9 +1338,9 @@
         "title": "Kitchen — Stove & Island",
         "src": "assets/panos/kitchen-between-stove-and-island.jpg",
         "srcHd": "assets/panos/kitchen-between-stove-and-island-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
+        "yaw": -63,
+        "pitch": -6.3,
+        "hfov": 120,
         "hotspots": [
           {
             "yaw": -60.6,
@@ -1311,6 +1353,12 @@
             "pitch": -26.7,
             "target": "kitchen",
             "text": "Kitchen"
+          },
+          {
+            "yaw": 168.9,
+            "pitch": -12.1,
+            "target": "deck-off-kitchen",
+            "text": "Deck off Kitchen"
           }
         ]
       },
@@ -1319,19 +1367,26 @@
         "title": "Pantry",
         "src": "assets/panos/pantry.jpg",
         "srcHd": "assets/panos/pantry-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
-        "hotspots": []
+        "yaw": 1.9,
+        "pitch": -9.9,
+        "hfov": 120,
+        "hotspots": [
+          {
+            "yaw": 8.9,
+            "pitch": -21.8,
+            "target": "hall-off-kitchen",
+            "text": "Hall off Kitchen"
+          }
+        ]
       },
       {
         "id": "hall-off-kitchen",
         "title": "Hall off Kitchen",
         "src": "assets/panos/hall-off-kitchen.jpg",
         "srcHd": "assets/panos/hall-off-kitchen-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
+        "yaw": 48.8,
+        "pitch": -8.8,
+        "hfov": 120,
         "hotspots": [
           {
             "yaw": -112,
@@ -1344,6 +1399,18 @@
             "pitch": -37.4,
             "target": "laundry-room",
             "text": "Laundry Room"
+          },
+          {
+            "yaw": 73.9,
+            "pitch": -26,
+            "target": "kitchen-between-stove-and-island",
+            "text": "Kitchen — Stove & Island"
+          },
+          {
+            "yaw": 96.4,
+            "pitch": -16,
+            "target": "kitchen",
+            "text": "Kitchen"
           }
         ]
       },
@@ -1689,6 +1756,24 @@
             "pitch": -15,
             "target": "upstairs-loft",
             "text": "Upstairs Loft"
+          },
+          {
+            "yaw": 99.9,
+            "pitch": -42.9,
+            "target": "foyer",
+            "text": "Foyer"
+          },
+          {
+            "yaw": 126.3,
+            "pitch": -40.5,
+            "target": "dining-room-entrance",
+            "text": "Dining Room Entrance"
+          },
+          {
+            "yaw": -70.1,
+            "pitch": -44.5,
+            "target": "living-room",
+            "text": "Living Room"
           }
         ],
         "room": "catwalk-den"
@@ -1796,6 +1881,12 @@
             "pitch": -44.7,
             "target": "living-room",
             "text": "Living Room"
+          },
+          {
+            "yaw": -132.2,
+            "pitch": -35.2,
+            "target": "stairs-at-master-bedroom",
+            "text": "Stairs at Master Bedroom"
           }
         ]
       },
@@ -2444,9 +2535,9 @@
         "title": "Deck off Kitchen",
         "src": "assets/panos/deck-off-kitchen.jpg",
         "srcHd": "assets/panos/deck-off-kitchen-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
+        "yaw": 69.4,
+        "pitch": -4,
+        "hfov": 120,
         "hotspots": [
           {
             "yaw": 50,
