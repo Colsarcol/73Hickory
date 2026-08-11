@@ -215,6 +215,26 @@
         </div>
       </section>` : ''}
 
+      ${c.location ? `
+      <section class="findus" id="location">
+        <div class="wrap">
+          <div class="eyebrow">Find Us</div>
+          <h2 data-edit="location.heading">${esc(c.location.heading)}</h2>
+          <div class="findus-cols">
+            <div class="findus-info">
+              <p data-edit="location.blurb">${esc(c.location.blurb)}</p>
+              <div class="findus-address" data-edit="location.address">${esc(c.location.address)}</div>
+              <a class="findus-directions" target="_blank" rel="noopener"
+                href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(c.location.address)}">Get Directions</a>
+            </div>
+            <div class="findus-map">
+              <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(c.location.address)}&z=14&output=embed"
+                loading="lazy" title="Map to ${esc(c.site.title)}" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>` : ''}
+
       <section class="contact" id="contact">
         <div class="wrap">
           <div class="card">
