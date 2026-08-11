@@ -247,7 +247,7 @@
     if (!touring) return;
     const stops = tourStops();
     touring.idx += 1;
-    if (touring.idx >= stops.length) return stopTour();
+    if (touring.idx >= stops.length) touring.idx = 0; // loop until the visitor takes over
     const stop = stops[touring.idx];
     if (viewer.getScene() === stop.id) advanceTourTimer();
     else viewer.loadScene(stop.id); // scenechange → advanceTourTimer
