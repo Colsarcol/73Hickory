@@ -1245,7 +1245,12 @@
             "text": "Upstairs Catwalk"
           }
         ],
-        "room": "formal-dining"
+        "room": "formal-dining",
+        "map": {
+          "plan": 0,
+          "x": 51.3,
+          "y": 61.3
+        }
       },
       {
         "id": "dining-room-at-bay-window",
@@ -1264,7 +1269,12 @@
             "targetYaw": -177.7,
             "targetPitch": 0.1
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 49.5,
+          "y": 76.3
+        }
       },
       {
         "id": "kitchen-from-foyer",
@@ -1313,7 +1323,12 @@
             "target": "living-room",
             "text": "Living Room"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 48.9,
+          "y": 47.1
+        }
       },
       {
         "id": "kitchen",
@@ -1451,10 +1466,34 @@
         "title": "Half Bath",
         "src": "assets/panos/half-bath.jpg",
         "srcHd": "assets/panos/half-bath-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
-        "hfov": 100,
-        "hotspots": []
+        "yaw": -122.5,
+        "pitch": -14.5,
+        "hfov": 120,
+        "hotspots": [
+          {
+            "yaw": -125.1,
+            "pitch": -37.2,
+            "target": "kitchen-from-foyer",
+            "text": "Kitchen from Foyer"
+          },
+          {
+            "yaw": -91.6,
+            "pitch": -33.7,
+            "target": "foyer",
+            "text": "Foyer"
+          },
+          {
+            "yaw": -92.5,
+            "pitch": -12,
+            "target": "living-room",
+            "text": "Living Room"
+          }
+        ],
+        "map": {
+          "plan": 0,
+          "x": 46.6,
+          "y": 54.6
+        }
       },
       {
         "id": "laundry-room",
