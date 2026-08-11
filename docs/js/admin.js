@@ -405,7 +405,25 @@
       if (cur.status === 401 || cur.status === 403) throw new Error('Token was rejected — check it in Settings.');
       if (cur.status === 404) throw new Error(`Could not find ${cfg.path} in ${cfg.repo} — check Settings.`);
       if (!cur.ok) throw new Error(`GitHub error ${cur.status}`);
-      const { sha } = await cur.json();
+      const { sha, content: remoteB64 } = await cur.json();
+
+      // Stale-tab protection: if the published content changed since this page
+      // loaded, saving would overwrite those newer edits with this tab's copy.
+      try {
+        const remoteStr = JSON.stringify(JSON.parse(decodeURIComponent(escape(atob(remoteB64.replace(/\n/g, ''))))));
+        const baseline = window.SITE.state.baseline;
+        if (baseline && remoteStr !== baseline) {
+          if (!confirm(
+            'The live site content has changed since this page was opened ' +
+            '(another tab, device, or person published edits).\n\n' +
+            'Saving now would OVERWRITE those newer changes with this tab\'s copy.\n\n' +
+            'Recommended: Cancel, refresh the page, and redo your edits.\n\nSave anyway?'
+          )) {
+            status('Save cancelled — refresh the page to pick up the latest content.');
+            return;
+          }
+        }
+      } catch { /* comparison is best-effort; never block saving on its failure */ }
 
       const json = JSON.stringify(window.SITE.state.content, null, 2);
       const body = {
@@ -420,6 +438,8 @@
         throw new Error(err.message || `GitHub error ${put.status}`);
       }
       dirty = false;
+      // what we just published is the new baseline for this tab
+      window.SITE.state.baseline = JSON.stringify(window.SITE.state.content);
       status('Saved! The live site will update in about a minute.');
     } catch (e) {
       status(`Save failed: ${e.message}`);

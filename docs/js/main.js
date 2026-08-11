@@ -299,6 +299,9 @@
     })
     .then((c) => {
       state.content = c;
+      // snapshot of what the server had at load — admin.js compares against
+      // this before publishing so a stale tab can't clobber newer content
+      state.baseline = JSON.stringify(c);
       render();
     })
     .catch((err) => {
