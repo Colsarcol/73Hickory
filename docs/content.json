@@ -1132,7 +1132,12 @@
             "text": "Stair Landing Going Upstairs"
           }
         ],
-        "room": "living-room"
+        "room": "living-room",
+        "map": {
+          "plan": 0,
+          "x": 59.7,
+          "y": 59.7
+        }
       },
       {
         "id": "living-room",
@@ -1185,7 +1190,12 @@
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 64.8,
+          "y": 31.5
+        }
       },
       {
         "id": "dining-room-entrance",
