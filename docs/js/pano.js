@@ -302,9 +302,12 @@
     if (window.innerWidth < 700) map.classList.add('collapsed');
     map.innerHTML = `
       <button class="tour-map-toggle" title="Floor plan">Map</button>
-      <div class="tour-map-body"><img alt="Floor plan"><div class="tour-map-dots"></div></div>`;
+      <div class="tour-map-body"><img alt="Floor plan"><div class="tour-map-dots"></div>
+        <button class="tour-map-expand" title="Enlarge the map">⤢</button>
+      </div>`;
     frame.appendChild(map);
     map.querySelector('.tour-map-toggle').addEventListener('click', () => map.classList.toggle('collapsed'));
+    map.querySelector('.tour-map-expand').addEventListener('click', expandMap);
     map.querySelector('.tour-map-dots').addEventListener('click', (e) => {
       const dot = e.target.closest('[data-scene]');
       if (dot && viewer) {
@@ -313,6 +316,75 @@
       }
     });
     updateMiniMap();
+  }
+
+  // full-screen map: big plan, clickable dots, tabs to switch floors
+  function expandMap() {
+    const plans = planImages();
+    let plan = mapPlan ?? 0;
+    const sc = currentScene();
+    const ov = document.createElement('div');
+    ov.className = 'map-big';
+    const close = () => {
+      document.removeEventListener('keydown', onKey);
+      ov.remove();
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+    };
+    document.addEventListener('keydown', onKey);
+    const render = () => {
+      // tabs only for actual floor plans (skip the elevation drawings)
+      const tabs = plans
+        .map((p, i) => ({ p, i }))
+        .filter(({ p }) => /plan/i.test(p.caption || ''))
+        .map(
+          ({ p, i }) =>
+            `<button class="map-big-tab${i === plan ? ' cur' : ''}" data-plan="${i}">${esc(p.caption.replace(/\s*plan\s*$/i, ''))}</button>`
+        )
+        .join('');
+      ov.innerHTML = `
+        <div class="map-big-card">
+          <div class="map-big-head">
+            <div class="map-big-tabs">${tabs}</div>
+            <button class="map-big-close" aria-label="Close map">×</button>
+          </div>
+          <div class="map-big-body">
+            <div class="map-big-imgwrap">
+            <img src="${esc(plans[plan]?.src || '')}" alt="${esc(plans[plan]?.caption || 'Floor plan')}">
+            <div class="tour-map-dots">
+              ${sceneList()
+                .filter((s) => s.map && s.map.plan === plan)
+                .map(
+                  (s) => `<span class="tour-map-dot big${s.id === sc?.id ? ' cur' : ''}" data-scene="${esc(s.id)}"
+                    style="left:${s.map.x}%;top:${s.map.y}%" data-label="${esc(s.title)}"></span>`
+                )
+                .join('')}
+            </div>
+            </div>
+          </div>
+        </div>`;
+      ov.querySelector('.map-big-close').onclick = close;
+      ov.querySelectorAll('.map-big-tab').forEach((b) =>
+        b.addEventListener('click', () => {
+          plan = Number(b.dataset.plan);
+          render();
+        })
+      );
+      ov.querySelector('.tour-map-dots').addEventListener('click', (e) => {
+        const dot = e.target.closest('[data-scene]');
+        if (dot && viewer) {
+          stopTour();
+          viewer.loadScene(dot.dataset.scene);
+          close();
+        }
+      });
+    };
+    render();
+    ov.addEventListener('click', (e) => {
+      if (e.target === ov) close();
+    });
+    document.body.appendChild(ov);
   }
 
   // which plan to show for a scene: its own map spot wins; otherwise infer

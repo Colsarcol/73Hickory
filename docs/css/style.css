@@ -863,3 +863,72 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   z-index: 3;
 }
 .tour-map-dot[data-label]:hover::after { opacity: 1; }
+
+/* enlarged map overlay */
+.tour-map-expand {
+  position: absolute;
+  bottom: 0.4rem;
+  right: 0.4rem;
+  z-index: 2;
+  font-size: 0.85rem;
+  line-height: 1;
+  border: none;
+  border-radius: 4px;
+  background: rgba(20, 14, 9, 0.75);
+  color: #f2ead9;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+}
+.tour-map-expand:hover { background: rgba(20, 14, 9, 0.95); }
+.map-big {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: rgba(20, 14, 9, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.map-big-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 1rem 1.2rem 1.2rem;
+  max-width: min(1000px, 96vw);
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.45);
+}
+.map-big-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.map-big-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.map-big-tab {
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-soft);
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+}
+.map-big-tab.cur, .map-big-tab:hover { background: var(--brick); border-color: var(--brick); color: #fff; }
+.map-big-close {
+  border: none;
+  background: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.map-big-close:hover { color: var(--brick); }
+.map-big-body { position: relative; overflow: auto; }
+.map-big-body img { max-width: 100%; max-height: calc(94vh - 6rem); display: block; margin: 0 auto; }
+.tour-map-dot.big { width: 16px; height: 16px; }
+.tour-map-dot.big.cur { width: 20px; height: 20px; }
+
+.map-big-body { text-align: center; }
+.map-big-imgwrap { position: relative; display: inline-block; }
