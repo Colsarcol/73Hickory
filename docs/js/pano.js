@@ -321,9 +321,13 @@
   function planForScene(sc) {
     if (!sc) return -1;
     if (sc.map) return sc.map.plan;
-    const g = sceneGroup(sc);
     const plans = planImages();
     const find = (re) => plans.findIndex((p) => re.test(p.caption || ''));
+    // outdoor scenes sit at a floor's level: the back yard/pool is at the
+    // walk-out basement level; drives, garages, and the front are main-level
+    if (/^back-/.test(sc.id)) return find(/lower|basement/i);
+    if (/^(front-|garage|deck)/.test(sc.id)) return find(/main/i);
+    const g = sceneGroup(sc);
     if (g === 'Main Floor') return find(/main/i);
     if (g === 'Upstairs') return find(/upper|upstairs/i);
     if (g === 'Lower Level') return find(/lower|basement/i);
