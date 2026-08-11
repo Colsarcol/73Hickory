@@ -8,6 +8,7 @@
   const LS = {
     cfg: 'hickory-admin-cfg',
     on: 'hickory-admin-on',
+    unlock: 'hickory-admin-unlock', // hash of a previously accepted passphrase
   };
 
   const getCfg = () => JSON.parse(localStorage.getItem(LS.cfg) || 'null');
@@ -33,6 +34,9 @@
 
   async function checkPass() {
     if (isOn()) return true; // already unlocked in this tab
+    // remembered from a previous correct entry in this browser; a rotated
+    // passphrase changes PASS_HASH, so stale unlocks re-prompt automatically
+    if (localStorage.getItem(LS.unlock) === PASS_HASH) return true;
     const p = prompt('Admin passphrase:');
     if (p === null) return false;
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(p.trim()));
@@ -41,6 +45,7 @@
       alert('Incorrect passphrase.');
       return false;
     }
+    localStorage.setItem(LS.unlock, hex);
     return true;
   }
 
