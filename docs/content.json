@@ -2558,6 +2558,21 @@
             "text": "Basement Stairs",
             "targetYaw": 173.1,
             "targetPitch": -11.5
+          },
+          {
+            "yaw": 21.8,
+            "pitch": -15.3,
+            "info": "Steel door with small storage area under porch"
+          },
+          {
+            "yaw": 105,
+            "pitch": -19.2,
+            "info": "Mechanical room"
+          },
+          {
+            "yaw": -78.6,
+            "pitch": -24.2,
+            "info": "Under stairs storage"
           }
         ],
         "room": "lower-living",
@@ -2681,6 +2696,16 @@
             "pitch": -12.3,
             "target": "back-under-deck",
             "text": "Back Patio Under Deck"
+          },
+          {
+            "yaw": 0.5,
+            "pitch": -6.2,
+            "info": "Steel door with small storage area under porch"
+          },
+          {
+            "yaw": -32.3,
+            "pitch": -9.2,
+            "info": "Under stairs storage"
           }
         ],
         "map": {
@@ -2807,6 +2832,11 @@
             "text": "Family Room Near Foyer",
             "targetYaw": 88.2,
             "targetPitch": -2.8
+          },
+          {
+            "yaw": 163.7,
+            "pitch": -5.1,
+            "info": "Mechanical room"
           }
         ],
         "room": "lower-bath",
