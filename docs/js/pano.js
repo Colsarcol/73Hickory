@@ -1,20 +1,27 @@
 /* 360° walkthrough (Pannellum), embedded inline (#tourViewer, rendered by
    main.js between Floor Plans and the photo tour). Scenes live in
    content.json at tour.scenes:
-     { id, title, src, yaw?, pitch?, hfov?, room?,
-       hotspots?: [{yaw, pitch, target, text}] }
-   `target` is another scene's id — hotspots walk between scenes. A scene
-   with a `room` id gives that room its "View in 360°" button.
+     { id, title, src, srcHd?, yaw?, pitch?, hfov?, room?,
+       map?: {plan, x, y},          // dot on floorplans.images[plan], % coords
+       hotspots?: [
+         {yaw, pitch, target, text, targetYaw?, targetPitch?}  // nav arrow
+         | {yaw, pitch, info}                                  // info note
+       ] }
+   `target` is another scene's id — arrows walk between scenes. A scene with
+   a `room` id gives that room its "View in 360°" button; room-tagged scenes
+   also form the guided-tour playlist, in list order.
 
-   Admin mode adds authoring on top of the viewer:
-   - "Set start view" saves the current camera angles as the room's opening view
-   - "+ Arrow" then a click in the panorama places a doorway hotspot
-   - clicking an existing arrow offers Follow / Remove
-   While `tour.draft` is true, main.js hides the section from visitors. */
+   Visitor UI: scene dropdown, arrows on/off toggle, guided tour play,
+   floor-plan mini-map. Admin adds authoring: start views, arrows (+arrival
+   views), info notes, and map spots. While `tour.draft` is true, main.js
+   hides the section from visitors. */
 (() => {
   let viewer = null;
   let addingArrow = false;
+  let addingInfo = false;
   let arrivalEdit = null; // {ownerId, hi} while authoring an arrow's arrival view
+  let touring = null; // {idx, timer} while the guided tour is playing
+  let mapPlan = null; // plan index currently shown in the mini-map
 
   const esc = (s) =>
     String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -45,6 +52,15 @@
   const sceneById = (id) => sceneList().find((s) => s.id === id);
   const currentScene = () => (viewer ? sceneById(viewer.getScene()) : null);
 
+  // rough floor grouping for the scene dropdown, inferred from scene ids
+  function sceneGroup(sc) {
+    const id = sc.id;
+    if (/^(upstairs|stair-landing)/.test(id)) return 'Upstairs';
+    if (/^(basement|theater-room|craft-room)/.test(id)) return 'Lower Level';
+    if (/^(back-|front-|garage|deck)/.test(id)) return 'Outdoors';
+    return 'Main Floor';
+  }
+
   function buildScenes() {
     const out = {};
     sceneList().forEach((sc) => {
@@ -56,6 +72,11 @@
         pitch: sc.pitch || 0,
         hfov: sc.hfov || 120,
         hotSpots: (sc.hotspots || []).map((h, hi) => {
+          if (h.info != null) {
+            const spot = { yaw: h.yaw, pitch: h.pitch || 0, type: 'info', text: h.info };
+            if (isAdmin()) spot.clickHandlerFunc = (e) => manageInfo(e, sc, hi);
+            return spot;
+          }
           const spot = {
             yaw: h.yaw,
             pitch: h.pitch || 0,
@@ -90,6 +111,7 @@
   function init(startScene) {
     const el = document.getElementById('tourViewer');
     if (!el || typeof pannellum === 'undefined') return;
+    stopTour();
     const cap = hfovCapFor(el);
     const scenes = buildScenes();
     Object.values(scenes).forEach((s) => (s.hfov = Math.min(s.hfov, cap)));
@@ -107,8 +129,8 @@
       },
       scenes,
     });
-    viewer.on('scenechange', (id) => setLabel(scenes[id]?.roomTitle));
-    setLabel(scenes[first].roomTitle);
+    viewer.on('scenechange', (id) => onSceneChange(id));
+    onSceneChange(first);
     // Ctrl+scroll zooms the panorama; bare scroll keeps normal page flow.
     // Wheel input moves a target and the view glides toward it each frame —
     // per-event steps (instant or tweened) both feel jumpy.
@@ -138,10 +160,24 @@
       },
       { passive: false }
     );
+    // any manual interaction ends the guided tour
+    el.addEventListener('pointerdown', () => stopTour());
+    const frame = el.closest('.tour-frame');
+    ensureTourNav(frame);
+    ensureMiniMap(frame);
     if (isAdmin()) {
-      ensureEditorBar(el.closest('.tour-frame'));
+      ensureEditorBar(frame);
       el.addEventListener('mouseup', onPanoClick);
     }
+  }
+
+  function onSceneChange(id) {
+    const sc = sceneById(id);
+    setLabel(sc?.title);
+    const sel = document.querySelector('.tour-nav select');
+    if (sel && sel.value !== id) sel.value = id;
+    updateMiniMap();
+    if (touring) advanceTourTimer();
   }
 
   function setLabel(t) {
@@ -158,6 +194,162 @@
     }
   }
 
+  /* ---------- visitor nav: dropdown, arrows toggle, guided tour ---------- */
+  function ensureTourNav(frame) {
+    if (!frame || frame.querySelector('.tour-nav')) return;
+    const nav = document.createElement('div');
+    nav.className = 'tour-nav';
+    const groups = {};
+    sceneList().forEach((sc) => (groups[sceneGroup(sc)] ??= []).push(sc));
+    nav.innerHTML = `
+      <button class="tour-play" title="Play a guided tour of the main rooms">▶ Tour</button>
+      <select title="Jump to a scene">
+        ${Object.entries(groups)
+          .map(
+            ([g, list]) => `<optgroup label="${esc(g)}">
+              ${list.map((sc) => `<option value="${esc(sc.id)}">${esc(sc.title)}</option>`).join('')}
+            </optgroup>`
+          )
+          .join('')}
+      </select>
+      <button class="tour-arrows" title="Hide or show the navigation arrows">Arrows: on</button>`;
+    frame.appendChild(nav);
+    nav.querySelector('select').addEventListener('change', (e) => {
+      stopTour();
+      if (viewer && viewer.getScene() !== e.target.value) viewer.loadScene(e.target.value);
+    });
+    nav.querySelector('.tour-arrows').addEventListener('click', (e) => {
+      const off = frame.classList.toggle('arrows-off');
+      e.target.textContent = off ? 'Arrows: off' : 'Arrows: on';
+    });
+    nav.querySelector('.tour-play').addEventListener('click', () => (touring ? stopTour() : startTour()));
+  }
+
+  /* ---------- guided tour ---------- */
+  const TOUR_DWELL_MS = 8000;
+  const tourStops = () => sceneList().filter((s) => s.room);
+
+  function startTour() {
+    const stops = tourStops();
+    if (!viewer || !stops.length) return;
+    const curIdx = stops.findIndex((s) => s.id === viewer.getScene());
+    touring = { idx: curIdx >= 0 ? curIdx : -1, timer: 0, rotTimer: 0 };
+    const btn = document.querySelector('.tour-play');
+    if (btn) btn.textContent = '■ Stop';
+    nextTourStop();
+  }
+
+  function preloadStop(stop) {
+    if (stop) new Image().src = useHd() && stop.srcHd ? stop.srcHd : stop.src;
+  }
+
+  function nextTourStop() {
+    if (!touring) return;
+    const stops = tourStops();
+    touring.idx += 1;
+    if (touring.idx >= stops.length) return stopTour();
+    const stop = stops[touring.idx];
+    if (viewer.getScene() === stop.id) advanceTourTimer();
+    else viewer.loadScene(stop.id); // scenechange → advanceTourTimer
+  }
+
+  // Pan as ONE pannellum-native animated yaw move covering the dwell —
+  // its internal render loop is the smooth path. Driving setYaw per-frame
+  // from an external rAF loop stutters (two competing animation loops), and
+  // startAutoRotate can't be used: it re-targets pitch and zoom (a 3s
+  // lookAt), which reads as unwanted zooming. Only yaw animates here.
+  const PAN_TOTAL_DEG = 28;
+  function startPan() {
+    if (!touring || !viewer) return;
+    const yaw = viewer.getYaw();
+    // pick the direction that avoids animating across the ±180° seam
+    const target = yaw - PAN_TOTAL_DEG >= -180 ? yaw - PAN_TOTAL_DEG : yaw + PAN_TOTAL_DEG;
+    viewer.setYaw(target, TOUR_DWELL_MS - 1200);
+  }
+
+  function advanceTourTimer() {
+    if (!touring) return;
+    clearTimeout(touring.timer);
+    clearTimeout(touring.rotTimer);
+    // let the crossfade finish before panning — rotating mid-fade janks
+    touring.rotTimer = setTimeout(startPan, 900);
+    touring.timer = setTimeout(() => nextTourStop(), TOUR_DWELL_MS);
+    // warm the next stop's image during the dwell so the switch is instant
+    preloadStop(tourStops()[touring.idx + 1]);
+  }
+
+  function stopTour() {
+    if (!touring) return;
+    clearTimeout(touring.timer);
+    clearTimeout(touring.rotTimer);
+    touring = null;
+    // freeze the in-flight pan where it is
+    if (viewer) viewer.setYaw(viewer.getYaw(), false);
+    const btn = document.querySelector('.tour-play');
+    if (btn) btn.textContent = '▶ Tour';
+  }
+
+  /* ---------- floor-plan mini-map ---------- */
+  function planImages() {
+    return content()?.floorplans?.images || [];
+  }
+
+  function ensureMiniMap(frame) {
+    if (!frame || frame.querySelector('.tour-map')) return;
+    if (!sceneList().some((s) => s.map)) return; // nothing placed yet
+    const map = document.createElement('div');
+    map.className = 'tour-map';
+    if (window.innerWidth < 700) map.classList.add('collapsed');
+    map.innerHTML = `
+      <button class="tour-map-toggle" title="Floor plan">Map</button>
+      <div class="tour-map-body"><img alt="Floor plan"><div class="tour-map-dots"></div></div>`;
+    frame.appendChild(map);
+    map.querySelector('.tour-map-toggle').addEventListener('click', () => map.classList.toggle('collapsed'));
+    map.querySelector('.tour-map-dots').addEventListener('click', (e) => {
+      const dot = e.target.closest('[data-scene]');
+      if (dot && viewer) {
+        stopTour();
+        viewer.loadScene(dot.dataset.scene);
+      }
+    });
+    updateMiniMap();
+  }
+
+  // which plan to show for a scene: its own map spot wins; otherwise infer
+  // the floor from the scene grouping so the map flips floors even for
+  // scenes that haven't been pinned yet. Outdoor scenes keep the last plan.
+  function planForScene(sc) {
+    if (!sc) return -1;
+    if (sc.map) return sc.map.plan;
+    const g = sceneGroup(sc);
+    const plans = planImages();
+    const find = (re) => plans.findIndex((p) => re.test(p.caption || ''));
+    if (g === 'Main Floor') return find(/main/i);
+    if (g === 'Upstairs') return find(/upper|upstairs/i);
+    if (g === 'Lower Level') return find(/lower|basement/i);
+    return -1;
+  }
+
+  function updateMiniMap() {
+    const map = document.querySelector('.tour-map');
+    if (!map) return;
+    const sc = currentScene();
+    const inferred = planForScene(sc);
+    if (inferred >= 0) mapPlan = inferred;
+    if (mapPlan == null) mapPlan = sceneList().find((s) => s.map)?.map.plan;
+    const plan = planImages()[mapPlan];
+    if (!plan) return;
+    const img = map.querySelector('img');
+    if (!img.src.endsWith(plan.src)) img.src = plan.src;
+    map.querySelector('.tour-map-dots').innerHTML = sceneList()
+      .filter((s) => s.map && s.map.plan === mapPlan)
+      .map(
+        (s) => `<span class="tour-map-dot${s.id === sc?.id ? ' cur' : ''}" data-scene="${esc(s.id)}"
+          style="left:${s.map.x}%;top:${s.map.y}%" title="${esc(s.title)}"></span>`
+      )
+      .join('');
+  }
+
   /* ---------- admin authoring ---------- */
   const dirty = () => window.SITE_ADMIN?.markDirty?.();
   const status = (m) => window.SITE_ADMIN?.status?.(m);
@@ -169,12 +361,16 @@
     bar.innerHTML = `
       <button data-pact="start" title="Save the current view as this room's opening view">Set start view</button>
       <button data-pact="arrow" title="Place a doorway arrow">+ Arrow</button>
-      <span class="pano-edit-hint">Drag to the view you want, then “Set start view”. “+ Arrow”, then click a doorway. Click an arrow to follow or remove it.</span>`;
+      <button data-pact="info" title="Place an info note">+ Info</button>
+      <button data-pact="mapspot" title="Place this scene on a floor plan">Map spot</button>
+      <span class="pano-edit-hint">Set start view · “+ Arrow”/“+ Info” then click the spot · click an arrow or note to manage it.</span>`;
     frame.appendChild(bar);
     bar.addEventListener('click', (e) => {
       const act = e.target.dataset?.pact;
       if (act === 'start') setStartView();
       else if (act === 'arrow') startAddArrow();
+      else if (act === 'info') startAddInfo();
+      else if (act === 'mapspot') mapDialog();
       else if (act === 'arrivalSave') saveArrivalView();
       else if (act === 'arrivalCancel') {
         arrivalEdit = null;
@@ -205,29 +401,181 @@
       return;
     }
     addingArrow = true;
+    addingInfo = false;
     status('Now click the doorway in the panorama…');
   }
 
-  function onPanoClick(e) {
-    if (!addingArrow || !viewer) return;
+  function startAddInfo() {
+    if (!currentScene()) return;
+    addingInfo = true;
     addingArrow = false;
+    status('Now click where the info note should sit…');
+  }
+
+  function onPanoClick(e) {
+    if ((!addingArrow && !addingInfo) || !viewer) return;
+    const wasArrow = addingArrow;
+    addingArrow = addingInfo = false;
     const sc = currentScene();
     const [pitch, yaw] = viewer.mouseEventToCoords(e);
-    chooseDestination(sc).then((dest) => {
-      if (!dest) {
-        status('Arrow cancelled.');
-        return;
-      }
-      (sc.hotspots ??= []).push({
-        yaw: +yaw.toFixed(1),
-        pitch: +pitch.toFixed(1),
-        target: dest.id,
-        text: dest.title,
+    if (wasArrow) {
+      chooseDestination(sc).then((dest) => {
+        if (!dest) {
+          status('Arrow cancelled.');
+          return;
+        }
+        (sc.hotspots ??= []).push({
+          yaw: +yaw.toFixed(1),
+          pitch: +pitch.toFixed(1),
+          target: dest.id,
+          text: dest.title,
+        });
+        dirty();
+        rebuildKeepingView(sc.id);
+        status(`Arrow to ${dest.title} added.`);
       });
-      dirty();
-      rebuildKeepingView(sc.id);
-      status(`Arrow to ${dest.title} added.`);
+    } else {
+      textDialog('Info note', 'What should this note say?', '').then((text) => {
+        if (!text) {
+          status('Info note cancelled.');
+          return;
+        }
+        (sc.hotspots ??= []).push({ yaw: +yaw.toFixed(1), pitch: +pitch.toFixed(1), info: text });
+        dirty();
+        rebuildKeepingView(sc.id);
+        status('Info note added.');
+      });
+    }
+  }
+
+  function textDialog(title, label, value) {
+    return new Promise((resolve) => {
+      const dlg = document.createElement('div');
+      dlg.className = 'dlg-overlay';
+      dlg.innerHTML = `
+        <div class="updlg-card">
+          <h3>${esc(title)}</h3>
+          <label>${esc(label)} <input type="text" value="${esc(value)}"></label>
+          <div class="updlg-actions">
+            <button class="ghost" data-act="cancel">Cancel</button>
+            <button data-act="ok">Save</button>
+          </div>
+        </div>`;
+      document.body.appendChild(dlg);
+      const input = dlg.querySelector('input');
+      input.focus();
+      dlg.querySelector('[data-act="cancel"]').onclick = () => {
+        dlg.remove();
+        resolve(null);
+      };
+      dlg.querySelector('[data-act="ok"]').onclick = () => {
+        const v = input.value.trim();
+        dlg.remove();
+        resolve(v || null);
+      };
     });
+  }
+
+  function manageInfo(e, scene, hi) {
+    e?.stopPropagation?.();
+    const h = scene.hotspots?.[hi];
+    if (!h) return;
+    const dlg = document.createElement('div');
+    dlg.className = 'dlg-overlay';
+    dlg.innerHTML = `
+      <div class="updlg-card">
+        <h3>Info note</h3>
+        <p class="updlg-note">“${esc(h.info)}”</p>
+        <div class="updlg-actions">
+          <button class="ghost" data-act="cancel">Cancel</button>
+          <button class="ghost" data-act="remove">Remove</button>
+          <button data-act="edit">Edit text</button>
+        </div>
+      </div>`;
+    document.body.appendChild(dlg);
+    dlg.querySelector('[data-act="cancel"]').onclick = () => dlg.remove();
+    dlg.querySelector('[data-act="remove"]').onclick = () => {
+      dlg.remove();
+      scene.hotspots.splice(hi, 1);
+      dirty();
+      rebuildKeepingView(scene.id);
+      status('Info note removed.');
+    };
+    dlg.querySelector('[data-act="edit"]').onclick = () => {
+      dlg.remove();
+      textDialog('Info note', 'Note text', h.info).then((text) => {
+        if (!text) return;
+        h.info = text;
+        dirty();
+        rebuildKeepingView(scene.id);
+        status('Info note updated.');
+      });
+    };
+  }
+
+  function mapDialog() {
+    const sc = currentScene();
+    if (!sc) return;
+    const plans = planImages();
+    const cur = sc.map || { plan: mapPlan ?? 0, x: null, y: null };
+    const dlg = document.createElement('div');
+    dlg.className = 'dlg-overlay';
+    dlg.innerHTML = `
+      <div class="updlg-card updlg-wide">
+        <h3>Map spot — ${esc(sc.title)}</h3>
+        <label>Floor plan
+          <select>${plans
+            .map((p, i) => `<option value="${i}" ${i === cur.plan ? 'selected' : ''}>${esc(p.caption)}</option>`)
+            .join('')}</select>
+        </label>
+        <div class="mapdlg-imgwrap"><img src="${esc(plans[cur.plan]?.src || '')}" alt="">
+          <span class="tour-map-dot cur" ${cur.x == null ? 'hidden' : `style="left:${cur.x}%;top:${cur.y}%"`}></span>
+        </div>
+        <p class="updlg-note">Click the plan where this scene was shot.</p>
+        <div class="updlg-actions">
+          <button class="ghost" data-act="cancel">Cancel</button>
+          ${sc.map ? '<button class="ghost" data-act="clear">Remove spot</button>' : ''}
+          <button data-act="ok" ${cur.x == null ? 'disabled' : ''}>Save spot</button>
+        </div>
+      </div>`;
+    document.body.appendChild(dlg);
+    const img = dlg.querySelector('img');
+    const dot = dlg.querySelector('.tour-map-dot');
+    const okBtn = dlg.querySelector('[data-act="ok"]');
+    let pick = { plan: cur.plan, x: cur.x, y: cur.y };
+    dlg.querySelector('select').addEventListener('change', (e) => {
+      pick = { plan: Number(e.target.value), x: null, y: null };
+      img.src = plans[pick.plan].src;
+      dot.hidden = true;
+      okBtn.disabled = true;
+    });
+    img.addEventListener('click', (e) => {
+      const r = img.getBoundingClientRect();
+      pick.x = +(((e.clientX - r.left) / r.width) * 100).toFixed(1);
+      pick.y = +(((e.clientY - r.top) / r.height) * 100).toFixed(1);
+      dot.style.left = `${pick.x}%`;
+      dot.style.top = `${pick.y}%`;
+      dot.hidden = false;
+      okBtn.disabled = false;
+    });
+    dlg.querySelector('[data-act="cancel"]').onclick = () => dlg.remove();
+    dlg.querySelector('[data-act="clear"]')?.addEventListener('click', () => {
+      dlg.remove();
+      delete sc.map;
+      dirty();
+      updateMiniMap();
+      status('Map spot removed.');
+    });
+    okBtn.onclick = () => {
+      dlg.remove();
+      sc.map = pick;
+      mapPlan = pick.plan;
+      dirty();
+      const frame = document.querySelector('.tour-frame');
+      if (!frame.querySelector('.tour-map')) ensureMiniMap(frame);
+      updateMiniMap();
+      status(`Map spot saved for ${sc.title}.`);
+    };
   }
 
   function chooseDestination(fromScene) {

@@ -766,3 +766,80 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
 }
 
 .updlg-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: -0.4rem; }
+
+/* ---------- tour visitor nav ---------- */
+.tour-nav {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  z-index: 6;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+.tour-nav button, .tour-nav select {
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background: rgba(20, 14, 9, 0.8);
+  color: #f2ead9;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  max-width: 180px;
+}
+.tour-nav button:hover, .tour-nav select:hover { background: rgba(20, 14, 9, 0.95); }
+.arrows-off .pnlm-hotspot.pnlm-scene { display: none; }
+
+/* ---------- floor-plan mini-map ---------- */
+.tour-map {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 6;
+  width: min(240px, 42%);
+}
+.tour-map-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  font-size: 0.72rem;
+  border: none;
+  border-radius: 4px;
+  background: rgba(20, 14, 9, 0.8);
+  color: #f2ead9;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+}
+.tour-map-body {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+.tour-map-body img { width: 100%; display: block; }
+.tour-map.collapsed .tour-map-body { display: none; }
+.tour-map-dots { position: absolute; inset: 0; }
+.tour-map-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(140, 63, 46, 0.55);
+  border: 1.5px solid #fff;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.tour-map-dot:hover { background: var(--bronze); }
+.tour-map-dot.cur {
+  background: var(--brick);
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 0 4px rgba(140, 63, 46, 0.3);
+}
+
+/* map-spot authoring dialog */
+.updlg-wide { width: min(560px, 100%); }
+.mapdlg-imgwrap { position: relative; cursor: crosshair; }
+.mapdlg-imgwrap img { width: 100%; display: block; border-radius: 6px; }
