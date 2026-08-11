@@ -3044,7 +3044,12 @@
             "target": "foyer",
             "text": "Foyer"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 59.6,
+          "y": 73.7
+        }
       },
       {
         "id": "front-sidewalk",
@@ -3085,7 +3090,12 @@
             "target": "upstairs-bedroom-2-balcony",
             "text": "Upstairs Bedroom 2 Balcony"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 59.4,
+          "y": 95.8
+        }
       },
       {
         "id": "front-circle-upper",
@@ -3126,7 +3136,12 @@
             "target": "front-door",
             "text": "Front Door"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 5,
+          "y": 97.9
+        }
       },
       {
         "id": "front-circle-lower",
@@ -3168,7 +3183,12 @@
             "text": "Front Door"
           }
         ],
-        "room": "front"
+        "room": "front",
+        "map": {
+          "plan": 0,
+          "x": 82.8,
+          "y": 97.9
+        }
       },
       {
         "id": "garage-doors",
@@ -3191,15 +3211,20 @@
             "target": "front-circle-upper",
             "text": "Front Circle — Upper"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 2.6,
+          "y": 75.6
+        }
       },
       {
         "id": "garage-doors-and-pool",
         "title": "Garage Doors & Pool",
         "src": "assets/panos/garage-doors-and-pool.jpg",
         "srcHd": "assets/panos/garage-doors-and-pool-8k.jpg",
-        "yaw": 0,
-        "pitch": 0,
+        "yaw": 46.1,
+        "pitch": -1.5,
         "hfov": 100,
         "hotspots": [
           {
@@ -3220,7 +3245,12 @@
             "target": "front-circle-upper",
             "text": "Front Circle — Upper"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 4.4,
+          "y": 47.8
+        }
       },
       {
         "id": "back-under-deck",
