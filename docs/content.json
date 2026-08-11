@@ -1374,7 +1374,12 @@
             "text": "Deck off Kitchen"
           }
         ],
-        "room": "kitchen"
+        "room": "kitchen",
+        "map": {
+          "plan": 0,
+          "x": 39.6,
+          "y": 37.8
+        }
       },
       {
         "id": "kitchen-between-stove-and-island",
@@ -1405,7 +1410,12 @@
             "target": "deck-off-kitchen",
             "text": "Deck off Kitchen"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 31.1,
+          "y": 31
+        }
       },
       {
         "id": "pantry",
@@ -1422,7 +1432,12 @@
             "target": "hall-off-kitchen",
             "text": "Hall off Kitchen"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 18.4,
+          "y": 41.8
+        }
       },
       {
         "id": "hall-off-kitchen",
@@ -1459,7 +1474,12 @@
             "target": "kitchen",
             "text": "Kitchen"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 23.1,
+          "y": 39.7
+        }
       },
       {
         "id": "half-bath",
@@ -1519,7 +1539,12 @@
             "text": "Kitchen"
           }
         ],
-        "room": "laundry"
+        "room": "laundry",
+        "map": {
+          "plan": 0,
+          "x": 22.5,
+          "y": 31
+        }
       },
       {
         "id": "stairs-at-master-bedroom",
@@ -1566,7 +1591,12 @@
             "target": "kitchen-from-foyer",
             "text": "Kitchen from Foyer"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 68.3,
+          "y": 49.5
+        }
       },
       {
         "id": "master-bedroom",
@@ -1610,7 +1640,12 @@
             "targetPitch": -1.6
           }
         ],
-        "room": "master-bedroom"
+        "room": "master-bedroom",
+        "map": {
+          "plan": 0,
+          "x": 77.3,
+          "y": 47.8
+        }
       },
       {
         "id": "master-bath-at-shower",
@@ -1648,7 +1683,12 @@
             "targetPitch": -1.1
           }
         ],
-        "room": "master-bathroom"
+        "room": "master-bathroom",
+        "map": {
+          "plan": 0,
+          "x": 81.3,
+          "y": 61.3
+        }
       },
       {
         "id": "master-bath-past-shower",
@@ -1704,7 +1744,12 @@
             "target": "master-closet-his",
             "text": "Master Closet — His"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 83,
+          "y": 73.9
+        }
       },
       {
         "id": "master-closet-hers",
@@ -1723,7 +1768,12 @@
             "targetYaw": -4.5,
             "targetPitch": -0.3
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 86.4,
+          "y": 60.6
+        }
       },
       {
         "id": "master-closet-his",
@@ -1748,7 +1798,12 @@
             "targetYaw": 156.2,
             "targetPitch": -6.3
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 75.6,
+          "y": 54.8
+        }
       },
       {
         "id": "stair-landing-going-upstairs",
@@ -1789,7 +1844,12 @@
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 84,
+          "y": 73.6
+        }
       },
       {
         "id": "upstairs-catwalk",
@@ -1867,7 +1927,12 @@
             "text": "Living Room"
           }
         ],
-        "room": "catwalk-den"
+        "room": "catwalk-den",
+        "map": {
+          "plan": 1,
+          "x": 70.6,
+          "y": 46.5
+        }
       },
       {
         "id": "upstairs-by-doors-and-loft",
@@ -1928,7 +1993,12 @@
             "target": "upstairs-bath-shower",
             "text": "Upstairs Bath Shower"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 43.5,
+          "y": 45.2
+        }
       },
       {
         "id": "upstairs-loft",
@@ -1981,7 +2051,12 @@
             "target": "stairs-at-master-bedroom",
             "text": "Stairs at Master Bedroom"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 44.5,
+          "y": 15.1
+        }
       },
       {
         "id": "upstairs-bedroom-1",
@@ -2017,7 +2092,12 @@
             "text": "Upstairs Catwalk"
           }
         ],
-        "room": "first-bedroom"
+        "room": "first-bedroom",
+        "map": {
+          "plan": 1,
+          "x": 30,
+          "y": 32.4
+        }
       },
       {
         "id": "upstairs-bedroom-1-closet",
@@ -2046,7 +2126,12 @@
             "target": "upstairs-by-doors-and-loft",
             "text": "Upstairs by Doors and Loft"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 19.9,
+          "y": 35.8
+        }
       },
       {
         "id": "upstairs-bedroom-2",
@@ -2088,7 +2173,12 @@
             "text": "Upstairs Bedroom 1"
           }
         ],
-        "room": "patio-bedroom"
+        "room": "patio-bedroom",
+        "map": {
+          "plan": 1,
+          "x": 42.7,
+          "y": 66.2
+        }
       },
       {
         "id": "upstairs-bedroom-2-balcony",
@@ -2129,7 +2219,12 @@
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 70,
+          "y": 87.5
+        }
       },
       {
         "id": "upstairs-bedroom-2-closet",
@@ -2152,7 +2247,12 @@
             "target": "upstairs-bedroom-2",
             "text": "Upstairs Bedroom 2"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 54.5,
+          "y": 61.5
+        }
       },
       {
         "id": "upstairs-bath-sinks",
@@ -2200,7 +2300,12 @@
             "text": "Stair Landing Going Upstairs"
           }
         ],
-        "room": "upstairs-bath"
+        "room": "upstairs-bath",
+        "map": {
+          "plan": 1,
+          "x": 26.6,
+          "y": 48.2
+        }
       },
       {
         "id": "upstairs-bath-shower",
@@ -2233,7 +2338,12 @@
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 17,
+          "y": 47.2
+        }
       },
       {
         "id": "upstairs-bonus-room",
@@ -2269,7 +2379,12 @@
             "text": "Upstairs by Doors and Loft"
           }
         ],
-        "room": "bonus-room"
+        "room": "bonus-room",
+        "map": {
+          "plan": 1,
+          "x": 18.9,
+          "y": 80.5
+        }
       },
       {
         "id": "upstairs-bonus-room-closet",
@@ -2296,7 +2411,9 @@
             "yaw": -169.8,
             "pitch": -23.6,
             "target": "upstairs-bonus-room",
-            "text": "Upstairs Bonus Room"
+            "text": "Upstairs Bonus Room",
+            "targetYaw": -35.2,
+            "targetPitch": -3.3
           },
           {
             "yaw": 49.2,
@@ -2304,7 +2421,12 @@
             "target": "upstairs-bedroom-1-closet",
             "text": "Upstairs Bedroom 1 Closet"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 1.1,
+          "y": 55.7
+        }
       },
       {
         "id": "upstairs-bonus-room-front-attic",
@@ -2321,7 +2443,12 @@
             "target": "upstairs-bonus-room",
             "text": "Upstairs Bonus Room"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 22.3,
+          "y": 92.7
+        }
       },
       {
         "id": "upstairs-bonus-room-high-full-attic",
@@ -2338,7 +2465,12 @@
             "target": "upstairs-bonus-room",
             "text": "Upstairs Bonus Room"
           }
-        ]
+        ],
+        "map": {
+          "plan": 1,
+          "x": 24.6,
+          "y": 60
+        }
       },
       {
         "id": "basement-stairs",
@@ -2377,7 +2509,12 @@
             "target": "theater-room",
             "text": "Theater Room"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 67.3,
+          "y": 67.3
+        }
       },
       {
         "id": "basement-foyer",
@@ -2421,7 +2558,12 @@
             "targetPitch": -11.5
           }
         ],
-        "room": "lower-living"
+        "room": "lower-living",
+        "map": {
+          "plan": 2,
+          "x": 63.6,
+          "y": 54.5
+        }
       },
       {
         "id": "basement-family-room",
@@ -2464,7 +2606,12 @@
             "target": "basement-garage-shop",
             "text": "Basement Garage & Shop"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 43.3,
+          "y": 36.5
+        }
       },
       {
         "id": "basement-family-room-near-foyer",
@@ -2533,7 +2680,12 @@
             "target": "back-under-deck",
             "text": "Back Patio Under Deck"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 62.6,
+          "y": 34.7
+        }
       },
       {
         "id": "theater-room",
@@ -2559,7 +2711,12 @@
             "text": "Craft Room"
           }
         ],
-        "room": "theater"
+        "room": "theater",
+        "map": {
+          "plan": 2,
+          "x": 47.8,
+          "y": 61
+        }
       },
       {
         "id": "craft-room",
@@ -2613,7 +2770,12 @@
             "text": "Back Patio Under Deck"
           }
         ],
-        "room": "craft-room"
+        "room": "craft-room",
+        "map": {
+          "plan": 2,
+          "x": 75.4,
+          "y": 52.5
+        }
       },
       {
         "id": "basement-bath1",
@@ -2645,7 +2807,12 @@
             "targetPitch": -2.8
           }
         ],
-        "room": "lower-bath"
+        "room": "lower-bath",
+        "map": {
+          "plan": 2,
+          "x": 78.3,
+          "y": 40
+        }
       },
       {
         "id": "basement-bath2",
@@ -2670,7 +2837,12 @@
             "target": "basement-family-room-near-foyer",
             "text": "Family Room Near Foyer"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 84.6,
+          "y": 40.2
+        }
       },
       {
         "id": "basement-storage",
@@ -2688,7 +2860,12 @@
             "text": "Craft Room"
           }
         ],
-        "room": "utility"
+        "room": "utility",
+        "map": {
+          "plan": 2,
+          "x": 79.7,
+          "y": 68.7
+        }
       },
       {
         "id": "basement-garage-shop",
@@ -2714,7 +2891,12 @@
             "targetPitch": -12.6
           }
         ],
-        "room": "lower-garage"
+        "room": "lower-garage",
+        "map": {
+          "plan": 2,
+          "x": 23.9,
+          "y": 40.2
+        }
       },
       {
         "id": "deck-off-kitchen",
@@ -2746,7 +2928,12 @@
             "text": "By the Basement Garage"
           }
         ],
-        "room": "patio"
+        "room": "patio",
+        "map": {
+          "plan": 0,
+          "x": 39.4,
+          "y": 12.2
+        }
       },
       {
         "id": "deck-off-master-bedroom",
@@ -2783,7 +2970,12 @@
             "target": "back-across-pool",
             "text": "Across the Pool"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 83,
+          "y": 25.7
+        }
       },
       {
         "id": "deck-on-bridge",
@@ -2812,7 +3004,12 @@
             "target": "back-across-pool",
             "text": "Across the Pool"
           }
-        ]
+        ],
+        "map": {
+          "plan": 0,
+          "x": 61.6,
+          "y": 21
+        }
       },
       {
         "id": "front-door",
@@ -3052,7 +3249,12 @@
             "target": "back-across-pool",
             "text": "Across the Pool"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 42.9,
+          "y": 20.8
+        }
       },
       {
         "id": "back-hot-tub",
@@ -3087,7 +3289,12 @@
             "target": "back-by-basement-garage-door",
             "text": "By the Basement Garage"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 79.7,
+          "y": 28
+        }
       },
       {
         "id": "back-across-pool",
@@ -3135,7 +3342,12 @@
             "text": "Deck off Kitchen"
           }
         ],
-        "room": "pool"
+        "room": "pool",
+        "map": {
+          "plan": 2,
+          "x": 69.1,
+          "y": 1.4
+        }
       },
       {
         "id": "back-by-basement-garage-door",
@@ -3194,7 +3406,12 @@
             "target": "deck-off-master-bedroom",
             "text": "Deck off Master Bedroom"
           }
-        ]
+        ],
+        "map": {
+          "plan": 2,
+          "x": 20.1,
+          "y": 3.2
+        }
       }
     ]
   },
