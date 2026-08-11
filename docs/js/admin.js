@@ -350,13 +350,27 @@
           const base = `pano-${Date.now()}-${slug}`;
           const rel = `assets/panos/${base}.jpg`;
           await ghPutFile(cfg, `docs/${rel}`, web.blob, `Upload 360 panorama via admin panel: ${base}`);
+          // 8192px HD copy is best-effort — some browsers (Safari) cap canvas
+          // size below what it needs; the 4096 copy always works
+          let relHd = null;
+          try {
+            const hd = await resizeToJpeg(file, 8192, 0.8);
+            relHd = `assets/panos/${base}-8k.jpg`;
+            await ghPutFile(cfg, `docs/${relHd}`, hd.blob, `Upload 360 panorama HD via admin panel: ${base}`);
+          } catch { /* fall back to 4096 only */ }
           const [, si, ri] = dest.split('.').map(Number);
           const room = c.sections[si].rooms[ri];
           c.tour ??= {};
           c.tour.scenes ??= [];
           const existing = c.tour.scenes.find((s) => s.room === room.id);
-          if (existing) existing.src = rel; // replacing a room's scene keeps its angles/arrows
-          else c.tour.scenes.push({ id: base, title: room.title, src: rel, yaw: 0, pitch: 0, hfov: 100, hotspots: [], room: room.id });
+          if (existing) {
+            existing.src = rel; // replacing a room's scene keeps its angles/arrows
+            if (relHd) existing.srcHd = relHd; else delete existing.srcHd;
+          } else {
+            const sc = { id: base, title: room.title, src: rel, yaw: 0, pitch: 0, hfov: 120, hotspots: [], room: room.id };
+            if (relHd) sc.srcHd = relHd;
+            c.tour.scenes.push(sc);
+          }
           markDirty();
           closeDlg();
           window.SITE.render();

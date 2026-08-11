@@ -21,6 +21,20 @@
   const content = () => window.SITE?.state?.content;
 
   const sceneList = () => content()?.tour?.scenes || [];
+
+  // pick the 8192px copy only on GPUs that can texture it; 4096 otherwise
+  let hdOk = null;
+  function useHd() {
+    if (hdOk === null) {
+      try {
+        const gl = document.createElement('canvas').getContext('webgl');
+        hdOk = !!gl && gl.getParameter(gl.MAX_TEXTURE_SIZE) >= 8192;
+      } catch {
+        hdOk = false;
+      }
+    }
+    return hdOk;
+  }
   const sceneById = (id) => sceneList().find((s) => s.id === id);
   const currentScene = () => (viewer ? sceneById(viewer.getScene()) : null);
 
@@ -30,10 +44,10 @@
       out[sc.id] = {
         roomTitle: sc.title,
         type: 'equirectangular',
-        panorama: sc.src,
+        panorama: useHd() && sc.srcHd ? sc.srcHd : sc.src,
         yaw: sc.yaw || 0,
         pitch: sc.pitch || 0,
-        hfov: sc.hfov || 100,
+        hfov: sc.hfov || 120,
         hotSpots: (sc.hotspots || []).map((h, hi) => {
           const spot = {
             yaw: h.yaw,
@@ -69,13 +83,32 @@
     });
     viewer.on('scenechange', (id) => setLabel(scenes[id]?.roomTitle));
     setLabel(scenes[first].roomTitle);
-    // Ctrl+scroll zooms the panorama; bare scroll keeps normal page flow
+    // Ctrl+scroll zooms the panorama; bare scroll keeps normal page flow.
+    // Wheel input moves a target and the view glides toward it each frame —
+    // per-event steps (instant or tweened) both feel jumpy.
+    let zoomTarget = null;
+    let zoomRaf = 0;
     el.addEventListener(
       'wheel',
       (e) => {
         if (!e.ctrlKey || !viewer) return;
         e.preventDefault();
-        viewer.setHfov(viewer.getHfov() + e.deltaY * 0.05, false);
+        if (zoomTarget === null) zoomTarget = viewer.getHfov();
+        zoomTarget = Math.min(120, Math.max(50, zoomTarget + e.deltaY * 0.05));
+        if (!zoomRaf) {
+          const step = () => {
+            if (!viewer) { zoomRaf = 0; zoomTarget = null; return; }
+            const cur = viewer.getHfov();
+            viewer.setHfov(cur + (zoomTarget - cur) * 0.25, false);
+            if (Math.abs(zoomTarget - cur) > 0.1) {
+              zoomRaf = requestAnimationFrame(step);
+            } else {
+              zoomRaf = 0;
+              zoomTarget = null;
+            }
+          };
+          zoomRaf = requestAnimationFrame(step);
+        }
       },
       { passive: false }
     );
