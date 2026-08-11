@@ -3121,6 +3121,11 @@
             "pitch": 25.3,
             "target": "upstairs-bedroom-2-balcony",
             "text": "Upstairs Bedroom 2 Balcony"
+          },
+          {
+            "yaw": -35,
+            "pitch": -21.3,
+            "info": "Gas lantern"
           }
         ],
         "map": {
@@ -3167,6 +3172,11 @@
             "pitch": -8.2,
             "target": "front-door",
             "text": "Front Door"
+          },
+          {
+            "yaw": -93.4,
+            "pitch": -5.7,
+            "info": "Power outlets on driveway pillars"
           }
         ],
         "map": {
@@ -3213,6 +3223,11 @@
             "pitch": -2.1,
             "target": "front-door",
             "text": "Front Door"
+          },
+          {
+            "yaw": 131.4,
+            "pitch": -13.3,
+            "info": "Power outlets on driveway pillars"
           }
         ],
         "room": "front",
@@ -3276,6 +3291,16 @@
             "pitch": 4.4,
             "target": "front-circle-upper",
             "text": "Front Circle — Upper"
+          },
+          {
+            "yaw": 89.3,
+            "pitch": 1.8,
+            "info": "Hot/Cold outdoor water spigot"
+          },
+          {
+            "yaw": -10.9,
+            "pitch": -8.8,
+            "info": "Storage shed"
           }
         ],
         "map": {
