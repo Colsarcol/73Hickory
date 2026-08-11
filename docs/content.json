@@ -1324,6 +1324,11 @@
             "pitch": -32.8,
             "target": "living-room",
             "text": "Living Room"
+          },
+          {
+            "yaw": -148.9,
+            "pitch": -16.7,
+            "info": "Central vac outlet"
           }
         ],
         "map": {
@@ -1592,6 +1597,11 @@
             "pitch": -12.4,
             "target": "kitchen-from-foyer",
             "text": "Kitchen from Foyer"
+          },
+          {
+            "yaw": -33.3,
+            "pitch": -43.6,
+            "info": "Stairwell lighting"
           }
         ],
         "map": {
@@ -1640,6 +1650,11 @@
             "text": "Foyer",
             "targetYaw": -86.1,
             "targetPitch": -1.6
+          },
+          {
+            "yaw": 126.8,
+            "pitch": -25.3,
+            "info": "Central vac outlet"
           }
         ],
         "room": "master-bedroom",
@@ -1845,6 +1860,11 @@
             "pitch": 14.4,
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
+          },
+          {
+            "yaw": -120.6,
+            "pitch": -7.4,
+            "info": "Stairwell lighting"
           }
         ],
         "map": {
@@ -1927,6 +1947,16 @@
             "pitch": -44.5,
             "target": "living-room",
             "text": "Living Room"
+          },
+          {
+            "yaw": 31.7,
+            "pitch": -14.4,
+            "info": "Stairwell lighting"
+          },
+          {
+            "yaw": 175.8,
+            "pitch": -15.1,
+            "info": "Central vac outlet"
           }
         ],
         "room": "catwalk-den",
@@ -1994,6 +2024,11 @@
             "pitch": -19,
             "target": "upstairs-bath-shower",
             "text": "Upstairs Bath Shower"
+          },
+          {
+            "yaw": 48.7,
+            "pitch": -34.2,
+            "info": "Central vac outlet"
           }
         ],
         "map": {
@@ -2052,6 +2087,11 @@
             "pitch": -35.2,
             "target": "stairs-at-master-bedroom",
             "text": "Stairs at Master Bedroom"
+          },
+          {
+            "yaw": -89.1,
+            "pitch": -9.2,
+            "info": "Central vac outlet"
           }
         ],
         "map": {
@@ -2092,6 +2132,11 @@
             "pitch": -11.6,
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
+          },
+          {
+            "yaw": 174.5,
+            "pitch": -6.6,
+            "info": "Laundry chute"
           }
         ],
         "room": "first-bedroom",
@@ -2379,6 +2424,11 @@
             "pitch": -10.8,
             "target": "upstairs-by-doors-and-loft",
             "text": "Upstairs by Doors and Loft"
+          },
+          {
+            "yaw": 98.7,
+            "pitch": -11.3,
+            "info": "Central vac outlet"
           }
         ],
         "room": "bonus-room",
@@ -2422,6 +2472,11 @@
             "pitch": -15.4,
             "target": "upstairs-bedroom-1-closet",
             "text": "Upstairs Bedroom 1 Closet"
+          },
+          {
+            "yaw": 23.7,
+            "pitch": -3.5,
+            "info": "Laundry chute"
           }
         ],
         "map": {
@@ -2510,6 +2565,16 @@
             "pitch": -28.8,
             "target": "theater-room",
             "text": "Theater Room"
+          },
+          {
+            "yaw": 146.7,
+            "pitch": -21.5,
+            "info": "Mechanical room"
+          },
+          {
+            "yaw": -123.2,
+            "pitch": -18.7,
+            "info": "Stairwell lighting"
           }
         ],
         "map": {
@@ -2573,6 +2638,16 @@
             "yaw": -78.6,
             "pitch": -24.2,
             "info": "Under stairs storage"
+          },
+          {
+            "yaw": -41.5,
+            "pitch": -14.8,
+            "info": "Stairwell lighting"
+          },
+          {
+            "yaw": 135.5,
+            "pitch": -20.7,
+            "info": "Central vac outlet"
           }
         ],
         "room": "lower-living",
