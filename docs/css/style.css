@@ -788,7 +788,7 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   max-width: 180px;
 }
 .tour-nav button:hover, .tour-nav select:hover { background: rgba(20, 14, 9, 0.95); }
-.arrows-off .pnlm-hotspot.pnlm-scene { display: none; }
+.arrows-off .pnlm-hotspot { display: none; }
 
 /* ---------- floor-plan mini-map ---------- */
 .tour-map {
