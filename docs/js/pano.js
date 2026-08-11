@@ -345,7 +345,7 @@
       .filter((s) => s.map && s.map.plan === mapPlan)
       .map(
         (s) => `<span class="tour-map-dot${s.id === sc?.id ? ' cur' : ''}" data-scene="${esc(s.id)}"
-          style="left:${s.map.x}%;top:${s.map.y}%" title="${esc(s.title)}"></span>`
+          style="left:${s.map.x}%;top:${s.map.y}%" data-label="${esc(s.title)}"></span>`
       )
       .join('');
   }

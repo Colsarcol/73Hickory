@@ -813,12 +813,11 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
 }
 .tour-map-body {
   position: relative;
-  border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
   background: #fff;
+  border-radius: 8px;
 }
-.tour-map-body img { width: 100%; display: block; }
+.tour-map-body img { width: 100%; display: block; border-radius: 8px; }
 .tour-map.collapsed .tour-map-body { display: none; }
 .tour-map-dots { position: absolute; inset: 0; }
 .tour-map-dot {
@@ -843,3 +842,24 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
 .updlg-wide { width: min(560px, 100%); }
 .mapdlg-imgwrap { position: relative; cursor: crosshair; }
 .mapdlg-imgwrap img { width: 100%; display: block; border-radius: 6px; }
+
+/* hover label on map dots */
+.tour-map-dot[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: #f2ead9;
+  background: rgba(20, 14, 9, 0.9);
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease 0.6s;
+  z-index: 3;
+}
+.tour-map-dot[data-label]:hover::after { opacity: 1; }
