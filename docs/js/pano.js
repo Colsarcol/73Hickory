@@ -23,13 +23,19 @@
 
   const sceneList = () => content()?.tour?.scenes || [];
 
-  // pick the 8192px copy only on GPUs that can texture it; 4096 otherwise
+  // pick the 8192px copy only on GPUs that can texture it AND have full
+  // fragment-shader precision — low-precision GPUs (many phones) render big
+  // equirects with visible skew near the poles. ?pano=sd / ?pano=hd overrides.
   let hdOk = null;
   function useHd() {
     if (hdOk === null) {
+      const forced = new URLSearchParams(location.search).get('pano');
+      if (forced === 'sd') return (hdOk = false);
+      if (forced === 'hd') return (hdOk = true);
       try {
         const gl = document.createElement('canvas').getContext('webgl');
-        hdOk = !!gl && gl.getParameter(gl.MAX_TEXTURE_SIZE) >= 8192;
+        const prec = gl?.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
+        hdOk = !!gl && gl.getParameter(gl.MAX_TEXTURE_SIZE) >= 8192 && !!prec && prec.precision >= 23;
       } catch {
         hdOk = false;
       }
