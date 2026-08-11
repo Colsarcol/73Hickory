@@ -3295,7 +3295,7 @@
           {
             "yaw": 89.3,
             "pitch": 1.8,
-            "info": "Hot/Cold outdoor water spigot"
+            "info": "Hot/Cold outdoor water spigots"
           },
           {
             "yaw": -10.9,
@@ -3375,6 +3375,16 @@
             "pitch": -1.8,
             "target": "back-by-basement-garage-door",
             "text": "By the Basement Garage"
+          },
+          {
+            "yaw": -130.5,
+            "pitch": -14,
+            "info": "Fence gate"
+          },
+          {
+            "yaw": 35.6,
+            "pitch": -15.8,
+            "info": "Hot/Cold outdoor water spigots"
           }
         ],
         "map": {
@@ -3427,6 +3437,11 @@
             "pitch": 11.1,
             "target": "deck-off-kitchen",
             "text": "Deck off Kitchen"
+          },
+          {
+            "yaw": -113.1,
+            "pitch": -12.7,
+            "info": "Pool mechanical"
           }
         ],
         "room": "pool",
@@ -3492,6 +3507,21 @@
             "pitch": 8.8,
             "target": "deck-off-master-bedroom",
             "text": "Deck off Master Bedroom"
+          },
+          {
+            "yaw": -77.1,
+            "pitch": -34.8,
+            "info": "Integrated pool cover anchors"
+          },
+          {
+            "yaw": -34.8,
+            "pitch": 15.5,
+            "info": "Deck cover to keep under patio dry"
+          },
+          {
+            "yaw": 74.1,
+            "pitch": -18.5,
+            "info": "Wide fence gate"
           }
         ],
         "map": {
