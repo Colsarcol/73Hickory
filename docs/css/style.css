@@ -935,3 +935,5 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
 
 /* hovered dot (and its label) above neighboring dots */
 .tour-map-dot:hover { z-index: 5; }
+
+.tour-map.collapsed .tour-map-toggle { display: none; }
