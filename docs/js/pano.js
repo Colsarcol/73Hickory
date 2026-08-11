@@ -78,6 +78,7 @@
         sceneFadeDuration: 800,
         autoLoad: true,
         mouseZoom: false, // plain scroll passes through to the page
+        keyboardZoom: false, // else holding Ctrl/Shift zooms — only Ctrl+wheel and the UI buttons should
       },
       scenes,
     });
