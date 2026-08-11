@@ -932,3 +932,6 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
 
 .map-big-body { text-align: center; }
 .map-big-imgwrap { position: relative; display: inline-block; }
+
+/* hovered dot (and its label) above neighboring dots */
+.tour-map-dot:hover { z-index: 5; }
