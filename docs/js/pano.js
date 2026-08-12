@@ -17,6 +17,8 @@
    hides the section from visitors. */
 (() => {
   let viewer = null;
+  let lastScene = null; // last scene requested — recovery target after a failed load
+  let errRetries = 0;
   let addingArrow = false;
   let addingInfo = false;
   let arrivalEdit = null; // {ownerId, hi} while authoring an arrow's arrival view
@@ -130,7 +132,9 @@
       scenes,
     });
     viewer.on('scenechange', (id) => onSceneChange(id));
+    viewer.on('load', () => (errRetries = 0));
     onSceneChange(first);
+    watchLoadErrors(el);
     // Ctrl+scroll zooms the panorama; bare scroll keeps normal page flow.
     // Wheel input moves a target and the view glides toward it each frame —
     // per-event steps (instant or tweened) both feel jumpy.
@@ -171,7 +175,30 @@
     }
   }
 
+  // pannellum 2.5.6 fires no event when a panorama fetch fails — it only
+  // shows a .pnlm-error-msg overlay and the viewer is stuck. Watch for the
+  // overlay: first failure drops the session from 8K to the 4K copies and
+  // reloads; one more plain retry after that, then give up.
+  function watchLoadErrors(el) {
+    if (el._errWatch) return;
+    el._errWatch = new MutationObserver(() => {
+      const err = el.querySelector('.pnlm-error-msg');
+      if (!err || err.style.display === 'none') return;
+      if (errRetries >= 2) return; // persistent failure — leave the message up
+      errRetries += 1;
+      const scene = lastScene;
+      if (useHd()) {
+        hdOk = false; // this device/network just failed an 8K fetch
+        setTimeout(() => init(scene), 300);
+      } else {
+        setTimeout(() => init(scene), 1500);
+      }
+    });
+    el._errWatch.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+  }
+
   function onSceneChange(id) {
+    lastScene = id;
     const sc = sceneById(id);
     setLabel(sc?.title);
     const sel = document.querySelector('.tour-nav select');
