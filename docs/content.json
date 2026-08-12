@@ -1491,6 +1491,11 @@
             "yaw": 16.6,
             "pitch": 44.4,
             "info": "Laundry chute"
+          },
+          {
+            "yaw": -169.1,
+            "pitch": -7.4,
+            "info": "3 car garage access"
           }
         ],
         "map": {
