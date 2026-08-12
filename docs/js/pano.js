@@ -182,8 +182,10 @@
   function watchLoadErrors(el) {
     if (el._errWatch) return;
     el._errWatch = new MutationObserver(() => {
+      // the error div exists from startup (stylesheet-hidden, empty inline
+      // style); pannellum sets inline display:'table' only on a real failure
       const err = el.querySelector('.pnlm-error-msg');
-      if (!err || err.style.display === 'none') return;
+      if (!err || err.style.display !== 'table') return;
       if (errRetries >= 2) return; // persistent failure — leave the message up
       errRetries += 1;
       const scene = lastScene;
