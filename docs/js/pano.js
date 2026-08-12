@@ -178,6 +178,11 @@
     if (sel && sel.value !== id) sel.value = id;
     updateMiniMap();
     if (touring) advanceTourTimer();
+    // warm every scene this one's arrows lead to — visitors usually leave
+    // through an arrow, so the next panorama is already cached on click
+    (sc?.hotspots || []).forEach((h) => {
+      if (h.target) preloadStop(sceneById(h.target));
+    });
   }
 
   function setLabel(t) {
