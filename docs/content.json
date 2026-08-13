@@ -294,7 +294,7 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/masterBedroom/masterBedroom-03.jpg",
