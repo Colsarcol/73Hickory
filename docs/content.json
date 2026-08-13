@@ -60,7 +60,7 @@
       "8x12 Storage Barn",
       "Composite decking",
       "LeafFilter gutter guards",
-      "Exterior Hot and Cold Bibs at garage and lower hot tub nook",
+      "Exterior Hot and Cold water bibs at garage and lower hot tub nook",
       "Smoke-free since new!"
     ]
   },
@@ -725,7 +725,8 @@
               "caption": "",
               "hidden": false
             }
-          ]
+          ],
+          "panoScene": "basement-family-room"
         },
         {
           "id": "lower-bath",
