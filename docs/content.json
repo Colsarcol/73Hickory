@@ -72,7 +72,7 @@
         {
           "id": "living-room",
           "title": "Foyer & Living Room",
-          "text": "The two-story living room opens to the upstairs catwalk and fills with light from transom-topped windows. Iron balusters line the hardwood staircase rising from the foyer.",
+          "text": "The two-story living room opens to the upstairs catwalk and fills with light from transom-topped windows. Iron balusters line the oak hardwood staircase rising from the brazilian cherry hardwood foyer.",
           "images": [
             {
               "src": "assets/img/mainfloor/livingRoom/livingRoom-01.jpg",
@@ -119,6 +119,14 @@
               "thumb": "assets/img/mainfloor/livingRoom/livingRoom-06-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589696384-2026-08-12-16-45-48.jpg",
+              "thumb": "assets/img/uploads/upload-1786589696384-2026-08-12-16-45-48-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             }
@@ -985,8 +993,8 @@
         },
         {
           "id": "front",
-          "title": "Curb Appeal",
-          "text": "Brick and faux stone, arched windows, and a circle drive on a quiet cul-de-sac.",
+          "title": "Additional Outdoor",
+          "text": "Brick and faux stone, arched windows, and a circle drive on a quiet cul-de-sac. A warm flickering natural gas lantern welcomes you and your guests home. Behind the house, nestled in the trees you will find an 8x12 shed with dual lofts for your outdoor storage needs. The Generac natural gas generator is tucked away behind the bushes on the side of the house and operates essential appliances, lights and outlets during outages. Show your patriotism with the telescoping, matching aluminum flag pole.",
           "images": [
             {
               "src": "assets/img/uploads/upload-1786376494120-front.jpg",
@@ -1003,6 +1011,54 @@
               "h": 1200,
               "caption": "",
               "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589628159-2026-08-12-16-43-58.jpg",
+              "thumb": "assets/img/uploads/upload-1786589628159-2026-08-12-16-43-58-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "Natural gas lantern",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589659214-2026-08-12-16-43-54.jpg",
+              "thumb": "assets/img/uploads/upload-1786589659214-2026-08-12-16-43-54-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589718102-2026-08-12-16-45-48.jpg",
+              "thumb": "assets/img/uploads/upload-1786589718102-2026-08-12-16-45-48-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589736078-2026-08-12-16-32-14.jpg",
+              "thumb": "assets/img/uploads/upload-1786589736078-2026-08-12-16-32-14-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589750266-2026-08-12-16-32-44.jpg",
+              "thumb": "assets/img/uploads/upload-1786589750266-2026-08-12-16-32-44-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589780922-2026-08-12-15-51-48.jpg",
+              "thumb": "assets/img/uploads/upload-1786589780922-2026-08-12-15-51-48-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
             }
           ]
         }
