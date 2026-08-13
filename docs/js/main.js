@@ -78,11 +78,20 @@
     // tour.draft hides the 360° tour from visitors while it's being authored
     const showTour = hasTour && (c.tour?.draft !== true || admin);
     state.showTour = showTour;
-    // first scene tagged with a room id gives that room its 360° button
+    // first scene tagged with a room id gives that room its 360° button;
+    // a room-level panoScene (set in admin) overrides that — '' hides the button
     state.roomScene = {};
     (c.tour?.scenes || []).forEach((sc) => {
       if (sc.room && !state.roomScene[sc.room]) state.roomScene[sc.room] = sc.id;
     });
+    const validScenes = new Set((c.tour?.scenes || []).map((s) => s.id));
+    c.sections.forEach((s) =>
+      s.rooms.forEach((r) => {
+        if (r.panoScene === undefined) return;
+        if (r.panoScene && validScenes.has(r.panoScene)) state.roomScene[r.id] = r.panoScene;
+        else delete state.roomScene[r.id];
+      })
+    );
 
     const floors = c.sections
       .map(

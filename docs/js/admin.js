@@ -187,6 +187,30 @@
       feats.after(add);
     }
 
+    // Per-room "View in 360°" button target
+    const scenes = c.tour?.scenes || [];
+    if (scenes.length) {
+      c.sections.forEach((s) =>
+        s.rooms.forEach((r) => {
+          const info = document.getElementById(r.id)?.querySelector('.room-info');
+          if (!info || info.querySelector('.pano-target')) return;
+          const cur = r.panoScene !== undefined ? r.panoScene : scenes.find((sc) => sc.room === r.id)?.id || '';
+          const wrap = document.createElement('label');
+          wrap.className = 'pano-target';
+          wrap.innerHTML = `360° button opens: <select>
+            <option value="">(no button)</option>
+            ${scenes.map((sc) => `<option value="${sc.id}" ${sc.id === cur ? 'selected' : ''}>${sc.title}</option>`).join('')}
+          </select>`;
+          wrap.querySelector('select').addEventListener('change', (e) => {
+            r.panoScene = e.target.value; // '' hides the button
+            markDirty();
+            window.SITE.render();
+          });
+          info.appendChild(wrap);
+        })
+      );
+    }
+
     // Banner photo picker on the hero
     const hero = document.querySelector('.hero');
     if (hero && !hero.querySelector('.hero-tools')) {

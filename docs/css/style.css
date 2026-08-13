@@ -1012,3 +1012,23 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   cursor: pointer;
 }
 .feat-add:hover { background: var(--bronze); color: #fff; }
+
+/* admin: per-room 360 button target picker */
+.pano-target {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bronze);
+}
+.pano-target select {
+  font: inherit;
+  margin-left: 0.4rem;
+  max-width: 220px;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+}
