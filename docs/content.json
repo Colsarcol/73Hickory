@@ -1951,6 +1951,11 @@
             "yaw": 126.8,
             "pitch": -25.3,
             "info": "Central vac outlet"
+          },
+          {
+            "yaw": -38,
+            "pitch": 5.7,
+            "info": "4 Light Switches - Along with the other relevant locations, you can control all exterior flood lights from the master bedroom via 3 way switches."
           }
         ],
         "room": "master-bedroom",
