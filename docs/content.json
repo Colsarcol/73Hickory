@@ -619,7 +619,7 @@
         {
           "id": "lower-living",
           "title": "Lower Living Room",
-          "text": "The large lower-level living area walks straight out to the pool and patio, with a full bathroom just to the side. --- Projection TV and Cabinet stay with the house.",
+          "text": "The large lower-level living area walks straight out to the pool and patio, with a full bathroom just to the side. --- Large projection TV and Cabinet stay with the house.",
           "images": [
             {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-01.jpg",
@@ -2864,6 +2864,11 @@
             "yaw": -32.3,
             "pitch": -9.2,
             "info": "Under stairs storage"
+          },
+          {
+            "yaw": 62.6,
+            "pitch": 7.2,
+            "info": "Large TV and Entertainment Cabinet stays with the house"
           }
         ],
         "map": {
@@ -2894,6 +2899,11 @@
             "pitch": -9.4,
             "target": "craft-room",
             "text": "Craft Room"
+          },
+          {
+            "yaw": -172.1,
+            "pitch": -23,
+            "info": "Ceiling projector, Sound system, Speakers and wall decor stay with the house."
           }
         ],
         "room": "theater",
