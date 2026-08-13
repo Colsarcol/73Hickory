@@ -121,7 +121,7 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/livingRoom/livingRoom-04.jpg",
@@ -134,6 +134,14 @@
             {
               "src": "assets/img/uploads/upload-1786589696384-2026-08-12-16-45-48.jpg",
               "thumb": "assets/img/uploads/upload-1786589696384-2026-08-12-16-45-48-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647257642-2026-08-13-13-27-04.jpg",
+              "thumb": "assets/img/uploads/upload-1786647257642-2026-08-13-13-27-04-t.jpg",
               "w": 2048,
               "h": 1542,
               "caption": "",
@@ -168,6 +176,14 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
+              "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647129313-2026-08-13-13-26-06.jpg",
+              "thumb": "assets/img/uploads/upload-1786647129313-2026-08-13-13-26-06-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
               "hidden": false
             }
           ]
@@ -178,10 +194,10 @@
           "text": "The kitchen centers on a large island with compactor and features a commercial-style separate refrigerator and freezer, six-burner gas stove with pot filler, and double wall oven with warming drawer. The breakfast dining area flows off the living room, and a separate walk-in pantry sits just beyond.",
           "images": [
             {
-              "src": "assets/img/mainfloor/kitchen/kitchen-01.jpg",
-              "thumb": "assets/img/mainfloor/kitchen/kitchen-01-t.jpg",
-              "w": 1600,
-              "h": 1205,
+              "src": "assets/img/uploads/upload-1786647285081-2026-08-13-13-27-04.jpg",
+              "thumb": "assets/img/uploads/upload-1786647285081-2026-08-13-13-27-04-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             },
@@ -192,6 +208,14 @@
               "h": 1205,
               "caption": "",
               "hidden": false
+            },
+            {
+              "src": "assets/img/mainfloor/kitchen/kitchen-01.jpg",
+              "thumb": "assets/img/mainfloor/kitchen/kitchen-01-t.jpg",
+              "w": 1600,
+              "h": 1205,
+              "caption": "",
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/kitchen/kitchen-03.jpg",
@@ -206,6 +230,14 @@
               "thumb": "assets/img/mainfloor/kitchen/kitchen-04-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647994655-2026-08-13-13-28-00.jpg",
+              "thumb": "assets/img/uploads/upload-1786647994655-2026-08-13-13-28-00-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             },
@@ -241,12 +273,20 @@
           "text": "The main-floor master suite is a private retreat with generous his-and-her closets.",
           "images": [
             {
+              "src": "assets/img/uploads/upload-1786647354327-2026-08-13-13-28-58.jpg",
+              "thumb": "assets/img/uploads/upload-1786647354327-2026-08-13-13-28-58-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/mainfloor/masterBedroom/masterBedroom-01.jpg",
               "thumb": "assets/img/mainfloor/masterBedroom/masterBedroom-01-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/masterBedroom/masterBedroom-02.jpg",
@@ -261,6 +301,14 @@
               "thumb": "assets/img/mainfloor/masterBedroom/masterBedroom-03-t.jpg",
               "w": 1200,
               "h": 1600,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647458818-2026-08-13-13-30-03.jpg",
+              "thumb": "assets/img/uploads/upload-1786647458818-2026-08-13-13-30-03-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             }
@@ -304,12 +352,20 @@
               "hidden": false
             },
             {
+              "src": "assets/img/uploads/upload-1786647510443-2026-08-13-13-31-53.jpg",
+              "thumb": "assets/img/uploads/upload-1786647510443-2026-08-13-13-31-53-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/mainfloor/masterBathroom/masterBathroom-05.jpg",
               "thumb": "assets/img/mainfloor/masterBathroom/masterBathroom-05-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/masterBathroom/masterBathroom-06.jpg",
@@ -325,7 +381,7 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/masterBathroom/masterBathroom-08.jpg",
@@ -333,13 +389,45 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/mainfloor/masterBathroom/masterBathroom-09.jpg",
               "thumb": "assets/img/mainfloor/masterBathroom/masterBathroom-09-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647597627-2026-08-13-13-32-28.jpg",
+              "thumb": "assets/img/uploads/upload-1786647597627-2026-08-13-13-32-28-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647626962-2026-08-13-13-33-08.jpg",
+              "thumb": "assets/img/uploads/upload-1786647626962-2026-08-13-13-33-08-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647643983-2026-08-13-13-32-44.jpg",
+              "thumb": "assets/img/uploads/upload-1786647643983-2026-08-13-13-32-44-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647664995-2026-08-13-13-33-23.jpg",
+              "thumb": "assets/img/uploads/upload-1786647664995-2026-08-13-13-33-23-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             },
@@ -364,6 +452,30 @@
               "thumb": "assets/img/mainfloor/laundryRoom/laundryRoom-01-t.jpg",
               "w": 1205,
               "h": 1600,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647742196-2026-08-13-13-34-21.jpg",
+              "thumb": "assets/img/uploads/upload-1786647742196-2026-08-13-13-34-21-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647764586-2026-08-13-13-35-18.jpg",
+              "thumb": "assets/img/uploads/upload-1786647764586-2026-08-13-13-35-18-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647782092-2026-08-13-13-34-51.jpg",
+              "thumb": "assets/img/uploads/upload-1786647782092-2026-08-13-13-34-51-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             }
@@ -418,6 +530,14 @@
               "thumb": "assets/img/upStairsFloor/catwalkDen/catwalkDen-05-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647827187-2026-08-13-13-24-47.jpg",
+              "thumb": "assets/img/uploads/upload-1786647827187-2026-08-13-13-24-47-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             }
@@ -491,12 +611,20 @@
           "text": "Separate dual sink area with a private door to the bathroom and tub/shower — easy sharing for busy mornings.",
           "images": [
             {
+              "src": "assets/img/uploads/upload-1786647870469-2026-08-13-13-23-09.jpg",
+              "thumb": "assets/img/uploads/upload-1786647870469-2026-08-13-13-23-09-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/upStairsFloor/bathroom/bathroom-01.jpg",
               "thumb": "assets/img/upStairsFloor/bathroom/bathroom-01-t.jpg",
               "w": 1205,
               "h": 1600,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/upStairsFloor/bathroom/bathroom-02.jpg",
@@ -504,13 +632,37 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/upStairsFloor/bathroom/bathroom-03.jpg",
               "thumb": "assets/img/upStairsFloor/bathroom/bathroom-03-t.jpg",
               "w": 1205,
               "h": 1600,
+              "caption": "",
+              "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647916191-2026-08-13-13-23-29.jpg",
+              "thumb": "assets/img/uploads/upload-1786647916191-2026-08-13-13-23-29-t.jpg",
+              "w": 1542,
+              "h": 2048,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647933744-2026-08-13-13-23-40.jpg",
+              "thumb": "assets/img/uploads/upload-1786647933744-2026-08-13-13-23-40-t.jpg",
+              "w": 1542,
+              "h": 2048,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786647951162-2026-08-13-13-24-02.jpg",
+              "thumb": "assets/img/uploads/upload-1786647951162-2026-08-13-13-24-02-t.jpg",
+              "w": 1542,
+              "h": 2048,
               "caption": "",
               "hidden": false
             }
@@ -592,12 +744,20 @@
           "text": "A dedicated theater room with projector — movie nights without leaving home. --- Projector, Sound System and Decor stay with the hosue.",
           "images": [
             {
+              "src": "assets/img/uploads/upload-1786648071344-2026-08-13-13-42-29.jpg",
+              "thumb": "assets/img/uploads/upload-1786648071344-2026-08-13-13-42-29-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/basementFloor/theaterRoom/theaterRoom-01.jpg",
               "thumb": "assets/img/basementFloor/theaterRoom/theaterRoom-01-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/basementFloor/theaterRoom/theaterRoom-02.jpg",
@@ -631,18 +791,34 @@
           "text": "The large lower-level living area walks straight out to the pool and patio, with a full bathroom just to the side. --- Large projection TV and Cabinet stay with the house.",
           "images": [
             {
+              "src": "assets/img/uploads/upload-1786648163464-2026-08-13-13-44-14.jpg",
+              "thumb": "assets/img/uploads/upload-1786648163464-2026-08-13-13-44-14-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-01.jpg",
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-01-t.jpg",
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-02.jpg",
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-02-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786648232556-2026-08-13-13-44-14.jpg",
+              "thumb": "assets/img/uploads/upload-1786648232556-2026-08-13-13-44-14-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             },
@@ -975,6 +1151,14 @@
               "thumb": "assets/img/outDoor/pool/pool-10-t.jpg",
               "w": 1600,
               "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786648283519-2026-08-13-13-44-56.jpg",
+              "thumb": "assets/img/uploads/upload-1786648283519-2026-08-13-13-44-56-t.jpg",
+              "w": 2048,
+              "h": 1542,
               "caption": "",
               "hidden": false
             }
