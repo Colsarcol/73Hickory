@@ -812,7 +812,7 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/uploads/upload-1786648232556-2026-08-13-13-44-14.jpg",
@@ -823,10 +823,26 @@
               "hidden": true
             },
             {
+              "src": "assets/img/basementFloor/livingRoom/livingRoom-09.jpg",
+              "thumb": "assets/img/basementFloor/livingRoom/livingRoom-09-t.jpg",
+              "w": 1600,
+              "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-03.jpg",
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-03-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/basementFloor/livingRoom/livingRoom-11.jpg",
+              "thumb": "assets/img/basementFloor/livingRoom/livingRoom-11-t.jpg",
+              "w": 1600,
+              "h": 1200,
               "caption": "",
               "hidden": false
             },
@@ -871,28 +887,12 @@
               "hidden": true
             },
             {
-              "src": "assets/img/basementFloor/livingRoom/livingRoom-09.jpg",
-              "thumb": "assets/img/basementFloor/livingRoom/livingRoom-09-t.jpg",
-              "w": 1600,
-              "h": 1200,
-              "caption": "",
-              "hidden": false
-            },
-            {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-10.jpg",
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-10-t.jpg",
               "w": 1600,
               "h": 1200,
               "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/basementFloor/livingRoom/livingRoom-11.jpg",
-              "thumb": "assets/img/basementFloor/livingRoom/livingRoom-11-t.jpg",
-              "w": 1600,
-              "h": 1200,
-              "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-12.jpg",
