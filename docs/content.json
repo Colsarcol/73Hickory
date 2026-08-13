@@ -73,7 +73,7 @@
         {
           "id": "living-room",
           "title": "Foyer & Living Room",
-          "text": "The two-story living room opens to the upstairs catwalk and fills with light from transom-topped windows. Iron balusters line the oak hardwood staircase rising from the brazilian cherry hardwood foyer.",
+          "text": "The two-story living room opens to the upstairs catwalk and fills with light from transom-topped windows. Iron balusters line the oak hardwood staircase rising from the brazilian cherry hardwood foyer. Don't worry about those upper blinds... they're motorized with remote control.",
           "images": [
             {
               "src": "assets/img/mainfloor/livingRoom/livingRoom-01.jpg",
@@ -92,22 +92,6 @@
               "hidden": false
             },
             {
-              "src": "assets/img/mainfloor/livingRoom/livingRoom-03.jpg",
-              "thumb": "assets/img/mainfloor/livingRoom/livingRoom-03-t.jpg",
-              "w": 1600,
-              "h": 1205,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/mainfloor/livingRoom/livingRoom-04.jpg",
-              "thumb": "assets/img/mainfloor/livingRoom/livingRoom-04-t.jpg",
-              "w": 1205,
-              "h": 1600,
-              "caption": "",
-              "hidden": false
-            },
-            {
               "src": "assets/img/mainfloor/livingRoom/livingRoom-05.jpg",
               "thumb": "assets/img/mainfloor/livingRoom/livingRoom-05-t.jpg",
               "w": 1600,
@@ -120,6 +104,22 @@
               "thumb": "assets/img/mainfloor/livingRoom/livingRoom-06-t.jpg",
               "w": 1600,
               "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/mainfloor/livingRoom/livingRoom-03.jpg",
+              "thumb": "assets/img/mainfloor/livingRoom/livingRoom-03-t.jpg",
+              "w": 1600,
+              "h": 1205,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/mainfloor/livingRoom/livingRoom-04.jpg",
+              "thumb": "assets/img/mainfloor/livingRoom/livingRoom-04-t.jpg",
+              "w": 1205,
+              "h": 1600,
               "caption": "",
               "hidden": false
             },
@@ -1202,6 +1202,11 @@
             "pitch": 18.6,
             "target": "stair-landing-going-upstairs",
             "text": "Stair Landing Going Upstairs"
+          },
+          {
+            "yaw": 13,
+            "pitch": 21.3,
+            "info": "All 3 upper windows have motorized remote controlled power blinds"
           }
         ],
         "room": "living-room",
@@ -1261,6 +1266,11 @@
             "pitch": 39.2,
             "target": "upstairs-catwalk",
             "text": "Upstairs Catwalk"
+          },
+          {
+            "yaw": -35.6,
+            "pitch": 47.6,
+            "info": "All 3 upper windows have motorized remote controlled power blinds"
           }
         ],
         "map": {
