@@ -343,7 +343,8 @@
               "caption": "",
               "hidden": false
             }
-          ]
+          ],
+          "panoScene": "master-bath-tub"
         },
         {
           "id": "laundry",
@@ -874,7 +875,8 @@
               "caption": "",
               "hidden": false
             }
-          ]
+          ],
+          "panoScene": "basement-foyer"
         }
       ]
     },
