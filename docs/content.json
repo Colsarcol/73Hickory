@@ -871,14 +871,6 @@
               "hidden": false
             },
             {
-              "src": "assets/img/basementFloor/livingRoom/livingRoom-07.jpg",
-              "thumb": "assets/img/basementFloor/livingRoom/livingRoom-07-t.jpg",
-              "w": 1600,
-              "h": 1205,
-              "caption": "",
-              "hidden": false
-            },
-            {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-08.jpg",
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-08-t.jpg",
               "w": 1600,
@@ -899,6 +891,14 @@
               "thumb": "assets/img/basementFloor/livingRoom/livingRoom-12-t.jpg",
               "w": 1600,
               "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/basementFloor/livingRoom/livingRoom-07.jpg",
+              "thumb": "assets/img/basementFloor/livingRoom/livingRoom-07-t.jpg",
+              "w": 1600,
+              "h": 1205,
               "caption": "",
               "hidden": false
             },
@@ -950,12 +950,20 @@
           "text": "A dedicated craft room with an evacuation fan — perfect for projects that need ventilation — plus a large attached storage area.",
           "images": [
             {
+              "src": "assets/img/basementFloor/craftRoom/craftRoom-07.jpg",
+              "thumb": "assets/img/basementFloor/craftRoom/craftRoom-07-t.jpg",
+              "w": 1600,
+              "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/basementFloor/craftRoom/craftRoom-01.jpg",
               "thumb": "assets/img/basementFloor/craftRoom/craftRoom-01-t.jpg",
               "w": 1205,
               "h": 1600,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/basementFloor/craftRoom/craftRoom-02.jpg",
@@ -992,14 +1000,6 @@
             {
               "src": "assets/img/basementFloor/craftRoom/craftRoom-06.jpg",
               "thumb": "assets/img/basementFloor/craftRoom/craftRoom-06-t.jpg",
-              "w": 1600,
-              "h": 1200,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/basementFloor/craftRoom/craftRoom-07.jpg",
-              "thumb": "assets/img/basementFloor/craftRoom/craftRoom-07-t.jpg",
               "w": 1600,
               "h": 1200,
               "caption": "",
