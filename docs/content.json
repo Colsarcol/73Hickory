@@ -580,7 +580,7 @@
         {
           "id": "theater",
           "title": "Theater Room",
-          "text": "A dedicated theater room with projector — movie nights without leaving home.",
+          "text": "A dedicated theater room with projector — movie nights without leaving home. --- Projector, Sound System and Decor stay with the hosue.",
           "images": [
             {
               "src": "assets/img/basementFloor/theaterRoom/theaterRoom-01.jpg",
@@ -619,7 +619,7 @@
         {
           "id": "lower-living",
           "title": "Lower Living Room",
-          "text": "The large lower-level living area walks straight out to the pool and patio, with a full bathroom just to the side.",
+          "text": "The large lower-level living area walks straight out to the pool and patio, with a full bathroom just to the side. --- Projection TV and Cabinet stay with the house.",
           "images": [
             {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-01.jpg",
