@@ -994,7 +994,7 @@
         {
           "id": "front",
           "title": "Additional Outdoor",
-          "text": "Brick and faux stone, arched windows, and a circle drive on a quiet cul-de-sac. A warm flickering natural gas lantern welcomes you and your guests home. Behind the house, nestled in the trees you will find an 8x12 shed with dual lofts for your outdoor storage needs. The Generac natural gas generator is tucked away behind the bushes on the side of the house and operates essential appliances, lights and outlets during outages. Show your patriotism with the telescoping, matching aluminum flag pole.",
+          "text": "Brick and faux stone, arched windows, and a circle drive on a quiet cul-de-sac. A warm flickering natural gas lantern welcomes you and your guests home. Behind the house, nestled in the trees you will find an 8x12 shed with dual lofts for your outdoor storage needs. The Generac natural gas generator is tucked away behind the bushes on the side of the house and operates essential appliances, lights and outlets during outages. Show your patriotism with the telescoping, matching aluminum flag pole. The lower level patio has a natural gas line stubbed out for your future outdoor kitchen!",
           "images": [
             {
               "src": "assets/img/uploads/upload-1786376494120-front.jpg",
@@ -3492,6 +3492,11 @@
             "pitch": -2.9,
             "target": "back-across-pool",
             "text": "Across the Pool"
+          },
+          {
+            "yaw": -135.4,
+            "pitch": -15.9,
+            "info": "Natural Gas Stub"
           }
         ],
         "map": {
@@ -3679,6 +3684,11 @@
             "yaw": 74.1,
             "pitch": -18.5,
             "info": "Wide fence gate"
+          },
+          {
+            "yaw": -15.2,
+            "pitch": -7.4,
+            "info": "Natural Gas Stub"
           }
         ],
         "map": {
