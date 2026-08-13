@@ -974,6 +974,14 @@
               "hidden": false
             },
             {
+              "src": "assets/img/basementFloor/craftRoom/craftRoom-06.jpg",
+              "thumb": "assets/img/basementFloor/craftRoom/craftRoom-06-t.jpg",
+              "w": 1600,
+              "h": 1200,
+              "caption": "",
+              "hidden": false
+            },
+            {
               "src": "assets/img/basementFloor/craftRoom/craftRoom-03.jpg",
               "thumb": "assets/img/basementFloor/craftRoom/craftRoom-03-t.jpg",
               "w": 1600,
@@ -992,14 +1000,6 @@
             {
               "src": "assets/img/basementFloor/craftRoom/craftRoom-05.jpg",
               "thumb": "assets/img/basementFloor/craftRoom/craftRoom-05-t.jpg",
-              "w": 1600,
-              "h": 1200,
-              "caption": "",
-              "hidden": false
-            },
-            {
-              "src": "assets/img/basementFloor/craftRoom/craftRoom-06.jpg",
-              "thumb": "assets/img/basementFloor/craftRoom/craftRoom-06-t.jpg",
               "w": 1600,
               "h": 1200,
               "caption": "",
@@ -2056,6 +2056,11 @@
             "pitch": -13.1,
             "target": "master-closet-his",
             "text": "Master Closet — His"
+          },
+          {
+            "yaw": 147.7,
+            "pitch": 13.6,
+            "info": "Removable Film"
           }
         ],
         "map": {
@@ -3218,6 +3223,11 @@
             "yaw": 163.7,
             "pitch": -5.1,
             "info": "Mechanical room"
+          },
+          {
+            "yaw": -70.7,
+            "pitch": 23.5,
+            "info": "Removable Film"
           }
         ],
         "room": "lower-bath",
@@ -3249,6 +3259,11 @@
             "pitch": -12.7,
             "target": "basement-family-room-near-foyer",
             "text": "Family Room Near Foyer"
+          },
+          {
+            "yaw": -103.4,
+            "pitch": 23.9,
+            "info": "Removable Film"
           }
         ],
         "map": {
