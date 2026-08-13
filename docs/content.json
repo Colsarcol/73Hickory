@@ -1030,14 +1030,6 @@
               "hidden": false
             },
             {
-              "src": "assets/img/uploads/upload-1786589750266-2026-08-12-16-32-44.jpg",
-              "thumb": "assets/img/uploads/upload-1786589750266-2026-08-12-16-32-44-t.jpg",
-              "w": 2048,
-              "h": 1542,
-              "caption": "",
-              "hidden": false
-            },
-            {
               "src": "assets/img/uploads/upload-1786589718102-2026-08-12-16-45-48.jpg",
               "thumb": "assets/img/uploads/upload-1786589718102-2026-08-12-16-45-48-t.jpg",
               "w": 2048,
@@ -1048,6 +1040,14 @@
             {
               "src": "assets/img/uploads/upload-1786589659214-2026-08-12-16-43-54.jpg",
               "thumb": "assets/img/uploads/upload-1786589659214-2026-08-12-16-43-54-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
+              "hidden": false
+            },
+            {
+              "src": "assets/img/uploads/upload-1786589750266-2026-08-12-16-32-44.jpg",
+              "thumb": "assets/img/uploads/upload-1786589750266-2026-08-12-16-32-44-t.jpg",
               "w": 2048,
               "h": 1542,
               "caption": "",
