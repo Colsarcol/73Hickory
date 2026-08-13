@@ -820,7 +820,7 @@
               "w": 2048,
               "h": 1542,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-03.jpg",
@@ -868,7 +868,7 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
-              "hidden": false
+              "hidden": true
             },
             {
               "src": "assets/img/basementFloor/livingRoom/livingRoom-09.jpg",
