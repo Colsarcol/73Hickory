@@ -1003,7 +1003,7 @@
               "w": 1600,
               "h": 1200,
               "caption": "",
-              "hidden": false
+              "hidden": true
             }
           ]
         },
