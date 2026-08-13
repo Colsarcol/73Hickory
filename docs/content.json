@@ -89,6 +89,14 @@
               "w": 1600,
               "h": 1205,
               "caption": "",
+              "hidden": true
+            },
+            {
+              "src": "assets/img/uploads/upload-1786646862482-2026-08-13-13-25-56.jpg",
+              "thumb": "assets/img/uploads/upload-1786646862482-2026-08-13-13-25-56-t.jpg",
+              "w": 2048,
+              "h": 1542,
+              "caption": "",
               "hidden": false
             },
             {
@@ -129,7 +137,7 @@
               "w": 2048,
               "h": 1542,
               "caption": "",
-              "hidden": false
+              "hidden": true
             }
           ]
         },
