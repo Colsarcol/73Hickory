@@ -979,3 +979,36 @@ body.admin [data-edit]:focus { outline: 2px solid var(--bronze); background: #ff
   .findus-cols { grid-template-columns: 1fr; }
   .findus-map iframe { height: 320px; }
 }
+
+/* admin: add/remove feature bullets */
+.feat-del {
+  position: absolute;
+  right: 0;
+  top: 0.15em;
+  width: 1.3em;
+  height: 1.3em;
+  line-height: 1;
+  border: none;
+  border-radius: 50%;
+  background: rgba(140, 63, 46, 0.12);
+  color: var(--brick);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.feat-del::before { content: "×"; }
+.features li:hover .feat-del { opacity: 1; }
+.feat-del:hover { background: var(--brick); color: #fff; }
+.feat-add {
+  margin-top: 0.8rem;
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  border: 1px dashed var(--bronze);
+  border-radius: 999px;
+  background: none;
+  color: var(--bronze);
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+}
+.feat-add:hover { background: var(--bronze); color: #fff; }

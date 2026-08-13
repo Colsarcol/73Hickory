@@ -157,6 +157,36 @@
       });
     });
 
+    // Add/remove bullet points on the features list
+    const feats = document.querySelector('.features');
+    if (feats && !document.querySelector('.feat-add')) {
+      feats.querySelectorAll('li').forEach((li, i) => {
+        const del = document.createElement('button');
+        del.className = 'feat-del';
+        del.title = 'Remove this point';
+        del.setAttribute('contenteditable', 'false');
+        // glyph lives in CSS (::before) so the li's editable text stays clean
+        del.onclick = (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          if (!confirm('Remove this point?')) return;
+          c.about.features.splice(i, 1);
+          markDirty();
+          window.SITE.render();
+        };
+        li.appendChild(del);
+      });
+      const add = document.createElement('button');
+      add.className = 'feat-add';
+      add.textContent = '+ Add a point';
+      add.onclick = () => {
+        c.about.features.push('New point — click to edit');
+        markDirty();
+        window.SITE.render();
+      };
+      feats.after(add);
+    }
+
     // Banner photo picker on the hero
     const hero = document.querySelector('.hero');
     if (hero && !hero.querySelector('.hero-tools')) {
